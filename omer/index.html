@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #e31937;
+      --paper: #f4f0e6;
+      --mute: rgba(255,255,255,.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: Outfit, Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .sky {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 38%, rgba(0,0,0,.55) 100%),
+        url("orbit.jpg") center / cover no-repeat;
+      filter: saturate(1.05) contrast(1.08);
+    }
+
+    .vignette {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 42%, rgba(0,0,0,.72) 100%);
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .07;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .shell {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 22px 28px 18px;
+    }
+
+    header, footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--mute);
+    }
+
+    .wordmark {
+      font-size: clamp(28px, 5vw, 54px);
+      font-weight: 500;
+      letter-spacing: .62em;
+      color: #fff;
+      line-height: 1;
+      padding-left: .62em;
+    }
+
+    .rule {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+    }
+
+    .red {
+      color: var(--red);
+      letter-spacing: .38em;
+    }
+
+    .stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1400px;
+      min-height: 0;
+    }
+
+    .board {
+      position: relative;
+      width: min(920px, 92vw);
+      transform: rotateX(7deg);
+      filter: drop-shadow(0 40px 60px rgba(0,0,0,.65));
+    }
+
+    .board img {
+      width: 100%;
+      display: block;
+      border-radius: 2px;
+    }
+
+    canvas {
+      position: absolute;
+      top: 8.6%;
+      left: 6.6%;
+      width: 86.8%;
+      height: 79.2%;
+      cursor: default;
+    }
+
+    .chalk {
+      position: absolute;
+      width: 18px;
+      height: 6px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, #fff 0%, #e8e0c8 100%);
+      box-shadow: 0 0 10px rgba(255,255,255,.45);
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    footer .thanks {
+      letter-spacing: .42em;
+      color: #fff;
+      font-size: 12px;
+    }
+
+    a.back {
+      color: var(--mute);
+      text-decoration: none;
+    }
+    a.back:hover { color: #fff; }
+
+    @media (max-width: 700px) {
+      .shell { padding: 16px 14px 12px; }
+      header { flex-wrap: wrap; }
+      .wordmark { letter-spacing: .42em; padding-left: .42em; }
+      .hide-sm { display: none; }
+      .board { transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .board { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky"></div>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+
+  <div class="shell">
+    <header>
+      <a class="back" href="/sachal.github.io/">Sachal</a>
+      <div class="rule hide-sm"></div>
+      <div class="wordmark">OMER</div>
+      <div class="rule hide-sm"></div>
+      <span class="red">Crew</span>
+    </header>
+
+    <div class="stage">
+      <div class="board" id="board">
+        <img src="chalkboard.jpg" alt="">
+        <canvas id="chalk"></canvas>
+        <div class="chalk" id="stub"></div>
+      </div>
+    </div>
+
+    <footer>
+      <span>Detention protocol 001</span>
+      <span class="thanks">Thank you</span>
+      <span>Status · Best</span>
+    </footer>
+  </div>
+
+  <script>
+    const LINE = "omer is the best";
+    const canvas = document.getElementById("chalk");
+    const stub = document.getElementById("stub");
+    const ctx = canvas.getContext("2d");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let dpr = 1;
+    let w = 0, h = 0;
+    let fontSize = 28;
+    let lineHeight = 40;
+    let padX = 18;
+    let padY = 16;
+    let lines = [];
+    let col = 0;
+    let writing = true;
+    let erasing = false;
+    let eraseX = 0;
+    let last = 0;
+    let charDelay = 70;
+    let wait = 0;
+    let jitter = [];
+
+    function layout() {
+      const rect = canvas.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = rect.width;
+      h = rect.height;
+      canvas.width = Math.max(1, Math.floor(w * dpr));
+      canvas.height = Math.max(1, Math.floor(h * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      fontSize = Math.max(22, Math.min(34, w * 0.038));
+      lineHeight = fontSize * 1.42;
+      padX = w * 0.03;
+      padY = h * 0.045;
+      ctx.font = fontSize + "px 'Patrick Hand', cursive";
+    }
+
+    function maxLines() {
+      return Math.max(1, Math.floor((h - padY * 2) / lineHeight));
+    }
+
+    function lineY(i) {
+      return padY + fontSize + i * lineHeight + (jitter[i] || 0);
+    }
+
+    function chalkStyle() {
+      ctx.fillStyle = "rgba(244,240,214,0.92)";
+      ctx.shadowColor = "rgba(255,255,255,0.25)";
+      ctx.shadowBlur = 1.2;
+    }
+
+    function drawLine(text, i, upTo) {
+      const shown = text.slice(0, upTo);
+      const x0 = padX + (jitter[i] ? jitter[i] * 0.4 : 0);
+      chalkStyle();
+      ctx.fillText(shown, x0, lineY(i));
+    }
+
+    function redraw(partial) {
+      ctx.clearRect(0, 0, w, h);
+      ctx.font = fontSize + "px 'Patrick Hand', cursive";
+      lines.forEach((t, i) => drawLine(t, i, t.length));
+      if (partial != null) drawLine(LINE, lines.length, partial);
+    }
+
+    function placeStub(x, y) {
+      const board = document.getElementById("board").getBoundingClientRect();
+      const c = canvas.getBoundingClientRect();
+      stub.style.opacity = "1";
+      stub.style.left = (c.left - board.left + x) + "px";
+      stub.style.top = (c.top - board.top + y - 10) + "px";
+      stub.style.transform = "rotate(" + (Math.sin(x * 0.08) * 8) + "deg)";
+    }
+
+    function hideStub() {
+      stub.style.opacity = "0";
+    }
+
+    function newJitter(i) {
+      jitter[i] = (Math.random() - 0.5) * 5;
+    }
+
+    function fillBoard() {
+      const n = maxLines();
+      lines = Array.from({ length: n }, () => LINE);
+      jitter = lines.map(() => (Math.random() - 0.5) * 5);
+      redraw();
+      hideStub();
+    }
+
+    function startLoop() {
+      lines = [];
+      col = 0;
+      writing = true;
+      erasing = false;
+      wait = 0;
+      newJitter(0);
+      last = performance.now();
+      requestAnimationFrame(tick);
+    }
+
+    function tick(now) {
+      const dt = now - last;
+      last = now;
+
+      if (erasing) {
+        eraseX += w * dt * 0.0016;
+        ctx.save();
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.fillStyle = "rgba(0,0,0,0.35)";
+        ctx.fillRect(0, 0, Math.min(w, eraseX), h);
+        ctx.restore();
+        ctx.save();
+        ctx.globalAlpha = 0.12;
+        ctx.fillStyle = "#d7d2c2";
+        ctx.fillRect(Math.min(w, eraseX) - 18, 0, 18, h);
+        ctx.restore();
+        if (eraseX > w + 40) {
+          ctx.clearRect(0, 0, w, h);
+          lines = [];
+          col = 0;
+          erasing = false;
+          writing = true;
+          wait = 280;
+          newJitter(0);
+        }
+        requestAnimationFrame(tick);
+        return;
+      }
+
+      if (!writing) {
+        requestAnimationFrame(tick);
+        return;
+      }
+
+      if (wait > 0) {
+        wait -= dt;
+        requestAnimationFrame(tick);
+        return;
+      }
+
+      tick.writeAcc = (tick.writeAcc || 0) + dt;
+      charDelay = LINE[col] === " " ? 120 : 36 + Math.random() * 48;
+      if (tick.writeAcc >= charDelay) {
+        tick.writeAcc = 0;
+        col += 1;
+        redraw(col);
+        ctx.font = fontSize + "px 'Patrick Hand', cursive";
+        const x = padX + ctx.measureText(LINE.slice(0, col)).width + 6;
+        const y = lineY(lines.length);
+        placeStub(x, y);
+
+        if (col >= LINE.length) {
+          lines.push(LINE);
+          col = 0;
+          wait = 220 + Math.random() * 180;
+          if (lines.length >= maxLines()) {
+            hideStub();
+            wait = 900;
+            erasing = true;
+            eraseX = 0;
+          } else {
+            newJitter(lines.length);
+          }
+        }
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    function boot() {
+      layout();
+      if (reduced) {
+        fillBoard();
+        return;
+      }
+      startLoop();
+    }
+
+    document.fonts.ready.then(boot);
+    window.addEventListener("resize", () => {
+      const snapshot = lines.slice();
+      const c = col;
+      layout();
+      lines = snapshot;
+      col = c;
+      redraw(writing && !erasing ? col : null);
+    });
+  </script>
+</body>
+</html>
