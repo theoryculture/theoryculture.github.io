@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graph Theory | Sachal Abdullah</title>
+    <meta name="description" content="Graph theory notes: what a graph is, Hamiltonian and Eulerian cycles, uniquely Hamiltonian graphs, and Sheehan’s conjecture. By Sachal Abdullah.">
+    <link rel="canonical" href="https://theoryculture.github.io/graph-theory/">
+    <meta property="og:title" content="Graph Theory | Sachal Abdullah">
+    <meta property="og:description" content="Notes on graphs, Hamiltonian and Eulerian cycles, and uniquely Hamiltonian graphs.">
+    <meta property="og:url" content="https://theoryculture.github.io/graph-theory/">
+    <meta property="og:type" content="article">
     <link rel="stylesheet" href="/assets/main.css">
 
-    <!-- ✅ MathJax CONFIG (must come first) -->
     <script>
     window.MathJax = {
         tex: {
@@ -14,130 +20,142 @@
         }
     };
     </script>
-
-    <!-- ✅ MathJax SCRIPT -->
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<style>
-body {
-    background-color: #121212;
-    color: #e0e0e0;
-    font-family: 'Inter', -apple-system, sans-serif;
-    margin: 0;
-}
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+        }
 
-.nav-header {
-    padding: 20px;
-}
+        .nav-header { padding: 20px; }
+        .back-link { color: #888; text-decoration: none; }
+        .back-link:hover { color: #ff6b6b; }
 
-.back-link {
-    color: #888;
-    text-decoration: none;
-}
+        .hero { text-align: center; padding: 40px 20px 10px; }
+        h1 { font-size: 2.5rem; margin: 0; }
+        .tagline { color: #888; margin-top: 8px; }
 
-.back-link:hover {
-    color: #ff6b6b;
-}
+        .content { max-width: 800px; margin: auto; padding: 20px 20px 60px; }
 
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-/* CONTENT */
-.content {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* TOPIC LIST */
-details {
-    background: #1e1e1e;
-    border: 1px solid #333;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    padding: 15px;
-    transition: border 0.2s;
-}
-
-details:hover {
-    border-color: #ff6b6b;
-}
-
-summary {
-    font-size: 1.2rem;
-    cursor: pointer;
-    font-weight: 500;
-}
-
-details p {
-    margin-top: 10px;
-    line-height: 1.6;
-    color: #ccc;
-}
-</style>
-
+        details {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 15px;
+            transition: border 0.2s;
+        }
+        details:hover { border-color: #ff6b6b; }
+        summary {
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        details p {
+            margin-top: 10px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        details ul {
+            margin: 10px 0 0 1.2em;
+            color: #ccc;
+            line-height: 1.6;
+        }
+    </style>
 </head>
-
 <body>
 
 <header class="nav-header">
-    <a href="/mathematics" class="back-link">← Back to Mathematics</a>
+    <a href="/mathematics/" class="back-link">← Back to Mathematics</a>
 </header>
 
+<article>
 <div class="hero">
     <h1>Graph Theory</h1>
+    <p class="tagline">Vertices, edges, and the cycles that run through them</p>
 </div>
 
 <div class="content">
 
-    <!-- TOPIC 1 -->
+    <p>
+        A graph is a set of points together with a set of connections between them.
+        Once that is in place, one can ask which routes exist, which cycles close,
+        and when a cycle is the only one of its kind.
+    </p>
+
     <details>
         <summary>1. What is a Graph?</summary>
 
         <p>
             A graph is a mathematical structure consisting of vertices and edges.
+            Formally it is written
         </p>
-
-        <p>
-            Formally, a graph is written as:
-        </p>
-
         <p>
             \[
             G = (V, E)
             \]
         </p>
-
         <p>
             where \( V \) is the set of vertices and \( E \) is the set of edges.
+            An edge joins two vertices. If those two vertices are allowed to be
+            the same, the edge is a loop. If more than one edge may join the same
+            pair, the graph is a multigraph. A simple graph has neither loops nor
+            multiple edges.
+        </p>
+        <p>
+            A walk is a sequence of vertices in which each consecutive pair is
+            joined by an edge. A cycle returns to its start and repeats no vertex
+            in between.
         </p>
     </details>
 
-    <!-- TOPIC 2 -->
     <details>
         <summary>2. Hamiltonian and Eulerian Graphs</summary>
 
         <p>
-            A graph is Hamiltonian if it contains a cycle 
-            \( v_1 \to v_2 \to \cdots \to v_n \to v_1 \) 
+            A graph is Hamiltonian if it contains a cycle
+            \( v_1 \to v_2 \to \cdots \to v_n \to v_1 \)
             that visits every vertex exactly once.
         </p>
+        <p>
+            A graph is Eulerian if it contains a closed walk that uses every edge
+            exactly once. Euler’s characterisation is classical: a connected graph
+            has an Eulerian circuit if and only if every vertex has even degree.
+        </p>
+        <p>
+            Hamiltonian cycles have no such simple test. The name comes from
+            Hamilton’s Icosian game on the dodecahedron; the Eulerian side goes
+            back to the seven bridges of Königsberg.
+        </p>
+    </details>
+
+    <details>
+        <summary>3. Uniquely Hamiltonian Graphs</summary>
 
         <p>
-            A graph is Eulerian if it contains a cycle that uses every edge exactly once.
+            A graph is uniquely Hamiltonian when it has exactly one Hamiltonian
+            cycle: one set of edges that forms a cycle through every vertex.
         </p>
-
+        <p>
+            Cycle graphs are the trivial examples. For regular graphs the picture
+            is a conjecture of Sheehan (1975): the only simple regular uniquely
+            Hamiltonian graphs are the 2-regular ones, that is, the cycle graphs
+            themselves. The odd-regular case is settled; the even-regular case,
+            beginning at 4-regular graphs, remains open.
+        </p>
+        <p>
+            Fleischner constructed uniquely Hamiltonian 4-regular multigraphs from
+            the Petersen graph, by way of an Eulerian \( (4,6) \)-regular graph.
+            Whether that construction extends to other snarks is a separate
+            question; the notes here treat it as an open line of work.
+        </p>
     </details>
 
 </div>
+</article>
 
 </body>
 </html>

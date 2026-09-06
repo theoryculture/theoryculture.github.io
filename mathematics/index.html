@@ -1,13 +1,70 @@
-<link rel="stylesheet" href="/assets/main.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics | Sachal Abdullah</title>
+    <meta name="description" content="Mathematics notes by Sachal Abdullah: graph theory, Hamiltonian and Eulerian graphs, uniquely Hamiltonian graphs, and related lectures.">
+    <link rel="canonical" href="https://theoryculture.github.io/mathematics/">
+    <link rel="stylesheet" href="/assets/main.css">
+</head>
+<body>
+
+<header class="nav-header">
+    <a href="/" class="back-link">← Return Home</a>
+</header>
+
+<div class="hero">
+    <h1>Mathematics</h1>
+    <p class="tagline">Writings, notes, and lectures</p>
+</div>
 
 <div class="content">
 
     <details>
-        <summary>
-            <a href="/graph-theory/">
-                Graph Theory
-            </a>
-        </summary>
+        <summary>Graph Theory</summary>
+
+        <div class="topic-body">
+            <p>
+                Graph theory is the study of vertices and the edges that join them.
+                A graph is written \( G = (V, E) \). From that one definition come
+                walks, cycles, colourings, and the questions that organise most of
+                combinatorics.
+            </p>
+
+            <p>Related notes:</p>
+            <ul class="topic-list">
+                <li>
+                    <strong>What is a graph?</strong>
+                    Vertices, edges, simple graphs and multigraphs.
+                </li>
+                <li>
+                    <strong>Hamiltonian and Eulerian graphs.</strong>
+                    Cycles through every vertex, and tours through every edge.
+                </li>
+                <li>
+                    <strong>Uniquely Hamiltonian graphs.</strong>
+                    Graphs with exactly one Hamiltonian cycle, and Sheehan’s conjecture.
+                </li>
+            </ul>
+
+            <p>
+                <a class="topic-more" href="/graph-theory/">Open the Graph Theory page →</a>
+            </p>
+        </div>
     </details>
 
 </div>
+
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</body>
+</html>

@@ -124,6 +124,24 @@ summary {
     font-weight: bold;
 }
 
+.topic-body {
+    margin-top: 12px;
+    color: #ccc;
+}
+
+.topic-body p {
+    margin: 0 0 12px;
+}
+
+.topic-list {
+    margin: 0 0 16px 1.2em;
+    line-height: 1.7;
+}
+
+.topic-more {
+    font-weight: 600;
+}
+
 /* ===== TUTORING ===== */
 
 .tutoring-list li {
