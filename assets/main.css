@@ -142,6 +142,26 @@ summary {
     font-weight: 600;
 }
 
+.def-list {
+    margin: 8px 0 16px;
+}
+
+.def-list dt {
+    color: #fff;
+    font-weight: 600;
+    margin-top: 14px;
+}
+
+.def-list dt:first-child {
+    margin-top: 4px;
+}
+
+.def-list dd {
+    margin: 4px 0 0;
+    color: #ccc;
+    line-height: 1.7;
+}
+
 /* ===== TUTORING ===== */
 
 .tutoring-list li {

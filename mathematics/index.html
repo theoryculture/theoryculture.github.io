@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics | Sachal Abdullah</title>
-    <meta name="description" content="Mathematics notes by Sachal Abdullah: graph theory, Hamiltonian and Eulerian graphs, uniquely Hamiltonian graphs, and related lectures.">
+    <meta name="description" content="Mathematics notes by Sachal Abdullah. Graph theory: vertices, edges, degree, walks, trees, Eulerian and Hamiltonian graphs.">
     <link rel="canonical" href="https://theoryculture.github.io/mathematics/">
     <link rel="stylesheet" href="/assets/main.css">
 </head>
@@ -26,30 +26,55 @@
 
         <div class="topic-body">
             <p>
-                Graph theory is the study of vertices and the edges that join them.
-                A graph is written \( G = (V, E) \). From that one definition come
-                walks, cycles, colourings, and the questions that organise most of
-                combinatorics.
+                A graph is a pair \( G = (V, E) \): a set of vertices and a set of
+                edges joining them. The notes below are the first vocabulary.
             </p>
 
-            <p>Related notes:</p>
-            <ul class="topic-list">
-                <li>
-                    <strong>What is a graph?</strong>
-                    Vertices, edges, simple graphs and multigraphs.
-                </li>
-                <li>
-                    <strong>Hamiltonian and Eulerian graphs.</strong>
-                    Cycles through every vertex, and tours through every edge.
-                </li>
-                <li>
-                    <strong>Uniquely Hamiltonian graphs.</strong>
-                    Graphs with exactly one Hamiltonian cycle, and Sheehan’s conjecture.
-                </li>
-            </ul>
+            <dl class="def-list">
+                <dt>Vertex and edge</dt>
+                <dd>
+                    Vertices are the points. An edge joins two vertices, its ends.
+                    The order is \( |V| \); the size is \( |E| \).
+                </dd>
+                <dt>Simple graph and multigraph</dt>
+                <dd>
+                    A simple graph has no loops and no multiple edges. A multigraph
+                    may have several edges between the same pair of vertices.
+                </dd>
+                <dt>Adjacent, incident, degree</dt>
+                <dd>
+                    Two vertices are adjacent if an edge joins them. The degree
+                    \( d(v) \) is the number of incident edges (a loop counts twice).
+                    Always \( \sum_v d(v) = 2|E| \). If every degree is \( r \),
+                    the graph is \( r \)-regular; 3-regular graphs are cubic.
+                </dd>
+                <dt>Walk, trail, path, cycle</dt>
+                <dd>
+                    A walk is a sequence of adjacent vertices. A trail repeats no
+                    edge; a path repeats no vertex. A cycle is a closed path of
+                    length at least 3.
+                </dd>
+                <dt>Connected and tree</dt>
+                <dd>
+                    The graph is connected if every pair of vertices is joined by a
+                    path. A tree is a connected graph with no cycle.
+                </dd>
+                <dt>Complete, bipartite, complement</dt>
+                <dd>
+                    \( K_n \) has every possible edge. A bipartite graph splits
+                    \( V \) into two parts with all edges running between the parts.
+                    The complement keeps non-edges of \( G \) as edges.
+                </dd>
+                <dt>Eulerian and Hamiltonian</dt>
+                <dd>
+                    Eulerian: a closed trail through every edge. A connected graph
+                    has one iff every degree is even. Hamiltonian: a cycle through
+                    every vertex. Uniquely Hamiltonian: exactly one such cycle.
+                </dd>
+            </dl>
 
             <p>
-                <a class="topic-more" href="/graph-theory/">Open the Graph Theory page →</a>
+                <a class="topic-more" href="/graph-theory/">Full Graph Theory notes →</a>
             </p>
         </div>
     </details>
