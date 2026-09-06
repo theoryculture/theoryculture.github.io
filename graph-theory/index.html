@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graph Theory | Basic Definitions | Sachal Abdullah</title>
-    <meta name="description" content="Basic definitions in graph theory: graphs, vertices, edges, degree, walks, paths, cycles, trees, bipartite graphs, Eulerian and Hamiltonian graphs. Notes by Sachal Abdullah.">
+    <title>Graph Theory | Definitions | Sachal Abdullah</title>
+    <meta name="description" content="Graph theory definitions from uniquely Hamiltonian notes: graphs, walks, trails, cycles, Eulerian circuits, transitions, cycle decompositions, dominating cycles, and uniquely Hamiltonian graphs. Notes by Sachal Abdullah.">
     <link rel="canonical" href="https://theoryculture.github.io/graph-theory/">
-    <meta property="og:title" content="Graph Theory: Basic Definitions | Sachal Abdullah">
-    <meta property="og:description" content="A first vocabulary for graph theory: vertices, edges, degree, walks, cycles, trees, Eulerian and Hamiltonian graphs.">
+    <meta property="og:title" content="Graph Theory: Definitions | Sachal Abdullah">
+    <meta property="og:description" content="The vocabulary of uniquely Hamiltonian graphs: walks, Eulerian circuits, transitions, cycle decompositions, and dominating cycles.">
     <meta property="og:url" content="https://theoryculture.github.io/graph-theory/">
     <meta property="og:type" content="article">
     <link rel="stylesheet" href="/assets/main.css">
@@ -78,307 +78,429 @@
 <article>
 <div class="hero">
     <h1>Graph Theory</h1>
-    <p class="tagline">Basic definitions</p>
+    <p class="tagline">Definitions</p>
 </div>
 
 <div class="content">
 
     <p class="lead">
-        Graph theory is the mathematics of points and the lines that join them.
-        The language is small. Once the words below are in place, one can ask
-        which routes exist, which cycles close, and when a cycle is the only one
-        of its kind.
+        The vocabulary below is the one used in the uniquely Hamiltonian notes:
+        how a graph is traversed, when a tour of the edges is Eulerian, when a
+        tour of the vertices is Hamiltonian, and when that Hamiltonian cycle is
+        the only one. Graphs are finite. Loops are not allowed.
     </p>
 
     <details open>
-        <summary>1. Graphs, vertices, and edges</summary>
+        <summary>1. Graph, multigraph, subgraph</summary>
         <dl class="def-list">
             <dt>Graph</dt>
             <dd>
-                A graph is a pair \( G = (V, E) \), where \( V \) is a finite set of
-                <strong>vertices</strong> (also called nodes) and \( E \) is a set of
-                <strong>edges</strong>. Each edge joins two vertices, called its
-                <strong>ends</strong>.
-            </dd>
-            <dt>Order and size</dt>
-            <dd>
-                The <strong>order</strong> of \( G \) is \( n = |V| \). The
-                <strong>size</strong> is \( m = |E| \).
-            </dd>
-            <dt>Adjacent and incident</dt>
-            <dd>
-                Two vertices are <strong>adjacent</strong> if an edge joins them.
-                An edge is <strong>incident</strong> with its two ends. Two edges
-                are adjacent if they share a vertex.
-            </dd>
-            <dt>Loop and multiple edges</dt>
-            <dd>
-                A <strong>loop</strong> is an edge whose two ends are the same vertex.
-                <strong>Multiple edges</strong> are two or more edges with the same
-                pair of ends.
-            </dd>
-            <dt>Simple graph</dt>
-            <dd>
-                A <strong>simple graph</strong> has no loops and no multiple edges.
-                Then \( E \) may be treated as a set of unordered pairs
-                \( \{u,v\} \) with \( u \neq v \).
+                A graph \( G \) is a pair \( (V(G), E(G)) \), where \( V(G) \) is a
+                finite non-empty set of elements called <strong>vertices</strong>,
+                and \( E(G) \) is a finite set of distinct unordered pairs of
+                distinct elements of \( V(G) \), called <strong>edges</strong>.
+                \( V(G) \) is the vertex-set of \( G \); \( E(G) \) is the edge-set.
             </dd>
             <dt>Multigraph</dt>
             <dd>
-                A <strong>multigraph</strong> allows multiple edges (and, depending
-                on the author, loops). The constructions around uniquely Hamiltonian
-                4-regular graphs are often stated for multigraphs.
+                \( G = (V, E) \) is a <strong>multigraph</strong> when \( E \) is a
+                multiset of pairs from \( V \times V \): the pair \( \{u,v\} \) with
+                \( u \neq v \) may occur more than once. To avoid loops,
+                \( u \neq v \) in every pair.
             </dd>
-            <dt>Directed graph</dt>
+            <dt>Subgraph</dt>
             <dd>
-                In a <strong>directed graph</strong> (digraph) each edge is an
-                ordered pair \( (u,v) \), an arrow from \( u \) to \( v \). Unless
-                said otherwise, graphs below are undirected.
+                If \( G = (V, E) \) is a graph, a <strong>subgraph</strong>
+                \( H = (V_H, E_H) \) of \( G \) has \( V_H \subseteq V \) and
+                \( E_H \subseteq E \), and each edge in \( E_H \) joins vertices
+                in \( V_H \).
+            </dd>
+            <dt>Induced and spanning</dt>
+            <dd>
+                The <strong>induced subgraph</strong> \( G[S] \) on
+                \( S \subseteq V \) keeps every edge of \( G \) with both ends in
+                \( S \). A subgraph is <strong>spanning</strong> if it uses every
+                vertex of \( G \).
+            </dd>
+            <dt>Adjacent and incident</dt>
+            <dd>
+                Two vertices are adjacent if an edge joins them. An edge is
+                incident with its two ends.
             </dd>
         </dl>
     </details>
 
     <details>
-        <summary>2. Degree and neighbourhood</summary>
+        <summary>2. Degree and regular graphs</summary>
         <dl class="def-list">
             <dt>Neighbourhood</dt>
             <dd>
-                The <strong>neighbourhood</strong> \( N(v) \) of a vertex \( v \)
-                is the set of vertices adjacent to \( v \).
+                The neighbourhood \( N(v) \) of a vertex \( v \) is the set of
+                vertices adjacent to \( v \).
             </dd>
-            <dt>Degree</dt>
+            <dt>Degree (valency)</dt>
             <dd>
-                The <strong>degree</strong> \( d(v) \) (or \( \deg(v) \)) is the
-                number of edges incident with \( v \), with a loop counted twice.
-                In a simple graph, \( d(v) = |N(v)| \).
-            </dd>
-            <dt>Minimum and maximum degree</dt>
-            <dd>
-                \( \delta(G) = \min_v d(v) \) and \( \Delta(G) = \max_v d(v) \).
-            </dd>
-            <dt>Isolated vertex and leaf</dt>
-            <dd>
-                A vertex of degree \( 0 \) is <strong>isolated</strong>. A vertex
-                of degree \( 1 \) is a <strong>leaf</strong> (or pendant vertex).
-            </dd>
-            <dt>Handshaking lemma</dt>
-            <dd>
-                The sum of all degrees is twice the number of edges:
-                <span class="formula">\[ \sum_{v \in V} d(v) = 2|E|. \]</span>
-                In particular, the number of odd-degree vertices is even.
+                The degree \( d(v) \) (or valency) is the number of edges incident
+                with \( v \). In a simple graph, \( d(v) = |N(v)| \).
+                Always \( \sum_v d(v) = 2|E| \).
             </dd>
             <dt>Regular graph</dt>
             <dd>
-                \( G \) is <strong>\( r \)-regular</strong> if every vertex has
-                degree \( r \). A 3-regular graph is also called
+                If all vertices of \( G \) have the same valency, then \( G \) is
+                <strong>regular</strong>. If that common degree is \( r \), the
+                graph is \( r \)-regular. A 3-regular graph is
                 <strong>cubic</strong>.
+            </dd>
+            <dt>\( (4,6) \)-regular</dt>
+            <dd>
+                Every vertex has degree \( 4 \) or \( 6 \). These appear as the
+                Eulerian multigraphs in the construction of uniquely Hamiltonian
+                4-regular multigraphs.
             </dd>
         </dl>
     </details>
 
     <details>
-        <summary>3. Special graphs</summary>
+        <summary>3. Walk, trail, path, circuit, cycle</summary>
+        <dl class="def-list">
+            <dt>Walk</dt>
+            <dd>
+                A sequence of edges of the form
+                \( v_0v_1,\, v_1v_2,\, \ldots,\, v_{r-1}v_r \)
+                (sometimes written \( v_0, v_1, \ldots, v_r \)) is a
+                <strong>walk</strong> of length \( r \) from \( v_0 \) to \( v_r \).
+            </dd>
+            <dt>Trail</dt>
+            <dd>
+                If all the edges in a walk are distinct, the walk is a
+                <strong>trail</strong>.
+            </dd>
+            <dt>Path</dt>
+            <dd>
+                If the vertices \( v_0, \ldots, v_r \) in a walk are all distinct,
+                the walk is a <strong>path</strong>.
+            </dd>
+            <dt>Closed walk / closed trail</dt>
+            <dd>
+                A walk or trail is <strong>closed</strong> if the start vertex and
+                the end vertex are the same: \( v_0 = v_r \).
+            </dd>
+            <dt>Circuit</dt>
+            <dd>
+                A path in which \( v_0, \ldots, v_r \) are all distinct except
+                \( v_0 = v_r \) is a <strong>circuit</strong> (a closed path).
+            </dd>
+            <dt>Cycle</dt>
+            <dd>
+                A closed trail that enters and leaves a vertex at most once.
+                Both Hamiltonian cycles and Eulerian circuits are special cases
+                of this way of traversing a graph.
+            </dd>
+            <dt>Cycle graph \( C_n \)</dt>
+            <dd>
+                A graph all of whose edges are traversed by a cycle of length
+                \( n \). All cycle graphs are Eulerian, Hamiltonian, connected,
+                and 2-regular.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>4. Connected graphs</summary>
+        <dl class="def-list">
+            <dt>Connected</dt>
+            <dd>
+                \( G \) is <strong>connected</strong> if there is a path joining
+                each pair of vertices of \( G \).
+            </dd>
+            <dt>Vertex-connectivity \( \kappa \)</dt>
+            <dd>
+                \( \kappa(G) \) is the minimum number of vertices that must be
+                removed to disconnect \( G \). The graph is
+                <strong>2-connected</strong> if \( \kappa(G) \ge 2 \).
+            </dd>
+            <dt>Independent set</dt>
+            <dd>
+                A set of vertices in \( G \) is <strong>independent</strong> if no
+                two of them are adjacent. The largest number of vertices in such
+                a set is the <strong>independence number</strong> \( \beta(G) \).
+            </dd>
+            <dt>Tree</dt>
+            <dd>
+                A connected graph with no cycle. Equivalently: a connected graph
+                on \( n \) vertices with \( n-1 \) edges; equivalently: any two
+                vertices are joined by a unique path.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>5. Eulerian trail, circuit, graph</summary>
+        <p>
+            An Eulerian graph is one whose edges can be traversed without lifting
+            the pen: a closed trail through every edge.
+        </p>
+        <dl class="def-list">
+            <dt>Eulerian trail</dt>
+            <dd>
+                A connected graph \( G \) has an <strong>Eulerian trail</strong>
+                if it has a trail which includes every edge of \( E(G) \).
+            </dd>
+            <dt>Eulerian circuit</dt>
+            <dd>
+                An Eulerian trail that is closed, \( v_0 = v_r \). Then the trail
+                starts and finishes at the same vertex.
+            </dd>
+            <dt>Eulerian graph</dt>
+            <dd>
+                A connected graph with an Eulerian circuit.
+            </dd>
+            <dt>Euler's theorem (1736), circuits</dt>
+            <dd>
+                A connected graph has an Eulerian circuit if and only if every
+                vertex has even degree.
+            </dd>
+            <dt>Euler's theorem (1736), trails</dt>
+            <dd>
+                A connected graph has an Eulerian trail if and only if it has
+                exactly zero or two vertices of odd degree. If there are two,
+                every Eulerian trail starts at one of them and ends at the other.
+                If there are none, every Eulerian trail is an Eulerian circuit.
+            </dd>
+            <dt>Reducible Eulerian circuit</dt>
+            <dd>
+                A disjoint union of smaller Eulerian circuits (traversing
+                subgraphs) whose transitions are the same as those of \( T \).
+            </dd>
+            <dt>Irreducible Eulerian circuit</dt>
+            <dd>
+                An Eulerian circuit of \( G - E(S_0) \) whose transitions agree
+                with those of \( T \) (except on edges of the cycles in
+                \( S_0 \)), and which cannot be decomposed into a union of
+                smaller non-empty Eulerian circuits.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>6. Hamiltonian and uniquely Hamiltonian</summary>
+        <dl class="def-list">
+            <dt>Hamiltonian cycle (Hamiltonian circuit)</dt>
+            <dd>
+                A circuit which includes every vertex of \( V(G) \) exactly once
+                and returns to the start. A graph with such a circuit is
+                <strong>Hamiltonian</strong>.
+            </dd>
+            <dt>Uniquely Hamiltonian graph</dt>
+            <dd>
+                A graph with exactly one Hamiltonian cycle.
+            </dd>
+            <dt>Sheehan's conjecture (1975)</dt>
+            <dd>
+                If \( G \) is a finite simple \( r \)-regular graph with
+                \( r &gt; 2 \), then \( G \) is not uniquely Hamiltonian.
+                Equivalently, as a necessary condition: a simple connected
+                regular graph is uniquely Hamiltonian only if it is 2-regular.
+                The odd-regular case is settled (Thomason). The even-regular
+                case remains open for \( 4 \le r \le 20 \).
+            </dd>
+            <dt>Hypohamiltonian</dt>
+            <dd>
+                Non-Hamiltonian, but \( G - v \) is Hamiltonian for every vertex
+                \( v \). The construction in the notes starts from a cubic
+                hypohamiltonian graph with a dominating cycle missing one vertex;
+                Petersen is the usual example.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>7. Dominating cycle</summary>
+        <dl class="def-list">
+            <dt>Dominating cycle</dt>
+            <dd>
+                A cycle is <strong>dominating</strong> when every vertex of the
+                graph is either on the cycle or adjacent to a vertex on the cycle.
+                If \( S \) is the vertex set of the cycle, then
+                \( S \cup N(S) = V \).
+            </dd>
+            <dt>Maximal unique dominating cycle</dt>
+            <dd>
+                In the construction, uniqueness of a Hamiltonian cycle in the
+                4-regular graph is obtained from uniqueness of a maximal
+                dominating cycle in an associated cubic graph \( G_3 \).
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>8. Transitions and half-edges</summary>
+        <p>
+            An Eulerian circuit gives, at each vertex, a pairing of the incident
+            edges: the edge used to enter and the edge used to leave.
+        </p>
+        <dl class="def-list">
+            <dt>Transition</dt>
+            <dd>
+                At a vertex \( v \), a pair of incident edges grouped together
+                as enter/leave. The set of transitions at \( v \) is written
+                \( X(v) \).
+            </dd>
+            <dt>Half-edge</dt>
+            <dd>
+                Each edge in a transition is a <strong>half-edge</strong>: two
+                half-edges make one transition.
+            </dd>
+            <dt>Transition system</dt>
+            <dd>
+                For every \( v \in V(G) \), let \( X(v) \) denote a partition of
+                the edges incident to \( v \) into classes of two elements. Each
+                class is a transition. The union
+                \[
+                    X = \bigcup_{v \in V(G)} X(v)
+                \]
+                is a (complete) <strong>system of transitions</strong>. The
+                transition system of an Eulerian circuit \( T \) is written
+                \( X_T \).
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>9. Cycle decomposition</summary>
+        <dl class="def-list">
+            <dt>Cycle cover</dt>
+            <dd>
+                A system of cycles \( S = \{C_1, \ldots, C_m\} \) in a
+                multigraph \( H \) is a <strong>cycle cover</strong> of \( H \)
+                if the union of the cycles covers every edge of \( H \).
+            </dd>
+            <dt>Cycle decomposition</dt>
+            <dd>
+                A set of cycles in \( H \) that do not share any edges and that
+                cover every edge of \( H \) exactly once. Equivalently: a
+                partition of \( E(H) \) into cycles. A graph with a cycle
+                decomposition is necessarily Eulerian. The empty set is a cycle
+                decomposition of a graph with no edges. Writing
+                \( S = \{C_1, \ldots, C_k\} \) for such a set, the associated
+                transition system is \( X_S \): consecutive edges of a cycle
+                give a pair of half-edges as a transition.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>10. Compatibility</summary>
+        <p>
+            The relation between a cycle decomposition and the transitions of an
+            Eulerian circuit. This is the language of Sabidussi's conjecture.
+        </p>
+        <dl class="def-list">
+            <dt>Compatible transition systems</dt>
+            <dd>
+                Two systems of transitions \( X' \) and \( X'' \) are
+                <strong>compatible</strong> if \( X' \cap X'' = \emptyset \).
+            </dd>
+            <dt>Compatibility of \( S \) with \( T \)</dt>
+            <dd>
+                Let \( T \) be an Eulerian trail and \( S \) a cycle
+                decomposition.
+                <ul>
+                    <li>
+                        \( X_T \) is the system of transitions that describes how
+                        the trail moves from one edge to another at each vertex.
+                    </li>
+                    <li>
+                        \( X_S \) is the system of transitions that describes how
+                        the cycle decomposition pairs edges at each vertex.
+                    </li>
+                    <li>
+                        \( S \) is compatible with \( T \) if \( X_T \) and
+                        \( X_S \) are disjoint: the two half-edges of a
+                        transition of \( X_T \) belong to different cycles of
+                        \( S \). In symbols, \( X_T \cap X_S = \emptyset \).
+                    </li>
+                </ul>
+            </dd>
+            <dt>Sabidussi's conjecture (1975)</dt>
+            <dd>
+                For a connected Eulerian graph \( G \) of minimum degree 4 with
+                an Eulerian circuit \( T \), there exists a cycle decomposition
+                \( S \) compatible with \( T \).
+            </dd>
+            <dt>\( S_0 \)</dt>
+            <dd>
+                A set of pairwise vertex-disjoint compatible cycles from a cycle
+                decomposition of \( G \) such that \( G - E(S_0) \) induces an
+                irreducible Eulerian circuit \( T_0 \). If there is only one
+                such \( S_0 \), the construction yields a uniquely Hamiltonian
+                4-regular multigraph.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>11. Automorphisms</summary>
+        <dl class="def-list">
+            <dt>Graph automorphism</dt>
+            <dd>
+                For a graph \( G(V,E) \), an <strong>automorphism</strong> is a
+                bijection \( \varphi \colon V(G) \to V(G) \) such that, for all
+                \( u, v \in V \),
+                \[
+                    uv \in E(G) \iff \varphi(u)\varphi(v) \in E(G).
+                \]
+                In other words, \( \varphi \) maps vertices of \( G \) to vertices
+                of \( G \) and preserves the edge structure. \( \mathrm{Aut}(G) \)
+                is the set of all automorphisms of \( G \).
+            </dd>
+            <dt>Hamiltonian cycle under automorphism</dt>
+            <dd>
+                If \( C \) is a Hamiltonian cycle and \( \varphi \in \mathrm{Aut}(G) \),
+                the image cycle \( \varphi(C) \) has edge set
+                \( \{ \varphi(u)\varphi(v) : uv \in E(C) \} \). Two Hamiltonian
+                cycles may be the same up to automorphism without being the same
+                set of edges. Uniquely Hamiltonian still means exactly one
+                Hamiltonian cycle as a set of edges.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>12. Special graphs</summary>
         <dl class="def-list">
             <dt>Complete graph \( K_n \)</dt>
             <dd>
                 Every pair of distinct vertices is joined by exactly one edge.
                 \( K_n \) is \( (n-1) \)-regular and has \( \binom{n}{2} \) edges.
             </dd>
-            <dt>Path \( P_n \) and cycle \( C_n \)</dt>
+            <dt>Path graph \( P_n \)</dt>
             <dd>
-                \( P_n \) is a path on \( n \) vertices. \( C_n \) is a cycle on
-                \( n \) vertices (\( n \ge 3 \)). Cycle graphs are 2-regular.
+                A path on \( n \) vertices.
             </dd>
             <dt>Bipartite graph</dt>
             <dd>
-                The vertex set splits as \( V = A \cup B \), \( A \cap B = \emptyset \),
-                and every edge has one end in \( A \) and one end in \( B \).
-                Equivalently, \( G \) contains no odd cycle.
+                The vertex set splits as \( V = A \cup B \),
+                \( A \cap B = \emptyset \), and every edge has one end in \( A \)
+                and one end in \( B \). Equivalently, \( G \) contains no odd cycle.
             </dd>
             <dt>Complete bipartite graph \( K_{s,t} \)</dt>
             <dd>
                 Every vertex of a part of size \( s \) is joined to every vertex
                 of a part of size \( t \). The graph \( K_{1,n} \) is a star.
             </dd>
-            <dt>Empty graph</dt>
-            <dd>
-                A graph with vertices but no edges. Sometimes written \( \overline{K_n} \).
-            </dd>
             <dt>Complement \( \overline{G} \)</dt>
             <dd>
                 Same vertex set as \( G \); two vertices are adjacent in
                 \( \overline{G} \) if and only if they are not adjacent in \( G \).
             </dd>
-        </dl>
-    </details>
-
-    <details>
-        <summary>4. Walks, trails, paths, and cycles</summary>
-        <dl class="def-list">
-            <dt>Walk</dt>
-            <dd>
-                A sequence of vertices \( v_0, v_1, \ldots, v_k \) such that
-                \( \{v_{i-1}, v_i\} \) is an edge for each \( i \). The
-                <strong>length</strong> is the number of edges, \( k \).
-            </dd>
-            <dt>Trail</dt>
-            <dd>
-                A walk that repeats no edge.
-            </dd>
-            <dt>Path</dt>
-            <dd>
-                A walk that repeats no vertex. (Then it also repeats no edge.)
-            </dd>
-            <dt>Closed walk</dt>
-            <dd>
-                A walk with \( v_k = v_0 \) and \( k \ge 1 \).
-            </dd>
-            <dt>Cycle</dt>
-            <dd>
-                A closed walk of length at least 3 that repeats no vertex except
-                the start and end. Two Hamiltonian cycles are regarded as the same
-                when they use the same set of edges.
-            </dd>
-            <dt>Circuit</dt>
-            <dd>
-                A closed trail. An Eulerian circuit is a closed trail that uses
-                every edge.
-            </dd>
-            <dt>Distance</dt>
-            <dd>
-                The <strong>distance</strong> \( \mathrm{dist}(u,v) \) is the
-                length of a shortest \( u \)–\( v \) path, or infinite if none exists.
-                The <strong>diameter</strong> is the greatest finite distance
-                between two vertices.
-            </dd>
-        </dl>
-    </details>
-
-    <details>
-        <summary>5. Connectivity and trees</summary>
-        <dl class="def-list">
-            <dt>Connected</dt>
-            <dd>
-                \( G \) is <strong>connected</strong> if there is a path between
-                every pair of vertices. Otherwise it is disconnected.
-            </dd>
-            <dt>Component</dt>
-            <dd>
-                A maximal connected subgraph. Isolated vertices are components.
-            </dd>
-            <dt>Bridge (cut edge)</dt>
-            <dd>
-                An edge whose deletion increases the number of components.
-            </dd>
-            <dt>Cut vertex</dt>
-            <dd>
-                A vertex whose deletion increases the number of components.
-            </dd>
-            <dt>Tree</dt>
-            <dd>
-                A connected graph with no cycle. Equivalently: a connected graph
-                on \( n \) vertices with \( n-1 \) edges; equivalently: a graph
-                in which any two vertices are joined by a unique path.
-            </dd>
-            <dt>Forest</dt>
-            <dd>
-                A graph with no cycle (a disjoint union of trees).
-            </dd>
-            <dt>Spanning tree</dt>
-            <dd>
-                A subgraph that is a tree and uses every vertex of \( G \).
-                Every connected graph has at least one.
-            </dd>
-        </dl>
-    </details>
-
-    <details>
-        <summary>6. Subgraphs and isomorphism</summary>
-        <dl class="def-list">
-            <dt>Subgraph</dt>
-            <dd>
-                \( H = (V_H, E_H) \) is a subgraph of \( G \) if
-                \( V_H \subseteq V \) and \( E_H \subseteq E \), with the ends of
-                each edge of \( H \) lying in \( V_H \).
-            </dd>
-            <dt>Induced subgraph</dt>
-            <dd>
-                The subgraph \( G[S] \) on a vertex set \( S \subseteq V \) keeps
-                every edge of \( G \) with both ends in \( S \).
-            </dd>
-            <dt>Spanning subgraph</dt>
-            <dd>
-                A subgraph with the same vertex set as \( G \).
-            </dd>
             <dt>Isomorphism</dt>
             <dd>
-                An isomorphism from \( G \) to \( H \) is a bijection
-                \( f \colon V(G) \to V(H) \) such that \( \{u,v\} \) is an edge
-                of \( G \) if and only if \( \{f(u), f(v)\} \) is an edge of \( H \).
-                Then \( G \) and \( H \) are the same graph, drawn differently.
-            </dd>
-        </dl>
-    </details>
-
-    <details>
-        <summary>7. Eulerian and Hamiltonian graphs</summary>
-        <p>
-            These two notions ask for a tour of the whole graph, in different senses.
-        </p>
-        <dl class="def-list">
-            <dt>Eulerian circuit</dt>
-            <dd>
-                A closed trail that uses every edge exactly once. A connected graph
-                has an Eulerian circuit if and only if every vertex has even degree
-                (Euler, 1736). The seven bridges of Königsberg fail this test.
-            </dd>
-            <dt>Eulerian path</dt>
-            <dd>
-                A trail (not necessarily closed) that uses every edge. It exists
-                precisely when the graph is connected and has zero or two vertices
-                of odd degree.
-            </dd>
-            <dt>Hamiltonian cycle</dt>
-            <dd>
-                A cycle that visits every vertex exactly once and returns to the
-                start. A graph with such a cycle is <strong>Hamiltonian</strong>.
-                There is no simple degree test analogous to Euler’s theorem.
-            </dd>
-            <dt>Hamiltonian path</dt>
-            <dd>
-                A path that visits every vertex exactly once. The name comes from
-                Hamilton’s Icosian game on the dodecahedron; a closed knight’s tour
-                of a chessboard is a Hamiltonian cycle in the knight’s graph.
-            </dd>
-        </dl>
-    </details>
-
-    <details>
-        <summary>8. Uniquely Hamiltonian graphs</summary>
-        <dl class="def-list">
-            <dt>Uniquely Hamiltonian</dt>
-            <dd>
-                \( G \) is uniquely Hamiltonian if it has exactly one Hamiltonian
-                cycle: exactly one set of edges that forms a cycle through every
-                vertex.
-            </dd>
-            <dt>Cycle graphs</dt>
-            <dd>
-                Every \( C_n \) is uniquely Hamiltonian. These are the trivial
-                2-regular examples.
-            </dd>
-            <dt>Sheehan’s conjecture (1975)</dt>
-            <dd>
-                The only simple regular uniquely Hamiltonian graphs are the
-                2-regular ones. The odd-regular case is settled (Thomason).
-                The even-regular case, from 4-regular graphs onward, is open.
-            </dd>
-            <dt>Fleischner’s construction</dt>
-            <dd>
-                From the Petersen graph one can build a uniquely Hamiltonian
-                4-regular multigraph, by way of an Eulerian \( (4,6) \)-regular
-                graph. Whether the same construction works for other snarks is a
-                separate question.
+                A bijection \( f \colon V(G) \to V(H) \) such that \( \{u,v\} \)
+                is an edge of \( G \) if and only if \( \{f(u), f(v)\} \) is an
+                edge of \( H \). Then \( G \) and \( H \) are the same graph,
+                drawn differently. An automorphism is an isomorphism from
+                \( G \) to itself.
             </dd>
         </dl>
     </details>

@@ -48,11 +48,11 @@
                     Always \( \sum_v d(v) = 2|E| \). If every degree is \( r \),
                     the graph is \( r \)-regular; 3-regular graphs are cubic.
                 </dd>
-                <dt>Walk, trail, path, cycle</dt>
+                <dt>Walk, trail, path, circuit, cycle</dt>
                 <dd>
-                    A walk is a sequence of adjacent vertices. A trail repeats no
-                    edge; a path repeats no vertex. A cycle is a closed path of
-                    length at least 3.
+                    A walk is a sequence of edges. A trail repeats no edge; a path
+                    repeats no vertex. A circuit is a closed path. A cycle is a
+                    closed trail that enters and leaves a vertex at most once.
                 </dd>
                 <dt>Connected and tree</dt>
                 <dd>
@@ -68,8 +68,20 @@
                 <dt>Eulerian and Hamiltonian</dt>
                 <dd>
                     Eulerian: a closed trail through every edge. A connected graph
-                    has one iff every degree is even. Hamiltonian: a cycle through
+                    has one iff every degree is even. Hamiltonian: a circuit through
                     every vertex. Uniquely Hamiltonian: exactly one such cycle.
+                </dd>
+                <dt>Dominating cycle</dt>
+                <dd>
+                    Every vertex is on the cycle or adjacent to it:
+                    \( S \cup N(S) = V \).
+                </dd>
+                <dt>Transition and compatibility</dt>
+                <dd>
+                    At a vertex, a transition pairs the entering and leaving edges
+                    of an Eulerian circuit. A cycle decomposition \( S \) is
+                    compatible with a trail \( T \) when
+                    \( X_T \cap X_S = \emptyset \).
                 </dd>
             </dl>
 
