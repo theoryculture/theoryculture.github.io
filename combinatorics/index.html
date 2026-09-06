@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinatorics | Basic Definitions | Sachal Abdullah</title>
+    <meta name="description" content="Basic combinatorics: counting, binomial coefficients, permutations, the pigeonhole principle, double counting, inclusion-exclusion, and Mantel's theorem. Notes by Sachal Abdullah.">
+    <link rel="canonical" href="https://theoryculture.github.io/combinatorics/">
+    <meta property="og:title" content="Combinatorics: Basic Definitions | Sachal Abdullah">
+    <meta property="og:description" content="A first vocabulary for combinatorics: counting, binomial coefficients, pigeonhole, double counting, and extremal graph theory.">
+    <meta property="og:url" content="https://theoryculture.github.io/combinatorics/">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="/assets/main.css">
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<header class="nav-header">
+    <a href="/mathematics/" class="back-link">← Back to Mathematics</a>
+</header>
+
+<article>
+<div class="hero">
+    <h1>Combinatorics</h1>
+    <p class="tagline">Basic definitions</p>
+</div>
+
+<div class="content">
+
+    <p class="lead">
+        Combinatorics asks how many, whether any, and how they sit together.
+        Counting, existence, and structure. Graph theory is one of its
+        languages; the notes below are the first vocabulary that is not
+        already on the <a href="/graph-theory/">graph theory</a> page.
+    </p>
+
+    <details open>
+        <summary>1. What is being counted</summary>
+        <dl class="def-list">
+            <dt>Combinatorics</dt>
+            <dd>
+                The mathematics of finite configurations: selections, arrangements,
+                and designs. Three typical questions: how many objects of a given
+                kind exist; whether at least one exists; what the extremal size is.
+            </dd>
+            <dt>Counting, existence, structure</dt>
+            <dd>
+                Counting produces a number. Existence produces a yes or a no, often
+                by construction or by a counting argument that forbids zero.
+                Structure asks what the objects look like: unique, many, or forced
+                into a particular shape.
+            </dd>
+            <dt>Finite set</dt>
+            <dd>
+                A set \( X \) with \( |X| = n &lt; \infty \). Most of the formulae
+                below are for finite sets. The empty set has size \( 0 \).
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>2. Sets, subsets, and binomial coefficients</summary>
+        <dl class="def-list">
+            <dt>Power set</dt>
+            <dd>
+                The power set \( \mathcal{P}(X) \) is the set of all subsets of
+                \( X \). If \( |X| = n \), then \( |\mathcal{P}(X)| = 2^n \).
+            </dd>
+            <dt>Binomial coefficient</dt>
+            <dd>
+                \( \binom{n}{k} \) is the number of \( k \)-element subsets of an
+                \( n \)-element set.
+                <span class="formula">\[
+                    \binom{n}{k} = \frac{n!}{k!\,(n-k)!}
+                    \qquad (0 \le k \le n).
+                \]</span>
+                Also \( \binom{n}{k} = 0 \) when \( k &lt; 0 \) or \( k &gt; n \),
+                and \( \binom{n}{0} = \binom{n}{n} = 1 \).
+            </dd>
+            <dt>Pascal's identity</dt>
+            <dd>
+                A \( k \)-subset of \( \{1,\ldots,n\} \) either contains \( n \)
+                or it does not:
+                <span class="formula">\[
+                    \binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}.
+                \]</span>
+            </dd>
+            <dt>Binomial theorem</dt>
+            <dd>
+                <span class="formula">\[
+                    (x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^{k}.
+                \]</span>
+                The row sums of Pascal's triangle are the powers of two:
+                \( \sum_k \binom{n}{k} = 2^n \).
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>3. Permutations and combinations</summary>
+        <dl class="def-list">
+            <dt>Permutation</dt>
+            <dd>
+                An ordered arrangement of \( n \) distinct objects. There are
+                \( n! \) of them. The number of injective maps from a
+                \( k \)-set into an \( n \)-set is
+                \( P(n,k) = n(n-1)\cdots(n-k+1) = n!/(n-k)! \).
+            </dd>
+            <dt>Combination</dt>
+            <dd>
+                An unordered selection. The number of ways to choose \( k \)
+                objects from \( n \) is \( \binom{n}{k} \). Order is forgotten:
+                \( P(n,k) = k!\,\binom{n}{k} \).
+            </dd>
+            <dt>With repetition</dt>
+            <dd>
+                The number of ways to choose \( k \) elements from \( n \) types,
+                repetition allowed, order ignored, is
+                \( \binom{n+k-1}{k} \). This is the “stars and bars” count of
+                non-negative integer solutions to \( x_1 + \cdots + x_n = k \).
+            </dd>
+            <dt>Multinomial coefficient</dt>
+            <dd>
+                The number of ways to partition \( n \) distinct objects into
+                labelled groups of sizes \( n_1,\ldots,n_r \) with
+                \( n_1+\cdots+n_r = n \) is
+                \( n!/(n_1! \cdots n_r!) \).
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>4. Pigeonhole principle</summary>
+        <dl class="def-list">
+            <dt>Pigeonhole</dt>
+            <dd>
+                If \( n+1 \) pigeons occupy \( n \) holes, some hole contains at
+                least two pigeons. More generally: if \( n \) objects are placed
+                in \( k \) boxes, some box contains at least
+                \( \lceil n/k \rceil \) objects.
+            </dd>
+            <dt>Why it is useful</dt>
+            <dd>
+                It proves existence without exhibiting the object. In any simple
+                graph on \( n \ge 2 \) vertices, two vertices have the same degree:
+                the possible degrees are \( 0,1,\ldots,n-1 \), but \( 0 \) and
+                \( n-1 \) cannot occur together, so there are at most \( n-1 \)
+                possible values for \( n \) vertices.
+            </dd>
+            <dt>A court of pigeons</dt>
+            <dd>
+                The same principle is a writing prompt as much as a lemma. The
+                mathematics is the collision; the story is who is forced to share
+                a hole.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>5. Double counting and bijections</summary>
+        <dl class="def-list">
+            <dt>Bijection</dt>
+            <dd>
+                A one-to-one correspondence. If there is a bijection between two
+                finite sets, they have the same size. Many identities are proved
+                by exhibiting such a map rather than by algebra.
+            </dd>
+            <dt>Double counting</dt>
+            <dd>
+                Count the same collection in two ways. The two expressions are
+                equal. The handshaking lemma is the graph-theoretic instance:
+                counting vertex–edge incidences from vertices and from edges
+                gives \( \sum_v d(v) = 2|E| \).
+            </dd>
+            <dt>Complementary counting</dt>
+            <dd>
+                Count the objects that fail the condition, and subtract from the
+                total. Often cleaner than building the good objects directly.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>6. Inclusion-exclusion</summary>
+        <dl class="def-list">
+            <dt>Two sets</dt>
+            <dd>
+                <span class="formula">\[
+                    |A \cup B| = |A| + |B| - |A \cap B|.
+                \]</span>
+            </dd>
+            <dt>Three sets</dt>
+            <dd>
+                Add the three sizes, subtract the three double intersections,
+                add back the triple intersection. The pattern continues: add the
+                odd intersections, subtract the even ones.
+            </dd>
+            <dt>Derangements</dt>
+            <dd>
+                A derangement is a permutation with no fixed point. Inclusion-exclusion
+                gives the count
+                <span class="formula">\[
+                    n! \sum_{k=0}^{n} \frac{(-1)^k}{k!},
+                \]</span>
+                which is the nearest integer to \( n!/e \) for \( n \ge 1 \).
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>7. Graphs as combinatorics</summary>
+        <p>
+            A graph is a finite set of vertices together with a set of unordered
+            pairs. Once that is granted, extremal questions appear immediately.
+        </p>
+        <dl class="def-list">
+            <dt>How many edges?</dt>
+            <dd>
+                A simple graph on \( n \) vertices has at most \( \binom{n}{2} \)
+                edges, with equality only for \( K_n \).
+            </dd>
+            <dt>Mantel's theorem</dt>
+            <dd>
+                A triangle-free simple graph on \( n \) vertices has at most
+                \( \lfloor n^2/4 \rfloor \) edges. Equality holds for the complete
+                bipartite graph \( K_{\lfloor n/2 \rfloor, \lceil n/2 \rceil} \).
+                This is the first theorem of extremal graph theory; Turán's theorem
+                extends it from triangles to \( K_r \).
+            </dd>
+            <dt>Ramsey, in one sentence</dt>
+            <dd>
+                Complete disorder is impossible: in any sufficiently large complete
+                graph whose edges are coloured red and blue, a monochromatic
+                triangle (and, later, a monochromatic \( K_r \)) is forced.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>8. Existence versus construction</summary>
+        <dl class="def-list">
+            <dt>Existence</dt>
+            <dd>
+                A counting or probabilistic argument may show that an object
+                exists without producing it. The probabilistic method is the
+                organised form of this idea.
+            </dd>
+            <dt>Construction</dt>
+            <dd>
+                An explicit example. Constructions are harder, and they travel:
+                a single graph can be reused as a counterexample in several
+                conjectures.
+            </dd>
+            <dt>Uniqueness</dt>
+            <dd>
+                Sometimes there is exactly one object of a given kind. A uniquely
+                Hamiltonian graph is the graph-theoretic instance: exactly one
+                cycle through every vertex. Existence, construction, and uniqueness
+                are three different kinds of answer.
+            </dd>
+        </dl>
+    </details>
+
+</div>
+</article>
+
+</body>
+</html>

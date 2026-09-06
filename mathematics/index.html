@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics | Sachal Abdullah</title>
-    <meta name="description" content="Mathematics notes by Sachal Abdullah. Graph theory: vertices, edges, degree, walks, trees, Eulerian and Hamiltonian graphs.">
+    <meta name="description" content="Mathematics notes by Sachal Abdullah. Graph theory, combinatorics, and recreational mathematics: definitions, Königsberg, knight's tours, Mantel's theorem.">
     <link rel="canonical" href="https://theoryculture.github.io/mathematics/">
     <link rel="stylesheet" href="/assets/main.css">
 </head>
@@ -75,6 +75,103 @@
 
             <p>
                 <a class="topic-more" href="/graph-theory/">Full Graph Theory notes →</a>
+            </p>
+        </div>
+    </details>
+
+    <details>
+        <summary>Combinatorics</summary>
+
+        <div class="topic-body">
+            <p>
+                Combinatorics asks how many, whether any, and how they sit
+                together. Counting, existence, and structure.
+            </p>
+
+            <dl class="def-list">
+                <dt>Binomial coefficient</dt>
+                <dd>
+                    \( \binom{n}{k} \) counts the \( k \)-subsets of an
+                    \( n \)-set. Pascal: \( \binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1} \).
+                </dd>
+                <dt>Permutation and combination</dt>
+                <dd>
+                    Order matters for a permutation (\( n! \) of \( n \) objects).
+                    A combination forgets order: \( P(n,k) = k!\,\binom{n}{k} \).
+                </dd>
+                <dt>Pigeonhole</dt>
+                <dd>
+                    \( n+1 \) pigeons, \( n \) holes: some hole holds at least two.
+                    Existence without a construction.
+                </dd>
+                <dt>Double counting</dt>
+                <dd>
+                    Count one collection two ways. Handshaking is the graph case:
+                    \( \sum_v d(v) = 2|E| \).
+                </dd>
+                <dt>Inclusion-exclusion</dt>
+                <dd>
+                    \( |A \cup B| = |A| + |B| - |A \cap B| \). Derangements are
+                    the permutation instance.
+                </dd>
+                <dt>Mantel's theorem</dt>
+                <dd>
+                    A triangle-free graph on \( n \) vertices has at most
+                    \( \lfloor n^2/4 \rfloor \) edges, with equality for the
+                    balanced complete bipartite graph.
+                </dd>
+            </dl>
+
+            <p>
+                <a class="topic-more" href="/combinatorics/">Full Combinatorics notes →</a>
+            </p>
+        </div>
+    </details>
+
+    <details>
+        <summary>Recreational Mathematics</summary>
+
+        <div class="topic-body">
+            <p>
+                Several of the central words in graph theory began as games:
+                a walk through a city, a knight on a board, a dodecahedron
+                you could hold.
+            </p>
+
+            <dl class="def-list">
+                <dt>Königsberg</dt>
+                <dd>
+                    Seven bridges, four odd-degree vertices. No walk crosses
+                    each bridge once. Euler's theorem: a connected graph is
+                    Eulerian iff every degree is even.
+                </dd>
+                <dt>Knight's tour</dt>
+                <dd>
+                    Visit every square of the board by knight moves. That is a
+                    Hamiltonian path in the knight's graph; a closed tour is a
+                    Hamiltonian cycle.
+                </dd>
+                <dt>Icosian game</dt>
+                <dd>
+                    Hamilton's 1857 game on the dodecahedron: a Hamiltonian
+                    cycle you can hold. Unlike the Eulerian case, there is no
+                    simple degree test.
+                </dd>
+                <dt>One-stroke drawings</dt>
+                <dd>
+                    Zero odd vertices: start anywhere and close. Two: start at
+                    one odd vertex, end at the other. More than two: put the
+                    pencil down.
+                </dd>
+                <dt>When it stops being a game</dt>
+                <dd>
+                    A single board becomes a class of graphs. Uniquely
+                    Hamiltonian means exactly one cycle through every vertex.
+                </dd>
+            </dl>
+
+            <p>
+                <a class="topic-more" href="/recreational-mathematics/">Full Recreational Mathematics notes →</a>
             </p>
         </div>
     </details>

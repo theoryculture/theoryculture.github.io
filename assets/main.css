@@ -162,6 +162,53 @@ summary {
     line-height: 1.7;
 }
 
+.lead {
+    color: #ccc;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.formula {
+    overflow-x: auto;
+}
+
+.note-fig {
+    margin: 24px 0;
+    text-align: center;
+}
+
+.note-fig img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.note-fig figcaption {
+    color: #888;
+    font-size: 0.95rem;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+}
+
+.contact-list li {
+    margin-bottom: 14px;
+    color: #ccc;
+}
+
+.contact-list span {
+    display: block;
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+}
+
 /* ===== TUTORING ===== */
 
 .tutoring-list li {
