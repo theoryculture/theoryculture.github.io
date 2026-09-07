@@ -9,6 +9,7 @@
 html {
     color-scheme: light;
     -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -110,6 +111,7 @@ a:focus-visible {
     max-width: 44rem;
     margin: 0 auto;
     padding: 0.75rem 1.25rem 4rem;
+    overflow-wrap: break-word;
 }
 
 .lead {
@@ -193,6 +195,101 @@ a:focus-visible {
     padding: 0 0 0 2.5em;
     text-indent: -2.5em;
     line-height: 1.7;
+}
+
+/* ===== PORTFOLIO ===== */
+
+.content h2 {
+    margin: 2.2rem 0 0.85rem;
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid #d9d2c5;
+    padding-bottom: 0.25rem;
+}
+
+.content h2:first-of-type {
+    margin-top: 1.8rem;
+}
+
+.cv-entry {
+    margin: 0 0 1.5rem;
+}
+
+.cv-entry h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.cv-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.6rem 1.2rem;
+    flex-wrap: wrap;
+}
+
+.cv-head h3 {
+    flex: 1 1 12rem;
+}
+
+.cv-dates {
+    color: #5c564e;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.cv-place,
+.cv-field {
+    margin: 0.15rem 0 0.45rem;
+    color: #5c564e;
+    font-style: italic;
+}
+
+.cv-entry ul {
+    margin: 0.2rem 0 0 1.2em;
+    padding: 0;
+}
+
+.cv-entry li {
+    margin-bottom: 0.35rem;
+}
+
+.cv-supervisor {
+    margin: 0.45rem 0 0;
+    color: #3f3a34;
+}
+
+.skill-list {
+    margin: 0.4rem 0 0;
+}
+
+.skill-list div {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 0.4rem 1rem;
+    margin: 0 0 0.55rem;
+}
+
+.skill-list dt {
+    color: #5c564e;
+    font-weight: 400;
+}
+
+.skill-list dd {
+    margin: 0;
+}
+
+.activity-list {
+    margin: 0.4rem 0 0 1.2em;
+    padding: 0;
+}
+
+.activity-list li {
+    margin-bottom: 0.65rem;
 }
 
 /* ===== CONTACT ===== */
@@ -396,6 +493,33 @@ summary {
 
     .site-nav {
         width: 100%;
+        gap: 0.3rem 0.75rem;
+    }
+
+    .site-nav a {
+        flex: 0 0 auto;
+    }
+
+    .skill-list div {
+        grid-template-columns: 1fr;
+        gap: 0.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header,
+    .hero,
+    .content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .site-nav {
+        gap: 0.35rem 0.65rem;
+    }
+
+    .site-nav a {
+        font-size: 0.9rem;
     }
 }
 
