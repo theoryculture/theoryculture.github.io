@@ -88,7 +88,7 @@
                 '<div class="cover-kicker">Sachal Abdullah</div>' +
                 "<h1><span>Graph</span><span>Theory</span><span class=\"art\">Art</span></h1>" +
                 '<div class="slash" aria-hidden="true"></div>' +
-                '<div class="cover-foot"><span>' + ctx.totalPlates + ' plates</span><span>2026</span></div>' +
+                '<div class="cover-foot"><span>' + ctx.totalPlates + ' plates</span><span>© 2026</span></div>' +
                 "</div>"
             );
         }
@@ -110,7 +110,7 @@
                 '<p class="kicker">A printed notebook</p>' +
                 "<h2>Uniquely<br>Hamiltonian<br>graphs</h2>" +
                 "<p>Drawings from a working notebook: vertices, edges, transitions, snarks, and constructions. Compiled from TikZ. One plate per page.</p>" +
-                '<div class="title-foot"><span>Sachal Abdullah</span><span>Graph theory</span></div>' +
+                '<div class="title-foot"><span>Sachal Abdullah</span><span>© 2026</span></div>' +
                 "</div>"
             );
         }
@@ -173,6 +173,7 @@
                 "<h2>Colophon</h2>" +
                 "<p>" + page.total + " plates. Drawn in Mathcha and compiled from TikZ. Where a sheet held several diagrams, each diagram is its own plate.</p>" +
                 "<p>No titles on the plates. The vocabulary is on the <a href=\"/graph-theory/\">graph theory notes</a>.</p>" +
+                "<p>© 2026 Sachal Abdullah. All rights reserved. The plates may not be copied, reproduced, or used without permission.</p>" +
                 "<p>Sachal Abdullah · Prague · 2026</p>" +
                 "</div>"
             );
