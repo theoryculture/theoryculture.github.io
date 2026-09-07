@@ -230,6 +230,38 @@ summary {
     margin-bottom: 2px;
 }
 
+.pub-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+}
+
+.pub-list li {
+    margin: 0 0 28px;
+    padding: 0 0 28px;
+    border-bottom: 1px solid #333;
+}
+
+.pub-list li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.pub-list cite {
+    display: block;
+    font-style: italic;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.pub-meta {
+    color: #888;
+    margin: 8px 0 0;
+}
+
 /* ===== TUTORING ===== */
 
 .tutoring-list li {
@@ -440,12 +472,8 @@ summary {
     padding: 20px 28px 48px;
 }
 
-.home-grid .card:nth-child(-n+3) {
+.home-grid .card {
     grid-column: span 2;
-}
-
-.home-grid .card:nth-child(n+4) {
-    grid-column: span 3;
 }
 
 .home-foot {
@@ -567,8 +595,7 @@ summary {
         padding: 12px 20px 36px;
     }
 
-    .home-grid .card:nth-child(-n+3),
-    .home-grid .card:nth-child(n+4) {
+    .home-grid .card {
         grid-column: auto;
     }
 
