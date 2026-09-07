@@ -1,153 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | Sachal Abdullah</title>
+    <meta name="description" content="Research of Sachal Abdullah: uniquely Hamiltonian graphs, and which graphs cannot have a unique Hamiltonian cycle.">
+    <link rel="canonical" href="https://theoryculture.github.io/research/">
     <link rel="stylesheet" href="/assets/main.css">
-    <style>
-        body {
-            background-color: #121212;
-            color: #e0e0e0;
-            font-family: 'Inter', -apple-system, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Top-left Return Button */
-        .nav-header {
-            padding: 20px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 10;
-        }
-
-        .back-link {
-            color: #888;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .back-link:hover {
-            color: #ff6b6b;
-        }
-
-        .hero {
-            padding: 60px 20px 0px; /* Adjusted for nav-header space */
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin: 0;
-            color: #ffffff;
-        }
-
-        .tagline {
-            color: #888;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            margin-top: 5px;
-        }
-
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 10px 20px;
-            line-height: 1.8;
-            color: #bbbbbb;
-            text-align: center;
-        }
-
-        .graph-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px 0 60px;
-        }
-
-        .graph-container svg {
-            width: 500px;
-            height: 500px;
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.6));
-            overflow: visible;
-        }
-
-        .graph-caption {
-            margin-top: 20px;
-            color: #888;
-            font-size: 0.95rem;
-            font-style: italic;
-            letter-spacing: 0.5px;
-        }
-
-        /* GRAPH STYLING - UNCHANGED */
-        .base-edge { 
-            fill: none; 
-            stroke: #444; 
-            stroke-width: 2.5; 
-            stroke-linejoin: round; 
-            stroke-linecap: round;
-            stroke-dasharray: 1;
-            stroke-dashoffset: 1;
-            animation: drawEdges 3s ease-out forwards;
-        }
-
-        circle { 
-            fill: #ff6b6b; 
-            stroke: #121212; 
-            stroke-width: 2; 
-            opacity: 0;
-            transform: scale(0.5);
-            transform-origin: center;
-            animation: popIn 0.5s ease forwards;
-            animation-delay: 2.5s;
-        }
-
-        .cycle {
-            stroke: #ff3b3b;
-            stroke-width: 4;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-            stroke-dasharray: 1;
-            stroke-dashoffset: 1;
-            animation: drawCycle 6s linear forwards;
-            animation-delay: 4s;
-        }
-
-        @keyframes drawEdges { to { stroke-dashoffset: 0; } }
-        @keyframes drawCycle { to { stroke-dashoffset: 0; } }
-        @keyframes popIn { to { opacity: 1; transform: scale(1); } }
-    </style>
 </head>
 <body>
 
-<header class="nav-header">
-    <a href="/" class="back-link">← Return Home</a>
+<header class="site-header">
+    <a class="site-id" href="/">Sachal Abdullah</a>
+    <nav class="site-nav" aria-label="Site">
+        <a href="/research/" aria-current="page">Research</a>
+        <a href="/publications/">Publications</a>
+        <a href="/mathematics/">Notes</a>
+        <a href="/tutoring/">Teaching</a>
+        <a href="/assets/cv.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="/contact/">Contact</a>
+    </nav>
 </header>
 
 <div class="hero">
     <h1>Research</h1>
-    <p class="tagline">Graph Theory · Combinatorics · Discrete Mathematics</p>
 </div>
 
 <div class="content">
     <p>
-        My research interests lie in graph theory and discrete mathematics. I am especially interested in problems related to the existence and characterization of unique Hamiltonian cycles.
-    </p>
-    <p>
-        In general, I am interested in construction of uniquely Hamiltonian graphs and exploring which classes of graphs cannot be uniquely Hamiltonian.
+        I work in graph theory, on the existence and characterisation of unique
+        Hamiltonian cycles: when a graph has exactly one cycle through every
+        vertex, and which classes of graphs cannot.
     </p>
 </div>
 
 <div class="graph-container">
-    <svg viewBox="0 0 400 400" class="graph">
+    <svg viewBox="0 0 400 400" class="graph" aria-hidden="true">
         <polygon class="base-edge" pathLength="1" points="200,20 371,144 306,346 94,346 29,144" />
         <polygon class="base-edge" pathLength="1" points="200,80 241,143 314,163 267,222 271,297 200,270 129,297 133,222 86,163 159,143" />
         <polygon class="base-edge" pathLength="1" points="218,176 229,209 200,230 171,209 182,176" />
@@ -169,26 +57,26 @@
         <circle cx="218" cy="176" r="5"/><circle cx="229" cy="209" r="5"/><circle cx="200" cy="230" r="5"/><circle cx="171" cy="209" r="5"/><circle cx="182" cy="176" r="5"/>
 
         <polyline class="cycle" pathLength="1" points="
-            200,20 
-            29,144 
-            94,346 
-            129,297 
-            200,270 
-            271,297 
-            306,346 
-            371,144 
-            314,163 
-            267,222 
-            229,209 
-            200,230 
-            171,209 
-            133,222 
-            86,163 
-            159,143 
-            182,176 
-            218,176 
-            241,143 
-            200,80 
+            200,20
+            29,144
+            94,346
+            129,297
+            200,270
+            271,297
+            306,346
+            371,144
+            314,163
+            267,222
+            229,209
+            200,230
+            171,209
+            133,222
+            86,163
+            159,143
+            182,176
+            218,176
+            241,143
+            200,80
             200,20" />
     </svg>
     <div class="graph-caption">Dodecahedral graph with a Hamiltonian cycle</div>
