@@ -1,11 +1,24 @@
 /* ===== GLOBAL ===== */
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+}
+
 body {
     background: #121212;
     color: #eaeaea;
     font-family: Georgia, serif;
     margin: 0;
     overflow-x: hidden;
+    max-width: 100%;
 }
 
 h1, h2, h3 {
@@ -92,6 +105,14 @@ p {
 
 .card h2 {
     margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+}
+
+.card p {
+    color: #9a9a9a;
+    margin: 0;
+    overflow-wrap: break-word;
 }
 
 /* ===== LINKS ===== */
@@ -259,6 +280,199 @@ summary {
     stroke-width: 2;
 }
 
+/* ===== HOME ===== */
+
+.page-home {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse 70% 55% at 78% 28%, #1c1328 0%, #121212 58%);
+}
+
+.home-stage {
+    position: relative;
+    overflow: hidden;
+    padding: 72px 28px 32px;
+}
+
+.home-graph {
+    position: absolute;
+    right: -4%;
+    top: 52%;
+    width: min(640px, 64vw);
+    transform: translateY(-50%);
+    opacity: 0.32;
+    pointer-events: none;
+    contain: layout paint;
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
+}
+
+.home-graph svg {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: block;
+}
+
+.home-edge {
+    fill: none;
+    stroke: #5a4a6a;
+    stroke-width: 2.2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: homeDrawEdges 2.8s ease-out forwards;
+}
+
+.home-graph circle {
+    fill: #ff6b6b;
+    stroke: #121212;
+    stroke-width: 2;
+    opacity: 0;
+    transform: scale(0.5);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: homePopIn 0.45s ease forwards;
+    animation-delay: 2.4s;
+}
+
+.home-cycle {
+    fill: none;
+    stroke: #c43c6a;
+    stroke-width: 3.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: homeDrawCycle 5.5s linear forwards;
+    animation-delay: 3.2s;
+}
+
+@keyframes homeDrawEdges { to { stroke-dashoffset: 0; } }
+@keyframes homeDrawCycle { to { stroke-dashoffset: 0; } }
+@keyframes homePopIn { to { opacity: 1; transform: scale(1); } }
+
+.home-layout {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 980px;
+    min-width: 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 36px 48px;
+    align-items: center;
+}
+
+.home-copy {
+    min-width: 0;
+}
+
+.home-kicker {
+    margin: 0 0 10px;
+    color: #b39dd4;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+}
+
+.home-copy h1 {
+    margin: 0 0 18px;
+    font-size: clamp(2.4rem, 5vw, 3.55rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.home-lede {
+    margin: 0;
+    max-width: 34em;
+    color: #cfcfcf;
+    font-size: 1.18rem;
+    line-height: 1.65;
+    overflow-wrap: break-word;
+}
+
+.home-actions {
+    margin: 28px 0 0;
+}
+
+.home-actions a {
+    color: #d7c2ee;
+    text-decoration: none;
+    border-bottom: 1px solid #6a0dad;
+    padding-bottom: 2px;
+    margin-right: 1.35em;
+}
+
+.home-actions a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.home-portrait-wrap {
+    justify-self: center;
+}
+
+.home-portrait {
+    display: block;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 18%;
+    border: 3px solid #6a0dad;
+    box-shadow:
+        0 0 0 10px #121212,
+        0 0 0 11px rgba(106, 13, 173, 0.55),
+        0 22px 48px rgba(0, 0, 0, 0.55);
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 18px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 20px 28px 48px;
+}
+
+.home-grid .card:nth-child(-n+3) {
+    grid-column: span 2;
+}
+
+.home-grid .card:nth-child(n+4) {
+    grid-column: span 3;
+}
+
+.home-foot {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 28px 40px;
+    color: #777;
+    font-size: 0.95rem;
+}
+
+.home-foot a {
+    color: #888;
+    text-decoration: none;
+}
+
+.home-foot a:hover {
+    color: #d7c2ee;
+    text-decoration: none;
+}
+
+.card:focus-visible,
+.home-actions a:focus-visible,
+.home-foot a:focus-visible {
+    outline: 2px solid #b39dd4;
+    outline-offset: 4px;
+}
+
 /* ===== MOBILE ===== */
 
 @media (max-width: 768px) {
@@ -275,5 +489,102 @@ summary {
     .graph-container svg {
         width: 95%;
         height: auto;
+    }
+
+    .home-stage {
+        min-height: auto;
+        padding: 36px 20px 8px;
+    }
+
+    .home-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 28px;
+    }
+
+    .home-portrait-wrap {
+        order: -1;
+    }
+
+    .home-kicker {
+        letter-spacing: 0.08em;
+        font-size: 0.7rem;
+        line-height: 1.55;
+        max-width: 16rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-copy h1 {
+        font-size: 2.15rem;
+    }
+
+    .home-lede {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.05rem;
+        max-width: 100%;
+        width: 100%;
+        padding: 0 4px;
+    }
+
+    .home-layout,
+    .home-copy,
+    .home-grid,
+    .home-grid .card,
+    .home-foot {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .home-actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 0;
+    }
+
+    .home-actions a {
+        margin: 0 0.7em;
+    }
+
+    .home-portrait {
+        width: 200px;
+        height: 200px;
+    }
+
+    .home-graph {
+        right: auto;
+        left: 50%;
+        top: 12px;
+        width: min(420px, 92vw);
+        transform: translateX(-50%);
+        opacity: 0.18;
+    }
+
+    .home-grid {
+        grid-template-columns: 1fr;
+        padding: 12px 20px 36px;
+    }
+
+    .home-grid .card:nth-child(-n+3),
+    .home-grid .card:nth-child(n+4) {
+        grid-column: auto;
+    }
+
+    .home-foot {
+        text-align: center;
+        padding: 0 20px 32px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-edge,
+    .home-cycle,
+    .home-graph circle {
+        animation: none;
+        stroke-dashoffset: 0;
+        opacity: 1;
+        transform: none;
     }
 }

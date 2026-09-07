@@ -3,57 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sachal Abdullah</title>
-
+    <title>Sachal Abdullah — Graph Theory</title>
+    <meta name="description" content="Sachal Abdullah, graph theorist in Prague. Uniquely Hamiltonian graphs, combinatorics, notes, and tutoring.">
+    <link rel="canonical" href="https://theoryculture.github.io/">
+    <meta property="og:title" content="Sachal Abdullah — Graph Theory">
+    <meta property="og:description" content="Uniquely Hamiltonian graphs, combinatorics, notes, and tutoring. Prague.">
+    <meta property="og:url" content="https://theoryculture.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
     <link rel="stylesheet" href="/assets/main.css">
 </head>
+<body class="page-home">
 
-<body>
+<section class="home-stage">
+    <div class="home-graph" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+            <polygon class="home-edge" pathLength="1" points="200,20 371,144 306,346 94,346 29,144" />
+            <polygon class="home-edge" pathLength="1" points="200,80 241,143 314,163 267,222 271,297 200,270 129,297 133,222 86,163 159,143" />
+            <polygon class="home-edge" pathLength="1" points="218,176 229,209 200,230 171,209 182,176" />
 
-<div class="hero">
+            <line class="home-edge" pathLength="1" x1="200" y1="20"  x2="200" y2="80" />
+            <line class="home-edge" pathLength="1" x1="371" y1="144" x2="314" y2="163" />
+            <line class="home-edge" pathLength="1" x1="306" y1="346" x2="271" y2="297" />
+            <line class="home-edge" pathLength="1" x1="94"  y1="346" x2="129" y2="297" />
+            <line class="home-edge" pathLength="1" x1="29"  y1="144" x2="86"  y2="163" />
+            <line class="home-edge" pathLength="1" x1="241" y1="143" x2="218" y2="176" />
+            <line class="home-edge" pathLength="1" x1="267" y1="222" x2="229" y2="209" />
+            <line class="home-edge" pathLength="1" x1="200" y1="270" x2="200" y2="230" />
+            <line class="home-edge" pathLength="1" x1="133" y1="222" x2="171" y2="209" />
+            <line class="home-edge" pathLength="1" x1="159" y1="143" x2="182" y2="176" />
 
-    <img src="/assets/images/profile.jpg"
-         alt="Sachal Abdullah"
-         class="profile-img">
+            <circle cx="200" cy="20" r="5"/><circle cx="371" cy="144" r="5"/><circle cx="306" cy="346" r="5"/><circle cx="94"  cy="346" r="5"/><circle cx="29"  cy="144" r="5"/>
+            <circle cx="200" cy="80" r="5"/><circle cx="314" cy="163" r="5"/><circle cx="271" cy="297" r="5"/><circle cx="129" cy="297" r="5"/><circle cx="86"  cy="163" r="5"/>
+            <circle cx="241" cy="143" r="5"/><circle cx="267" cy="222" r="5"/><circle cx="200" cy="270" r="5"/><circle cx="133" cy="222" r="5"/><circle cx="159" cy="143" r="5"/>
+            <circle cx="218" cy="176" r="5"/><circle cx="229" cy="209" r="5"/><circle cx="200" cy="230" r="5"/><circle cx="171" cy="209" r="5"/><circle cx="182" cy="176" r="5"/>
 
-    <h1>Sachal Abdullah</h1>
+            <polyline class="home-cycle" pathLength="1" points="
+                200,20
+                29,144
+                94,346
+                129,297
+                200,270
+                271,297
+                306,346
+                371,144
+                314,163
+                267,222
+                229,209
+                200,230
+                171,209
+                133,222
+                86,163
+                159,143
+                182,176
+                218,176
+                241,143
+                200,80
+                200,20" />
+        </svg>
+    </div>
 
-    <p class="tagline">
-        Graph Theory · Combinatorics · Recreational Mathematics
-    </p>
+    <div class="home-layout">
+        <div class="home-copy">
+            <p class="home-kicker">Graph theory · Combinatorics · Prague</p>
+            <h1>Sachal Abdullah</h1>
+            <p class="home-lede">
+                I work on uniquely Hamiltonian graphs: graphs with exactly one
+                cycle through every vertex. Notes, research, and tutoring.
+            </p>
+            <p class="home-actions">
+                <a href="/mathematics/">Mathematics</a>
+                <a href="/research/">Research</a>
+                <a href="/assets/cv.pdf" target="_blank" rel="noopener">CV</a>
+            </p>
+        </div>
+        <div class="home-portrait-wrap">
+            <img src="/assets/images/profile.jpg"
+                 alt="Sachal Abdullah"
+                 class="home-portrait"
+                 width="280"
+                 height="280">
+        </div>
+    </div>
+</section>
 
-</div>
-
-<div class="grid">
-
+<nav class="home-grid" aria-label="Site">
     <a href="/mathematics/" class="card">
         <h2>Mathematics</h2>
-        <p>Writings, Notes, and Lectures</p>
+        <p>Walks, cycles, counting, and the games that became theorems.</p>
     </a>
 
     <a href="/research/" class="card">
         <h2>Research</h2>
-        <p>Research interests and open problems</p>
+        <p>Graphs with exactly one Hamiltonian cycle, and which graphs cannot have one.</p>
     </a>
 
     <a href="/tutoring/" class="card">
-        <h2>Tutorings</h2>
-        <p>Lessons, guidance, and problem solving</p>
+        <h2>Tutoring</h2>
+        <p>Secondary school through university; discussions and problem solving.</p>
     </a>
 
     <a href="/contact/" class="card">
         <h2>Contact</h2>
-        <p>Email, LinkedIn, and tutoring</p>
+        <p>Email and LinkedIn, from Prague.</p>
     </a>
 
-    <a href="/assets/cv.pdf"
-       target="_blank"
-       class="card">
+    <a href="/assets/cv.pdf" target="_blank" rel="noopener" class="card">
         <h2>CV</h2>
-        <p>Academic background and experience</p>
+        <p>Academic background and teaching.</p>
     </a>
+</nav>
 
-</div>
+<footer class="home-foot">
+    <a href="mailto:sachalabdullah10@gmail.com">sachalabdullah10@gmail.com</a>
+</footer>
 
 </body>
 </html>
