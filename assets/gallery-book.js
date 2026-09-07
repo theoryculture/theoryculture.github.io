@@ -85,8 +85,10 @@
         if (page.type === "cover") {
             return (
                 '<div class="' + sideCls + 'cover">' +
-                '<div class="cover-kicker">Sachal Abdullah</div>' +
+                '<div class="cover-mast">' +
                 "<h1><span>Graph</span><span>Theory</span><span class=\"art\">Art</span></h1>" +
+                '<p class="cover-author">Sachal Abdullah</p>' +
+                "</div>" +
                 '<div class="slash" aria-hidden="true"></div>' +
                 '<div class="cover-foot"><span>' + ctx.totalPlates + ' plates</span><span>© 2026</span></div>' +
                 "</div>"

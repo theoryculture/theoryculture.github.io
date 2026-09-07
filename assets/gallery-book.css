@@ -476,27 +476,31 @@ body.gallery-single .reg-mark {
     overflow: hidden;
 }
 
-.leaf.cover .cover-kicker {
-    position: absolute;
-    top: 1.25rem;
-    left: 1.3rem;
-    font-size: 0.62rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--gt-spot);
-}
-
-.leaf.cover h1 {
+.leaf.cover .cover-mast {
     position: absolute;
     top: 2.5rem;
     left: 1.15rem;
     right: 0.7rem;
+}
+
+.leaf.cover h1 {
     margin: 0;
     font-family: var(--gt-display);
     font-weight: 800;
     font-size: clamp(2.6rem, 6.4vh, 4.15rem);
     line-height: 0.84;
     letter-spacing: -0.045em;
+    text-transform: uppercase;
+    color: #f3eee4;
+}
+
+.leaf.cover .cover-author {
+    margin: 1.15rem 0 0;
+    font-family: var(--gt-display);
+    font-weight: 800;
+    font-size: clamp(1.05rem, 2.5vh, 1.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
     color: #f3eee4;
 }
@@ -1121,10 +1125,19 @@ body.gallery-single .reg-mark {
         display: none;
     }
 
-    .leaf.cover h1 {
-        font-size: clamp(2rem, 9.2vw, 2.7rem);
+    .leaf.cover .cover-mast {
+        top: 1.6rem;
         left: 1rem;
         right: 0.55rem;
+    }
+
+    .leaf.cover h1 {
+        font-size: clamp(2rem, 9.2vw, 2.7rem);
+    }
+
+    .leaf.cover .cover-author {
+        margin-top: 0.85rem;
+        font-size: clamp(0.95rem, 4.2vw, 1.2rem);
     }
 
     body.page-gallery .site-header {
