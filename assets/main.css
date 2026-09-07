@@ -234,32 +234,19 @@ summary {
     list-style: none;
     padding: 0;
     margin: 8px 0 0;
+    max-width: 42em;
 }
 
 .pub-list li {
-    margin: 0 0 28px;
-    padding: 0 0 28px;
-    border-bottom: 1px solid #333;
+    margin: 0 0 1.25em;
+    padding: 0 0 0 2.6em;
+    text-indent: -2.6em;
+    color: #ccc;
+    line-height: 1.7;
 }
 
-.pub-list li:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.pub-list cite {
-    display: block;
-    font-style: italic;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 600;
-    line-height: 1.45;
-}
-
-.pub-meta {
-    color: #888;
-    margin: 8px 0 0;
+.pub-num {
+    color: #eaeaea;
 }
 
 /* ===== TUTORING ===== */
