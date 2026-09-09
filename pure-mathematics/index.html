@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Mathematics | Discrete Mathematics and Proof | Sachal Abdullah</title>
+    <meta name="description" content="Pure mathematics notes by Sachal Abdullah: definition, theorem, conjecture, and proof in discrete mathematics and combinatorial graph theory. Uniquely Hamiltonian graphs and Sheehan's conjecture.">
+    <meta name="author" content="Sachal Abdullah">
+    <link rel="canonical" href="https://theoryculture.github.io/pure-mathematics/">
+    <meta property="og:title" content="Pure Mathematics | Sachal Abdullah">
+    <meta property="og:description" content="Definition, theorem, conjecture, and proof. Discrete mathematics and combinatorial graph theory as pure mathematics.">
+    <meta property="og:url" content="https://theoryculture.github.io/pure-mathematics/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Sachal Abdullah">
+    <meta property="og:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Pure Mathematics | Sachal Abdullah">
+    <meta name="twitter:description" content="Definition, theorem, conjecture, and proof. Discrete mathematics and combinatorial graph theory.">
+    <meta name="twitter:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
+    <link rel="stylesheet" href="/assets/main.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Pure Mathematics: Discrete Mathematics and Proof",
+      "description": "Notes on definition, theorem, conjecture, and proof in discrete mathematics and combinatorial graph theory.",
+      "author": {
+        "@type": "Person",
+        "@id": "https://theoryculture.github.io/#person",
+        "name": "Sachal Abdullah",
+        "url": "https://theoryculture.github.io/"
+      },
+      "mainEntityOfPage": "https://theoryculture.github.io/pure-mathematics/",
+      "image": "https://theoryculture.github.io/assets/images/profile.jpg",
+      "about": ["Pure mathematics", "Discrete mathematics", "Graph theory", "Combinatorics"]
+    }
+    </script>
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+    <a class="site-id" href="/">Sachal Abdullah</a>
+    <nav class="site-nav" aria-label="Site">
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+        <a href="/mathematics/" aria-current="page">Notes</a>
+        <a href="/graph-theory-art-gallery/">Gallery</a>
+        <a href="/tutoring/">Teaching</a>
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/contact/">Contact</a>
+    </nav>
+</header>
+
+<article>
+<div class="hero">
+    <h1>Pure Mathematics</h1>
+    <p class="tagline">Definition, theorem, conjecture, proof</p>
+</div>
+
+<div class="content">
+
+    <p class="lead">
+        Pure mathematics asks what follows from the definitions, not what
+        a machine should do next. Graph theory and combinatorics sit in
+        that tradition: finite configurations, existence, uniqueness, and
+        the shape of a proof. The
+        <a href="/graph-theory/">graph theory</a> and
+        <a href="/combinatorics/">combinatorics</a> notes are the
+        vocabulary; this page is the surrounding language of proof.
+        The computational side is on
+        <a href="/computer-science/">computer science</a>.
+    </p>
+
+    <details open>
+        <summary>1. What is being asked</summary>
+        <dl class="def-list">
+            <dt>Pure mathematics</dt>
+            <dd>
+                The study of mathematical objects for their own structure:
+                numbers, sets, graphs, groups, spaces. A result is valued
+                because it is true and because the argument is the right
+                one, not because it immediately computes a schedule or a
+                shortest path.
+            </dd>
+            <dt>Discrete mathematics</dt>
+            <dd>
+                Mathematics of finite, or at least countable, configurations.
+                Combinatorics, graph theory, and finite set theory are the
+                usual core. Analysis and geometry are not absent from a
+                pure mathematician's education, but the research on this
+                site is discrete.
+            </dd>
+            <dt>Combinatorial graph theory</dt>
+            <dd>
+                Graphs treated as combinatorial objects: vertices, edges,
+                cycles, colourings, decompositions. Not the same question as
+                “how fast can an algorithm find a cycle,” though the two
+                questions talk to each other. See
+                <a href="/graph-theory/">Graph theory</a>.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>2. Definition, theorem, lemma, conjecture</summary>
+        <dl class="def-list">
+            <dt>Definition</dt>
+            <dd>
+                A name for a class of objects, fixed precisely enough that
+                two people can agree whether a given object belongs. A graph
+                is a pair \( (V,E) \). A Hamiltonian cycle is a circuit
+                through every vertex. Uniquely Hamiltonian means exactly one
+                such cycle.
+            </dd>
+            <dt>Theorem</dt>
+            <dd>
+                A statement that has been proved. Euler's theorem on
+                Eulerian circuits is a theorem: a connected graph has a
+                closed trail through every edge if and only if every degree
+                is even.
+            </dd>
+            <dt>Lemma</dt>
+            <dd>
+                A theorem whose main use is to prove another theorem. The
+                name is about the role in an argument, not about size.
+            </dd>
+            <dt>Conjecture</dt>
+            <dd>
+                A statement believed, or at least seriously asked, but not
+                proved. Sheehan's conjecture (1975) is one: there are no
+                uniquely Hamiltonian \( r \)-regular simple graphs for
+                \( r &gt; 2 \). The odd-regular case is settled; the
+                even-regular case remains open for
+                \( 4 \le r \le 20 \).
+            </dd>
+            <dt>Proof</dt>
+            <dd>
+                A finite sequence of inferences from the definitions and
+                from theorems already granted. A picture can suggest a
+                proof. It is not a proof until the steps can be written.
+            </dd>
+            <dt>Counterexample</dt>
+            <dd>
+                A single object that kills a general claim. In graph theory
+                a well-chosen snark, or a small multigraph, often does more
+                work than a long calculation.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>3. Existence, construction, uniqueness</summary>
+        <dl class="def-list">
+            <dt>Existence</dt>
+            <dd>
+                There is at least one object of a given kind. The
+                pigeonhole principle and the probabilistic method prove
+                existence without exhibiting the object. See
+                <a href="/combinatorics/">Combinatorics</a>.
+            </dd>
+            <dt>Construction</dt>
+            <dd>
+                An explicit example. Fleischner's construction starts from a
+                cubic hypohamiltonian graph and aims at a uniquely
+                Hamiltonian 4-regular multigraph. A construction that works
+                on Petersen may fail on the Blanuša snarks; that failure is
+                itself a theorem about the reach of the method. See
+                <a href="/research/">Research</a>.
+            </dd>
+            <dt>Uniqueness</dt>
+            <dd>
+                There is exactly one. A uniquely Hamiltonian graph is the
+                graph-theoretic instance: exactly one cycle through every
+                vertex. Uniqueness is a different claim from existence, and
+                a different claim from “unique up to automorphism.”
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>4. Open problems</summary>
+        <p>
+            An open problem is a well-posed question with no proof yet.
+            Graph theory is full of them. Two that organise the notes:
+        </p>
+        <dl class="def-list">
+            <dt>Sheehan's conjecture</dt>
+            <dd>
+                No uniquely Hamiltonian regular simple graph of degree
+                greater than 2. Settled for odd degree (Thomason). Open for
+                even degree in a wide range. Bounds exist: Thomassen for
+                very large degree; Haxell–Seamone–Verstraëte down to degree
+                greater than 22.
+            </dd>
+            <dt>Sabidussi's compatibility conjecture</dt>
+            <dd>
+                In a connected Eulerian graph of minimum degree 4, every
+                Eulerian circuit admits a compatible cycle decomposition.
+                The language — transitions, half-edges, \( X_T \) and
+                \( X_S \) — is recorded under
+                <a href="/graph-theory/">Graph theory</a>.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>5. Pure mathematics and computer science</summary>
+        <dl class="def-list">
+            <dt>The same objects, different questions</dt>
+            <dd>
+                A Hamiltonian cycle is a combinatorial object. Asking
+                whether an arbitrary graph has one is also a decision
+                problem, and that problem is NP-complete. The first
+                question is pure mathematics; the second is
+                <a href="/computer-science/">computer science</a>. Both
+                are about the same cycle.
+            </dd>
+            <dt>Why the distinction matters</dt>
+            <dd>
+                A polynomial algorithm for Eulerian circuits does not
+                settle Sheehan. A proof that no 4-regular simple graph is
+                uniquely Hamiltonian would not, by itself, give a fast
+                algorithm for finding Hamiltonian cycles. The two
+                subjects share drawings and share vocabulary. They do not
+                share every theorem.
+            </dd>
+        </dl>
+    </details>
+
+</div>
+</article>
+
+</body>
+</html>

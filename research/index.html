@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research | Sachal Abdullah</title>
-    <meta name="description" content="Research of Sachal Abdullah: uniquely Hamiltonian graphs, and which graphs cannot have a unique Hamiltonian cycle.">
+    <title>Research | Uniquely Hamiltonian Graphs | Sachal Abdullah</title>
+    <meta name="description" content="Research of Sachal Abdullah in combinatorial graph theory: uniquely Hamiltonian graphs, Sheehan's conjecture, Fleischner's construction, snarks, and which graphs cannot have a unique Hamiltonian cycle.">
+    <meta name="author" content="Sachal Abdullah">
     <link rel="canonical" href="https://theoryculture.github.io/research/">
+    <meta property="og:title" content="Research | Uniquely Hamiltonian Graphs | Sachal Abdullah">
+    <meta property="og:description" content="Combinatorial graph theory: uniquely Hamiltonian graphs, Sheehan's conjecture, and Fleischner's construction.">
+    <meta property="og:url" content="https://theoryculture.github.io/research/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Sachal Abdullah">
+    <meta property="og:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Research | Uniquely Hamiltonian Graphs | Sachal Abdullah">
+    <meta name="twitter:description" content="Combinatorial graph theory: uniquely Hamiltonian graphs, Sheehan's conjecture, and Fleischner's construction.">
+    <meta name="twitter:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
     <link rel="stylesheet" href="/assets/main.css">
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Research in uniquely Hamiltonian graphs",
+      "author": {
+        "@type": "Person",
+        "@id": "https://theoryculture.github.io/#person",
+        "name": "Sachal Abdullah",
+        "url": "https://theoryculture.github.io/"
+      },
+      "url": "https://theoryculture.github.io/research/",
+      "description": "Research in combinatorial graph theory: uniquely Hamiltonian graphs, Sheehan's conjecture, and Fleischner's construction.",
+      "about": [
+        "Uniquely Hamiltonian graphs",
+        "Graph theory",
+        "Sheehan's conjecture",
+        "Fleischner's construction",
+        "Snarks"
+      ]
+    }
+    </script>
 </head>
 <body>
 
@@ -25,16 +67,74 @@
 
 <div class="hero">
     <h1>Research</h1>
-    <p class="tagline">Graph Theory · Combinatorics · Discrete Mathematics</p>
+    <p class="tagline">Graph theory · combinatorics · discrete mathematics</p>
 </div>
 
 <div class="content">
-    <p>
-        My research interests lie in graph theory and discrete mathematics. I am especially interested in problems related to the existence and characterization of unique Hamiltonian cycles.
+    <p class="lead">
+        My research is in combinatorial graph theory, a branch of
+        <a href="/pure-mathematics/">pure mathematics</a>. The central
+        objects are uniquely Hamiltonian graphs: graphs with exactly one
+        cycle through every vertex. I am interested in constructions of
+        such graphs, and in which classes of graphs cannot be uniquely
+        Hamiltonian.
     </p>
+
+    <h2>Uniquely Hamiltonian graphs</h2>
     <p>
-        In general, I am interested in construction of uniquely Hamiltonian graphs and exploring which classes of graphs cannot be uniquely Hamiltonian.
+        A graph is Hamiltonian if it has a cycle through every vertex.
+        It is uniquely Hamiltonian if that cycle is the only one.
+        The definitions — walk, trail, path, circuit, cycle, dominating
+        cycle, transition system — are on the
+        <a href="/graph-theory/">graph theory</a> notes.
+        Drawings are in the
+        <a href="/graph-theory-art-gallery/">Graph Theory Art Gallery</a>.
     </p>
+
+    <h2>Sheehan's conjecture</h2>
+    <p>
+        Sheehan (1975) conjectured that there are no uniquely Hamiltonian
+        \( r \)-regular simple graphs for \( r &gt; 2 \). Equivalently: a
+        simple connected regular graph is uniquely Hamiltonian only if it
+        is 2-regular. The odd-regular case is settled (Thomason). The
+        even-regular case remains open for \( 4 \le r \le 20 \).
+        Thomassen proved there are no such graphs for sufficiently large
+        degree; Haxell, Seamone, and Verstraëte brought the bound down to
+        degree greater than 22.
+    </p>
+
+    <h2>Fleischner's construction</h2>
+    <p>
+        Fleischner (1994) gave a construction that starts from a cubic
+        hypohamiltonian graph with a dominating cycle and aims at a
+        uniquely Hamiltonian 4-regular multigraph. It works on the
+        Petersen graph. In an attempt to produce an infinite family of
+        uniquely Hamiltonian 4-regular graphs from cubic hypohamiltonian
+        graphs, I showed that in general the construction does not hold
+        for all such graphs. Counterexamples include the first and second
+        Blanuša snarks. Open problems from this work are in preparation;
+        see <a href="/publications/">Publications</a>.
+    </p>
+
+    <p>
+        The surrounding questions — compatible cycle decompositions,
+        Sabidussi's conjecture, Eulerian circuits in (4,6)-regular
+        multigraphs — sit between Hamiltonian uniqueness and the
+        language of transitions recorded in the notes.
+    </p>
+
+    <h2>Computer science</h2>
+    <p>
+        Both of my degrees are in <a href="/computer-science/">computer
+        science</a>. Hamiltonian cycles are a meeting point of the two
+        subjects: existence and uniqueness are mathematical; deciding
+        whether an arbitrary graph has such a cycle is NP-complete.
+        Earlier work includes a game-theory thesis on traffic regulation
+        and a literature survey of uniquely Hamiltonian graphs and the
+        Hadwiger–Debrunner (\( p,q \))-problem. Details are on the
+        <a href="/portfolio/">portfolio</a>.
+    </p>
+
     <p>
         <a class="pdf-btn" href="/assets/research-statement.pdf" target="_blank" rel="noopener">Research statement (PDF)</a>
     </p>

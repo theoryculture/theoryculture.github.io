@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science | Discrete Mathematics and Graphs | Sachal Abdullah</title>
+    <meta name="description" content="Computer science notes by Sachal Abdullah: discrete mathematics, graph algorithms, the complexity of Hamiltonian cycles, and game theory. Background in computer science; research in combinatorial graph theory.">
+    <meta name="author" content="Sachal Abdullah">
+    <link rel="canonical" href="https://theoryculture.github.io/computer-science/">
+    <meta property="og:title" content="Computer Science | Discrete Mathematics and Graphs | Sachal Abdullah">
+    <meta property="og:description" content="Discrete mathematics, graph algorithms, Hamiltonian complexity, and game theory. Computer science as it meets combinatorial graph theory.">
+    <meta property="og:url" content="https://theoryculture.github.io/computer-science/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Sachal Abdullah">
+    <meta property="og:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Computer Science | Sachal Abdullah">
+    <meta name="twitter:description" content="Discrete mathematics, graph algorithms, Hamiltonian complexity, and game theory.">
+    <meta name="twitter:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
+    <link rel="stylesheet" href="/assets/main.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Computer Science: Discrete Mathematics and Graphs",
+      "description": "Notes on discrete mathematics, graph algorithms, the complexity of Hamiltonian cycles, and game theory.",
+      "author": {
+        "@type": "Person",
+        "@id": "https://theoryculture.github.io/#person",
+        "name": "Sachal Abdullah",
+        "url": "https://theoryculture.github.io/"
+      },
+      "mainEntityOfPage": "https://theoryculture.github.io/computer-science/",
+      "image": "https://theoryculture.github.io/assets/images/profile.jpg",
+      "about": ["Computer science", "Discrete mathematics", "Graph algorithms", "Computational complexity", "Game theory"]
+    }
+    </script>
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+    <a class="site-id" href="/">Sachal Abdullah</a>
+    <nav class="site-nav" aria-label="Site">
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+        <a href="/mathematics/" aria-current="page">Notes</a>
+        <a href="/graph-theory-art-gallery/">Gallery</a>
+        <a href="/tutoring/">Teaching</a>
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/contact/">Contact</a>
+    </nav>
+</header>
+
+<article>
+<div class="hero">
+    <h1>Computer Science</h1>
+    <p class="tagline">Discrete mathematics, graphs, complexity</p>
+</div>
+
+<div class="content">
+
+    <p class="lead">
+        Computer science, on this site, is the algorithmic and complexity
+        twin of combinatorial graph theory. The same objects — vertices,
+        edges, Eulerian trails, Hamiltonian cycles — appear as data and as
+        decision problems. The definitions live on
+        <a href="/graph-theory/">graph theory</a>; the proofs of existence
+        and uniqueness live in
+        <a href="/pure-mathematics/">pure mathematics</a>. What follows is
+        the computational vocabulary.
+    </p>
+
+    <details open>
+        <summary>1. Discrete mathematics as the overlap</summary>
+        <dl class="def-list">
+            <dt>Discrete mathematics</dt>
+            <dd>
+                Finite sets, graphs, counting, logic, and the first
+                algorithms on those objects. It is the shared first language
+                of a computer science degree and of combinatorial research.
+                Both of my degrees are in computer science; the research is
+                graph theory.
+            </dd>
+            <dt>A graph as data</dt>
+            <dd>
+                In a program a graph is an adjacency list or an adjacency
+                matrix: a finite record of who is joined to whom. In a proof
+                a graph is a pair \( (V,E) \). The drawing can be the same.
+                The question asked of it is not.
+            </dd>
+            <dt>A graph as a theorem</dt>
+            <dd>
+                “This cubic hypohamiltonian graph admits a dominating cycle”
+                is not a runtime. It is a mathematical claim. Algorithms can
+                search for such a cycle; they do not, by themselves, classify
+                the graphs in which uniqueness occurs. See
+                <a href="/research/">Research</a>.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>2. Algorithms on graphs</summary>
+        <dl class="def-list">
+            <dt>Search</dt>
+            <dd>
+                Breadth-first and depth-first search walk a graph from a
+                start vertex, visiting each reachable vertex once. They
+                decide connectivity, and they build spanning trees.
+            </dd>
+            <dt>Shortest path</dt>
+            <dd>
+                Dijkstra's algorithm (non-negative weights) and
+                Bellman–Ford (negative weights allowed, no negative cycle)
+                compute distances. The object is a path of minimum weight,
+                not a cycle through every vertex.
+            </dd>
+            <dt>Eulerian circuit</dt>
+            <dd>
+                Hierholzer's algorithm finds a closed trail through every
+                edge in linear time, once every degree is even. Euler's
+                theorem is the reason the algorithm is allowed to exist:
+                the combinatorial condition is also the computational one.
+            </dd>
+            <dt>Minimum spanning tree</dt>
+            <dd>
+                Kruskal and Prim build a spanning tree of least total
+                weight. Again a polynomial graph algorithm, and again a
+                different object from a Hamiltonian cycle.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>3. Decision problems and complexity</summary>
+        <dl class="def-list">
+            <dt>Decision problem</dt>
+            <dd>
+                A yes/no question about a finite input. “Does \( G \) have
+                an Eulerian circuit?” “Does \( G \) have a Hamiltonian
+                cycle?”
+            </dd>
+            <dt>P and NP</dt>
+            <dd>
+                Informally: P is the class of decision problems solvable in
+                polynomial time. NP is the class whose yes-instances have
+                polynomial-time checkable certificates. A Hamiltonian cycle,
+                if it exists, is such a certificate: given the cyclic order
+                of vertices, one can check the edges in linear time.
+            </dd>
+            <dt>NP-complete</dt>
+            <dd>
+                A problem in NP to which every problem in NP reduces in
+                polynomial time. The Hamiltonian cycle problem is
+                NP-complete (Karp, 1972). So is the travelling salesman
+                decision problem. There is no known polynomial algorithm,
+                and none is expected.
+            </dd>
+            <dt>The Euler–Hamilton contrast</dt>
+            <dd>
+                An Eulerian circuit is polynomial. A Hamiltonian cycle is
+                NP-complete. The definitions are close — every edge versus
+                every vertex — and the computational difference is as sharp
+                as anything in discrete mathematics. That contrast is why
+                Hamiltonian problems are a meeting point of
+                <a href="/pure-mathematics/">pure mathematics</a> and
+                computer science.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>4. Uniquely Hamiltonian graphs, computationally</summary>
+        <dl class="def-list">
+            <dt>Counting cycles</dt>
+            <dd>
+                Uniquely Hamiltonian means the number of Hamiltonian cycles
+                is exactly one. Counting Hamiltonian cycles is, in general,
+                at least as hard as deciding whether any exist. The
+                mathematical question on this site is not an algorithm for
+                that count. It is which graphs can have count one, and
+                which constructions fail to produce them.
+            </dd>
+            <dt>Certificates versus classification</dt>
+            <dd>
+                A single Hamiltonian cycle is a certificate of Hamiltonicity.
+                Uniqueness asks that no other certificate of the same kind
+                exists. Proving uniqueness is a different kind of work from
+                finding one cycle.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>5. Game theory</summary>
+        <p>
+            Game theory is the other computer science thread, from an
+            undergraduate thesis on traffic regulation rather than from
+            the uniquely Hamiltonian notes.
+        </p>
+        <dl class="def-list">
+            <dt>Players, strategies, payoff</dt>
+            <dd>
+                A game in this sense is not a board. It is a collection of
+                players, each with a set of strategies, and a payoff for
+                every profile of choices. Nash equilibrium is a profile
+                from which no player wants to deviate alone. Minimax is
+                the two-player zero-sum case.
+            </dd>
+            <dt>Traffic as a game</dt>
+            <dd>
+                Intersecting roads can be modelled as competing players.
+                Vehicle density, estimated from video by background
+                subtraction, becomes the input to a Markov framework that
+                chooses green-light durations. The mathematics is game
+                theory and discrete modelling; the implementation is
+                computer vision. Details are on the
+                <a href="/portfolio/">portfolio</a>.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>6. Programming as a tool</summary>
+        <dl class="def-list">
+            <dt>Languages</dt>
+            <dd>
+                Python, Java, and LaTeX. Code draws figures, checks small
+                examples, and typesets proofs. It is not a substitute for
+                the argument.
+            </dd>
+            <dt>What it does not settle</dt>
+            <dd>
+                A program that fails to find a second Hamiltonian cycle in
+                a particular graph is evidence, not a classification
+                theorem. The open problems remain mathematical. See
+                <a href="/research/">Research</a> and
+                <a href="/publications/">Publications</a>.
+            </dd>
+        </dl>
+    </details>
+
+</div>
+</article>
+
+</body>
+</html>
