@@ -10,6 +10,7 @@ html {
     color-scheme: light;
     -webkit-text-size-adjust: 100%;
     overflow-x: hidden;
+    scroll-padding-top: 3.5rem;
 }
 
 body {
@@ -46,15 +47,20 @@ a:focus-visible {
 /* ===== HEADER ===== */
 
 .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 0.75rem 1.5rem;
-    max-width: 44rem;
-    margin: 0 auto;
-    padding: 1.4rem 1.25rem 1rem;
+    gap: 0.4rem 1.5rem;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0.8rem 1.5rem;
     border-bottom: 1px solid #d9d2c5;
+    background: #f7f4ee;
 }
 
 .site-id {
@@ -62,6 +68,7 @@ a:focus-visible {
     text-decoration: none;
     font-size: 1.12rem;
     letter-spacing: 0.01em;
+    flex-shrink: 0;
 }
 
 .site-id:hover {
@@ -69,10 +76,35 @@ a:focus-visible {
     text-decoration: none;
 }
 
+.nav-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.nav-toggle {
+    display: none;
+    cursor: pointer;
+    color: #5c564e;
+    font-size: 0.95rem;
+    padding: 0.25rem 0;
+    user-select: none;
+}
+
+.nav-toggle:hover {
+    color: #1c1917;
+}
+
 .site-nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.15rem 1.05rem;
+    gap: 0.15rem 1.15rem;
 }
 
 .site-nav a {
@@ -85,6 +117,62 @@ a:focus-visible {
 .site-nav a[aria-current="page"] {
     color: #1c1917;
     text-decoration: none;
+}
+
+.site-nav a[aria-current="page"] {
+    box-shadow: inset 0 -1px 0 #1c1917;
+}
+
+.subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin: 0.9rem 0 0;
+    font-size: 0.92rem;
+}
+
+.subnav a {
+    color: #5c564e;
+    text-decoration: none;
+}
+
+.subnav a:hover,
+.subnav a[aria-current="page"] {
+    color: #1c1917;
+}
+
+.subnav a[aria-current="page"] {
+    box-shadow: inset 0 -1px 0 #1c1917;
+}
+
+.site-footer {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1.25rem 1.25rem 2.6rem;
+    border-top: 1px solid #d9d2c5;
+    color: #5c564e;
+    font-size: 0.9rem;
+}
+
+.site-footer > a {
+    color: #1c1917;
+    text-decoration: none;
+}
+
+.site-footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin-top: 0.45rem;
+}
+
+.site-footer nav a {
+    color: #5c564e;
+    text-decoration: none;
+}
+
+.site-footer nav a:hover {
+    color: #1c1917;
 }
 
 /* ===== PAGE TITLE ===== */
@@ -323,7 +411,8 @@ a:focus-visible {
 
 /* ===== NOTES ===== */
 
-details {
+.content details,
+article details {
     background: transparent;
     border: none;
     border-bottom: 1px solid #d9d2c5;
@@ -332,11 +421,13 @@ details {
     padding: 0.9rem 0;
 }
 
-details:hover {
+.content details:hover,
+article details:hover {
     border-bottom-color: #b9b09e;
 }
 
-summary {
+.content summary,
+article summary {
     cursor: pointer;
     font-size: 1.08rem;
 }
@@ -489,6 +580,39 @@ summary {
 
 /* ===== MOBILE ===== */
 
+@media (max-width: 52rem) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .site-nav {
+        display: none;
+    }
+
+    .nav-checkbox:checked ~ .site-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 0.35rem 1.5rem 0.7rem;
+        background: #f7f4ee;
+        border-bottom: 1px solid #d9d2c5;
+    }
+
+    .nav-checkbox:checked ~ .site-nav a {
+        padding: 0.55rem 0;
+        font-size: 1.02rem;
+        border-bottom: 1px solid #e6dfd3;
+    }
+
+    .nav-checkbox:checked ~ .site-nav a:last-child {
+        border-bottom: none;
+    }
+}
+
 @media (max-width: 640px) {
     .home {
         grid-template-columns: 1fr;
@@ -501,15 +625,6 @@ summary {
         height: 6.5rem;
     }
 
-    .site-nav {
-        width: 100%;
-        gap: 0.3rem 0.75rem;
-    }
-
-    .site-nav a {
-        flex: 0 0 auto;
-    }
-
     .skill-list div {
         grid-template-columns: 1fr;
         gap: 0.1rem;
@@ -519,17 +634,10 @@ summary {
 @media (max-width: 480px) {
     .site-header,
     .hero,
-    .content {
+    .content,
+    .site-footer {
         padding-left: 1rem;
         padding-right: 1rem;
-    }
-
-    .site-nav {
-        gap: 0.35rem 0.65rem;
-    }
-
-    .site-nav a {
-        font-size: 0.9rem;
     }
 }
 
