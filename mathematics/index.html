@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics Notes | Graph Theory, Pure Mathematics, Computer Science | Sachal Abdullah</title>
-    <meta name="description" content="Mathematics notes by Sachal Abdullah: graph theory, pure mathematics, combinatorics, computer science, and recreational mathematics. Definitions, proofs, Hamiltonian cycles, and discrete mathematics.">
+    <title>Mathematics Notes | Graph Theory and Combinatorics | Sachal Abdullah</title>
+    <meta name="description" content="Mathematics notes by Sachal Abdullah: graph theory, combinatorics, and recreational mathematics. Definitions, Hamiltonian cycles, and discrete mathematics.">
     <meta name="author" content="Sachal Abdullah">
     <link rel="canonical" href="https://theoryculture.github.io/mathematics/">
     <meta property="og:title" content="Mathematics Notes | Sachal Abdullah">
-    <meta property="og:description" content="Graph theory, pure mathematics, combinatorics, computer science, and recreational mathematics.">
+    <meta property="og:description" content="Graph theory, combinatorics, and recreational mathematics.">
     <meta property="og:url" content="https://theoryculture.github.io/mathematics/">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Sachal Abdullah">
     <meta property="og:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Mathematics Notes | Sachal Abdullah">
-    <meta name="twitter:description" content="Graph theory, pure mathematics, combinatorics, computer science, and recreational mathematics.">
+    <meta name="twitter:description" content="Graph theory, combinatorics, and recreational mathematics.">
     <meta name="twitter:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
     <link rel="stylesheet" href="/assets/main.css">
     <script type="application/ld+json">
@@ -24,7 +24,7 @@
       "@type": "CollectionPage",
       "name": "Mathematics notes",
       "url": "https://theoryculture.github.io/mathematics/",
-      "description": "Notes in graph theory, pure mathematics, combinatorics, computer science, and recreational mathematics.",
+      "description": "Notes in graph theory, combinatorics, and recreational mathematics.",
       "author": {
         "@type": "Person",
         "@id": "https://theoryculture.github.io/#person",
@@ -32,9 +32,7 @@
       },
       "hasPart": [
         { "@type": "WebPage", "name": "Graph Theory", "url": "https://theoryculture.github.io/graph-theory/" },
-        { "@type": "WebPage", "name": "Pure Mathematics", "url": "https://theoryculture.github.io/pure-mathematics/" },
         { "@type": "WebPage", "name": "Combinatorics", "url": "https://theoryculture.github.io/combinatorics/" },
-        { "@type": "WebPage", "name": "Computer Science", "url": "https://theoryculture.github.io/computer-science/" },
         { "@type": "WebPage", "name": "Recreational Mathematics", "url": "https://theoryculture.github.io/recreational-mathematics/" }
       ]
     }
@@ -57,7 +55,7 @@
 
 <div class="hero">
     <h1>Mathematics</h1>
-    <p class="tagline">Graph theory, pure mathematics, combinatorics, computer science</p>
+    <p class="tagline">Graph theory, combinatorics, recreational mathematics</p>
 </div>
 
 <div class="content">
@@ -69,9 +67,7 @@
 
     <ul class="topic-index">
         <li><a href="/graph-theory/">Graph theory</a> — walks, Eulerian and Hamiltonian cycles, uniquely Hamiltonian graphs.</li>
-        <li><a href="/pure-mathematics/">Pure mathematics</a> — definition, theorem, conjecture, proof.</li>
         <li><a href="/combinatorics/">Combinatorics</a> — counting, pigeonhole, Mantel.</li>
-        <li><a href="/computer-science/">Computer science</a> — discrete mathematics, graph algorithms, complexity.</li>
         <li><a href="/recreational-mathematics/">Recreational mathematics</a> — Königsberg, knight's tours, Icosian game.</li>
     </ul>
 
@@ -148,50 +144,6 @@
     </details>
 
     <details>
-        <summary>Pure Mathematics</summary>
-
-        <div class="topic-body">
-            <p>
-                Pure mathematics asks what follows from the definitions.
-                Graph theory and combinatorics sit in that tradition:
-                finite configurations, existence, uniqueness, and proof.
-            </p>
-
-            <dl class="def-list">
-                <dt>Definition and theorem</dt>
-                <dd>
-                    A definition names a class of objects. A theorem is a
-                    statement that has been proved. Euler's theorem on
-                    Eulerian circuits is a theorem: even degrees, and only
-                    even degrees, give a closed trail through every edge.
-                </dd>
-                <dt>Conjecture</dt>
-                <dd>
-                    A statement seriously asked, not yet proved. Sheehan
-                    (1975): no uniquely Hamiltonian \( r \)-regular simple
-                    graph for \( r &gt; 2 \). Odd regular is settled;
-                    even regular remains open for \( 4 \le r \le 20 \).
-                </dd>
-                <dt>Existence, construction, uniqueness</dt>
-                <dd>
-                    Existence says there is at least one. Construction
-                    exhibits it. Uniqueness says there is exactly one. A
-                    uniquely Hamiltonian graph is the uniqueness instance.
-                </dd>
-                <dt>Counterexample</dt>
-                <dd>
-                    One object can kill a general claim. A snark on which
-                    Fleischner's construction fails is such an object.
-                </dd>
-            </dl>
-
-            <p>
-                <a class="topic-more" href="/pure-mathematics/">Full Pure Mathematics notes →</a>
-            </p>
-        </div>
-    </details>
-
-    <details>
         <summary>Combinatorics</summary>
 
         <div class="topic-body">
@@ -236,50 +188,6 @@
 
             <p>
                 <a class="topic-more" href="/combinatorics/">Full Combinatorics notes →</a>
-            </p>
-        </div>
-    </details>
-
-    <details>
-        <summary>Computer Science</summary>
-
-        <div class="topic-body">
-            <p>
-                Computer science here is the algorithmic twin of
-                combinatorial graph theory: the same vertices and edges,
-                asked as data and as decision problems.
-            </p>
-
-            <dl class="def-list">
-                <dt>Discrete mathematics</dt>
-                <dd>
-                    Finite sets, graphs, counting, and the first algorithms
-                    on those objects. The shared language of a computer
-                    science degree and of combinatorial research.
-                </dd>
-                <dt>Eulerian versus Hamiltonian</dt>
-                <dd>
-                    An Eulerian circuit is polynomial (Hierholzer), once
-                    every degree is even. A Hamiltonian cycle is
-                    NP-complete (Karp). The definitions are close; the
-                    computational difference is not.
-                </dd>
-                <dt>Uniqueness is not a search</dt>
-                <dd>
-                    Finding one Hamiltonian cycle, if it exists, is already
-                    hard. Proving it is the only one is a different claim,
-                    and a mathematical one.
-                </dd>
-                <dt>Game theory</dt>
-                <dd>
-                    Players, strategies, payoff. An undergraduate thesis
-                    modelled intersecting roads as competing players for
-                    traffic-signal control.
-                </dd>
-            </dl>
-
-            <p>
-                <a class="topic-more" href="/computer-science/">Full Computer Science notes →</a>
             </p>
         </div>
     </details>
