@@ -3,30 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recreational Mathematics | Graph Theory Puzzles | Sachal Abdullah</title>
-    <meta name="description" content="Recreational mathematics as graph theory, by Sachal Abdullah: the seven bridges of Königsberg, knight's tours, and Hamilton's Icosian game. Eulerian and Hamiltonian cycles as puzzles that became theorems.">
+    <title>Recreational Mathematics | Sachal Abdullah</title>
+    <meta name="description" content="Recreational mathematics notes by Sachal Abdullah. Coming soon.">
     <meta name="author" content="Sachal Abdullah">
     <link rel="canonical" href="https://theoryculture.github.io/recreational-mathematics/">
-    <meta property="og:title" content="Recreational Mathematics | Graph Theory Puzzles | Sachal Abdullah">
-    <meta property="og:description" content="Königsberg, knight's tours, and the Icosian game: puzzles that became the language of Eulerian and Hamiltonian graphs.">
+    <meta property="og:title" content="Recreational Mathematics | Sachal Abdullah">
+    <meta property="og:description" content="Recreational mathematics notes. Coming soon.">
     <meta property="og:url" content="https://theoryculture.github.io/recreational-mathematics/">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Sachal Abdullah">
     <meta property="og:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Recreational Mathematics | Sachal Abdullah">
-    <meta name="twitter:description" content="Königsberg, knight's tours, and the Icosian game: puzzles that became Eulerian and Hamiltonian language.">
-    <meta name="twitter:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
     <link rel="stylesheet" href="/assets/main.css">
-    <script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [['\\(', '\\)']],
-            displayMath: [['\\[', '\\]']]
-        }
-    };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -43,192 +30,13 @@
     </nav>
 </header>
 
-<article>
 <div class="hero">
     <h1>Recreational Mathematics</h1>
-    <p class="tagline">Puzzles that became theorems</p>
 </div>
 
 <div class="content">
-
-    <p class="lead">
-        Recreational mathematics is not a lesser subject. Several of the
-        central words in graph theory — Eulerian, Hamiltonian, uniquely
-        Hamiltonian — began as games: a walk through a city, a knight on a
-        board, a dodecahedron you could hold. The
-        <a href="/graph-theory/">basic definitions</a> are recorded separately.
-        Here are the puzzles that made those words necessary.
-    </p>
-
-    <details open>
-        <summary>1. The seven bridges of Königsberg</summary>
-        <p>
-            Königsberg (now Kaliningrad) had seven bridges joining two islands
-            to the banks of the Pregel. The puzzle: walk through the city
-            crossing each bridge exactly once.
-        </p>
-        <figure class="note-fig">
-            <img src="/assets/images/seven_bridges_graph.png"
-                 alt="The seven bridges of Königsberg drawn as a multigraph">
-            <figcaption>The city as a multigraph: four vertices, seven edges.</figcaption>
-        </figure>
-        <dl class="def-list">
-            <dt>The graph</dt>
-            <dd>
-                Land masses become vertices; bridges become edges. The result is
-                a connected multigraph with four vertices of odd degree.
-            </dd>
-            <dt>Euler's theorem (1736)</dt>
-            <dd>
-                A connected graph has a closed trail through every edge if and
-                only if every degree is even. It has an open trail through every
-                edge if and only if exactly two vertices have odd degree. Königsberg
-                has four odd vertices, so no such walk exists.
-            </dd>
-            <dt>What the puzzle invented</dt>
-            <dd>
-                The distinction between a picture of a city and the abstract
-                graph, and the first degree condition in graph theory. An Eulerian
-                circuit is still named for this walk.
-            </dd>
-        </dl>
-    </details>
-
-    <details>
-        <summary>2. Knight's tours</summary>
-        <p>
-            A knight on a chessboard moves in an L: two squares one way and one
-            square perpendicular. A tour visits every square exactly once. A
-            closed tour returns to the start.
-        </p>
-        <figure class="note-fig">
-            <img src="/assets/images/knights_tour.png"
-                 alt="A knight's tour drawn on a chessboard">
-            <figcaption>A tour of the board: each visit is a vertex of the knight's graph.</figcaption>
-        </figure>
-        <dl class="def-list">
-            <dt>The knight's graph</dt>
-            <dd>
-                Vertices are the squares. Two vertices are adjacent when a knight
-                can move from one to the other in a single leap. A tour is a
-                Hamiltonian path in this graph; a closed tour is a Hamiltonian cycle.
-            </dd>
-            <dt>Which boards?</dt>
-            <dd>
-                Closed tours exist on the usual \( 8 \times 8 \) board. They fail
-                on boards that are too small, or whose colouring and degree
-                sequence obstruct a cycle. The question “does a tour exist?” is
-                already a Hamiltonian problem, and it is sensitive to the board.
-            </dd>
-            <dt>Missing knights</dt>
-            <dd>
-                Remove squares and the graph changes. Leftover tours — Hamiltonian
-                paths on the punctured board — are a different puzzle, and a
-                different existence question.
-            </dd>
-        </dl>
-    </details>
-
-    <details>
-        <summary>3. Hamilton's Icosian game</summary>
-        <p>
-            In 1857 William Rowan Hamilton sold a game on the dodecahedron:
-            visit every vertex exactly once and return. The solid has twenty
-            vertices, each of degree three. The game is a Hamiltonian cycle
-            on that graph, held in the hand.
-        </p>
-        <figure class="note-fig">
-            <img src="/assets/images/icosian_game.png"
-                 alt="Many drawings of the dodecahedral graph, each with a Hamiltonian cycle marked in red">
-            <figcaption>The dodecahedral graph with a Hamiltonian cycle drawn in red, several times over.</figcaption>
-        </figure>
-        <dl class="def-list">
-            <dt>The dodecahedral graph</dt>
-            <dd>
-                Twenty vertices, thirty edges, cubic and Hamiltonian. The
-                <a href="/research/">research page</a> draws one such cycle.
-                Unlike the Eulerian case, there is no simple degree test that
-                decides whether a graph has a Hamiltonian cycle.
-            </dd>
-            <dt>Why the name stuck</dt>
-            <dd>
-                Euler's problem is about edges; Hamilton's is about vertices.
-                The two notions are easy to confuse and mathematically far apart.
-                A graph may have one and not the other.
-            </dd>
-        </dl>
-    </details>
-
-    <details>
-        <summary>4. Drawings without lifting the pencil</summary>
-        <dl class="def-list">
-            <dt>House, envelope, heist</dt>
-            <dd>
-                Children's drawings — a house with an X, an envelope — are
-                Eulerian-path puzzles. A route through a city that traces every
-                street once is the same problem with a story attached.
-            </dd>
-            <dt>The test</dt>
-            <dd>
-                Count odd-degree vertices. Zero: you may start anywhere and close.
-                Two: start at one odd vertex and end at the other. More than two:
-                put the pencil down; the drawing cannot be done in one stroke.
-            </dd>
-        </dl>
-    </details>
-
-    <details>
-        <summary>5. When a puzzle becomes a theorem</summary>
-        <dl class="def-list">
-            <dt>Recreation</dt>
-            <dd>
-                A single instance: this city, this board, this solid. The pleasure
-                is in finding the walk, or in seeing why none exists.
-            </dd>
-            <dt>Mathematics</dt>
-            <dd>
-                The instance is replaced by a class. Which graphs have an Eulerian
-                circuit? Which graphs have a Hamiltonian cycle? Which have exactly
-                one? The last question is uniqueness, and it is no longer a game.
-            </dd>
-            <dt>Uniquely Hamiltonian</dt>
-            <dd>
-                A graph with exactly one Hamiltonian cycle. Cycle graphs are the
-                trivial examples. Whether a regular simple graph of degree at least
-                \( 4 \) can be uniquely Hamiltonian is Sheehan's conjecture, still
-                open in the even-regular case. The vocabulary is on the
-                <a href="/graph-theory/">graph theory</a> page; the research
-                question sits on <a href="/research/">research</a>.
-            </dd>
-        </dl>
-    </details>
-
-    <details>
-        <summary>6. Other rooms in the same house</summary>
-        <dl class="def-list">
-            <dt>Map colouring</dt>
-            <dd>
-                Four colours suffice for planar maps. The four colour theorem is
-                a recreational question with a long, un-recreational proof.
-            </dd>
-            <dt>Instant Insanity and sliding puzzles</dt>
-            <dd>
-                Cube-colouring puzzles and the 15-puzzle are configuration graphs:
-                vertices are states, edges are legal moves. Solvability is
-                connectivity in that graph, sometimes with a parity invariant.
-            </dd>
-            <dt>Lewis Carroll</dt>
-            <dd>
-                Word ladders, doublets, and logic games sit next to graph theory
-                more closely than they first appear: a change of one letter is an
-                edge. Recreation is a way into the definitions, not a substitute
-                for them.
-            </dd>
-        </dl>
-    </details>
-
+    <p class="lead">Coming soon.</p>
 </div>
-</article>
 
 </body>
 </html>

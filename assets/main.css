@@ -207,6 +207,11 @@ a:focus-visible {
     line-height: 1.7;
 }
 
+.pub-status {
+    color: #5c564e;
+    font-style: italic;
+}
+
 /* ===== PORTFOLIO ===== */
 
 .content h2 {
