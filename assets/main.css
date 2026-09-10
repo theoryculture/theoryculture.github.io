@@ -402,35 +402,6 @@ summary {
     font-style: italic;
 }
 
-.note-fig-pair {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-
-.note-fig-pair img {
-    max-width: calc(50% - 0.5rem);
-    width: auto;
-}
-
-@media (max-width: 40rem) {
-    .note-fig-pair img {
-        max-width: 100%;
-    }
-}
-
-.content blockquote {
-    margin: 1rem 1.5rem;
-    color: #3f3a34;
-    font-style: italic;
-}
-
-.content blockquote p {
-    margin: 0;
-}
-
 /* ===== TEACHING ===== */
 
 .prompt-list {
