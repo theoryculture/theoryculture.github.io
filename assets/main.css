@@ -402,6 +402,17 @@ summary {
     font-style: italic;
 }
 
+/* ===== TEACHING ===== */
+
+.prompt-list {
+    margin: 0.5rem 0 0 1.2em;
+    padding: 0;
+}
+
+.prompt-list li {
+    margin: 0 0 1rem;
+}
+
 /* ===== RESEARCH GRAPH ===== */
 
 .graph-container {
