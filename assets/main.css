@@ -402,34 +402,6 @@ summary {
     font-style: italic;
 }
 
-/* ===== TEACHING ===== */
-
-.tutoring-list {
-    margin: 0 0 1rem 1.2em;
-}
-
-.tutoring-list li {
-    margin-bottom: 8px;
-}
-
-.poster {
-    text-align: center;
-    margin: 2.5rem auto 4rem;
-    max-width: 44rem;
-    padding: 0 1.25rem;
-}
-
-.poster h2 {
-    font-size: 1.15rem;
-    margin: 0 0 1rem;
-}
-
-.poster-img {
-    max-width: 700px;
-    width: 90%;
-    border: 1px solid #d9d2c5;
-}
-
 /* ===== RESEARCH GRAPH ===== */
 
 .graph-container {
