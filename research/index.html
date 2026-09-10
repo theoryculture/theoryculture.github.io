@@ -136,27 +136,27 @@
 
 <div class="graph-container">
     <svg viewBox="0 0 400 400" class="graph" aria-hidden="true">
-        <polygon class="base-edge" pathLength="1" points="200,20 371,144 306,346 94,346 29,144" />
-        <polygon class="base-edge" pathLength="1" points="200,80 241,143 314,163 267,222 271,297 200,270 129,297 133,222 86,163 159,143" />
-        <polygon class="base-edge" pathLength="1" points="218,176 229,209 200,230 171,209 182,176" />
+        <polygon class="base-edge" points="200,20 371,144 306,346 94,346 29,144" />
+        <polygon class="base-edge" points="200,80 241,143 314,163 267,222 271,297 200,270 129,297 133,222 86,163 159,143" />
+        <polygon class="base-edge" points="218,176 229,209 200,230 171,209 182,176" />
 
-        <line class="base-edge" pathLength="1" x1="200" y1="20"  x2="200" y2="80" />
-        <line class="base-edge" pathLength="1" x1="371" y1="144" x2="314" y2="163" />
-        <line class="base-edge" pathLength="1" x1="306" y1="346" x2="271" y2="297" />
-        <line class="base-edge" pathLength="1" x1="94"  y1="346" x2="129" y2="297" />
-        <line class="base-edge" pathLength="1" x1="29"  y1="144" x2="86"  y2="163" />
-        <line class="base-edge" pathLength="1" x1="241" y1="143" x2="218" y2="176" />
-        <line class="base-edge" pathLength="1" x1="267" y1="222" x2="229" y2="209" />
-        <line class="base-edge" pathLength="1" x1="200" y1="270" x2="200" y2="230" />
-        <line class="base-edge" pathLength="1" x1="133" y1="222" x2="171" y2="209" />
-        <line class="base-edge" pathLength="1" x1="159" y1="143" x2="182" y2="176" />
+        <line class="base-edge" x1="200" y1="20"  x2="200" y2="80" />
+        <line class="base-edge" x1="371" y1="144" x2="314" y2="163" />
+        <line class="base-edge" x1="306" y1="346" x2="271" y2="297" />
+        <line class="base-edge" x1="94"  y1="346" x2="129" y2="297" />
+        <line class="base-edge" x1="29"  y1="144" x2="86"  y2="163" />
+        <line class="base-edge" x1="241" y1="143" x2="218" y2="176" />
+        <line class="base-edge" x1="267" y1="222" x2="229" y2="209" />
+        <line class="base-edge" x1="200" y1="270" x2="200" y2="230" />
+        <line class="base-edge" x1="133" y1="222" x2="171" y2="209" />
+        <line class="base-edge" x1="159" y1="143" x2="182" y2="176" />
 
         <circle cx="200" cy="20" r="5"/><circle cx="371" cy="144" r="5"/><circle cx="306" cy="346" r="5"/><circle cx="94"  cy="346" r="5"/><circle cx="29"  cy="144" r="5"/>
         <circle cx="200" cy="80" r="5"/><circle cx="314" cy="163" r="5"/><circle cx="271" cy="297" r="5"/><circle cx="129" cy="297" r="5"/><circle cx="86"  cy="163" r="5"/>
         <circle cx="241" cy="143" r="5"/><circle cx="267" cy="222" r="5"/><circle cx="200" cy="270" r="5"/><circle cx="133" cy="222" r="5"/><circle cx="159" cy="143" r="5"/>
         <circle cx="218" cy="176" r="5"/><circle cx="229" cy="209" r="5"/><circle cx="200" cy="230" r="5"/><circle cx="171" cy="209" r="5"/><circle cx="182" cy="176" r="5"/>
 
-        <polyline class="cycle" pathLength="1" points="
+        <polyline class="cycle" points="
             200,20
             29,144
             94,346
@@ -181,6 +181,35 @@
     </svg>
     <div class="graph-caption">Dodecahedral graph with a Hamiltonian cycle</div>
 </div>
+<script>
+(function () {
+    var box = document.querySelector(".graph-container");
+    if (!box) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var traces = box.querySelectorAll(".base-edge, .cycle");
+    traces.forEach(function (el) {
+        var len = el.getTotalLength();
+        el.style.strokeDasharray = String(len);
+        if (!reduce) el.style.strokeDashoffset = String(len);
+    });
+    if (reduce) return;
+    box.classList.add("will-play");
+    function play() {
+        box.classList.add("is-playing");
+    }
+    if (!("IntersectionObserver" in window)) {
+        play();
+        return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+            play();
+            io.disconnect();
+        }
+    }, { threshold: 0.2 });
+    io.observe(box);
+})();
+</script>
 
 </body>
 </html>

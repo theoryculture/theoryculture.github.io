@@ -442,21 +442,12 @@ summary {
     stroke-width: 2.2;
     stroke-linejoin: round;
     stroke-linecap: round;
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    animation: drawEdges 3s ease-out forwards;
 }
 
 .graph-container circle {
     fill: #9b2c2c;
     stroke: #f7f4ee;
     stroke-width: 2;
-    opacity: 0;
-    transform: scale(0.5);
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: popIn 0.5s ease forwards;
-    animation-delay: 2.5s;
 }
 
 .graph-container .cycle {
@@ -465,15 +456,29 @@ summary {
     stroke-linecap: round;
     stroke-linejoin: round;
     fill: none;
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
+}
+
+.graph-container.will-play circle {
+    opacity: 0;
+}
+
+.graph-container.is-playing .base-edge {
+    animation: drawEdges 3s ease-out forwards;
+}
+
+.graph-container.is-playing circle {
+    animation: popIn 0.5s ease forwards;
+    animation-delay: 2.5s;
+}
+
+.graph-container.is-playing .cycle {
     animation: drawCycle 6s linear forwards;
     animation-delay: 4s;
 }
 
 @keyframes drawEdges { to { stroke-dashoffset: 0; } }
 @keyframes drawCycle { to { stroke-dashoffset: 0; } }
-@keyframes popIn { to { opacity: 1; transform: scale(1); } }
+@keyframes popIn { to { opacity: 1; } }
 
 /* ===== MOBILE ===== */
 
