@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recreational Mathematics | Sachal Abdullah</title>
-    <meta name="description" content="Recreational mathematics notes by Sachal Abdullah. Coming soon.">
+    <meta name="description" content="Recreational mathematics notes by Sachal Abdullah: Scribbles and Giggles prompts on pigeonhole, Eulerian trails, knight's tours, Fibonacci, and palindromes.">
     <meta name="author" content="Sachal Abdullah">
     <link rel="canonical" href="https://theoryculture.github.io/recreational-mathematics/">
     <meta property="og:title" content="Recreational Mathematics | Sachal Abdullah">
-    <meta property="og:description" content="Recreational mathematics notes. Coming soon.">
+    <meta property="og:description" content="Scribbles and Giggles: prompts in pigeonhole, Eulerian trails, knight's tours, and related recreational mathematics.">
     <meta property="og:url" content="https://theoryculture.github.io/recreational-mathematics/">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Sachal Abdullah">
     <meta property="og:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
     <link rel="stylesheet" href="/assets/main.css">
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -32,10 +41,137 @@
 
 <div class="hero">
     <h1>Recreational Mathematics</h1>
+    <p class="tagline">Pigeonhole · Eulerian Trails · Knight's Tours</p>
 </div>
 
 <div class="content">
-    <p class="lead">Coming soon.</p>
+
+    <p class="lead">
+        Recreational mathematics is often the first language of
+        <a href="/graph-theory/">Graph Theory</a> and
+        <a href="/combinatorics/">Combinatorics</a>: a unique way home,
+        a drawing that never lifts the pencil, too many pigeons for the
+        holes. The prompts below were written for Scribbles and Giggles,
+        a creative writing event.
+    </p>
+
+    <h2>Prompts</h2>
+    <ol class="prompt-list">
+        <li>
+            You have found something inconclusive and arbitrary, how do
+            you turn it around to fall in love again?
+        </li>
+        <li>
+            A sea turtle has been connecting dots, going slower and
+            slower but he is going to find the unique way back to his
+            home after swimming around in the ocean.
+        </li>
+        <li>
+            You have found a typewriter that writes without any limits-
+            with an infinite strip of paper, but it only has three
+            buttons: left, right and rest.
+        </li>
+        <li>
+            A court of pigeons is in session, discussing their housing
+            matters as they are growing in numbers, waiting for an
+            order- a pigeonhole principle, to fit all of them.
+        </li>
+        <li>
+            Each wife of Fibonacci,<br>
+            Eating nothing that wasn't starchy,<br>
+            Weighed as much as the two before her.<br>
+            His fifth was some signora! -J. A. LINDON
+        </li>
+        <li>
+            A convicted person was asked to draw routes on a map to
+            show how the heist was planned. It turns out the plot
+            could be drawn without lifting a pencil.
+        </li>
+        <li>
+            When do we need Venn diagrams?
+        </li>
+        <li>
+            "More laughter, of course, does not necessarily mean
+            funnier: nitrous oxide is not funny."
+        </li>
+        <li>
+            It's a bird, Its plane.. No, It's a palindrome.
+        </li>
+        <li>
+            When all of your knights are gone missing but their tours
+            are interesting. As if they have left a trail, for you to
+            find something.
+        </li>
+        <li>
+            Between 1 and -1, there are numbers more than what you can
+            understand for sure. Real will show you a mirror, imaginary
+            will drown your sanity. And surreal will eat your fear of
+            the both.
+        </li>
+    </ol>
+
+    <h2>The mathematics</h2>
+    <dl class="def-list">
+        <dt>Unique path</dt>
+        <dd>
+            A path that is the only walk of its kind between two vertices,
+            or the only way home in a maze of dots. Uniqueness is the
+            same question, later, as a uniquely Hamiltonian cycle.
+        </dd>
+        <dt>Infinite tape</dt>
+        <dd>
+            Three buttons — left, right, rest — on an infinite strip is
+            a machine with a finite set of instructions and an unbounded
+            memory. The writing is unlimited; the alphabet of moves is
+            not.
+        </dd>
+        <dt>Pigeonhole principle</dt>
+        <dd>
+            \( n+1 \) pigeons and \( n \) holes: some hole holds at least
+            two. Existence without a construction. The
+            <a href="/combinatorics/">combinatorics</a> notes record the
+            usual form.
+        </dd>
+        <dt>Fibonacci</dt>
+        <dd>
+            \( F_n = F_{n-1} + F_{n-2} \), with a start such as
+            \( F_1 = 1 \), \( F_2 = 1 \). Lindon's limerick is that
+            recurrence as weight.
+        </dd>
+        <dt>Eulerian trail</dt>
+        <dd>
+            A trail that uses every edge once. A connected graph has a
+            closed one iff every degree is even, and an open one iff
+            exactly two vertices have odd degree. Drawing a plot without
+            lifting the pencil is the same condition.
+        </dd>
+        <dt>Venn diagram</dt>
+        <dd>
+            Overlapping regions for membership in sets. Inclusion and
+            exclusion made visible; the counting form is on the
+            combinatorics page.
+        </dd>
+        <dt>Palindrome</dt>
+        <dd>
+            A sequence equal to its reverse. Combinatorics on words:
+            how many, and under what symmetries.
+        </dd>
+        <dt>Knight's tour</dt>
+        <dd>
+            Visit every square of a board by knight moves. That is a
+            Hamiltonian path in the knight's graph; a closed tour is a
+            Hamiltonian cycle. The
+            <a href="/graph-theory/">graph theory</a> notes have the
+            cycle vocabulary.
+        </dd>
+        <dt>Between \(-1\) and \(1\)</dt>
+        <dd>
+            The real interval is already infinite. Imaginary numbers
+            adjoin a square root of \(-1\). Conway's surreal numbers
+            include the reals and also infinities and infinitesimals.
+        </dd>
+    </dl>
+
 </div>
 
 </body>
