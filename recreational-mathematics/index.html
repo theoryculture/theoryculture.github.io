@@ -48,8 +48,8 @@
 
     <p class="lead">
         Recreational mathematics is often the first language of
-        <a href="/graph-theory/">Graph Theory</a> and
-        <a href="/combinatorics/">Combinatorics</a>.
+        <a href="/graph-theory/">graph theory</a> and
+        <a href="/combinatorics/">combinatorics</a>.
         An essay on Snarks, Martin Gardner, and Lewis Carroll,
         then prompts from Scribbles and Giggles.
     </p>
@@ -138,52 +138,53 @@
     <dl class="def-list">
         <dt>Snark</dt>
         <dd>
-            A connected bridgeless cubic graph whose edges need four
-            colours: no two adjacent edges the same colour. Petersen
-            (1898) was the first; the Blanuša snarks (1946) are the
-            next smallest. Gardner named them, from Carroll. They
+            A connected bridgeless cubic graph of chromatic index 4.
+            (By Vizing, a cubic graph has chromatic index 3 or 4.)
+            Petersen (1898) is the smallest; the Blanuša snarks (1946)
+            are the next. Gardner took the name from Carroll. They
             appear in the
             <a href="/research/">research</a> on Fleischner’s
             construction.
         </dd>
         <dt>Boojum</dt>
         <dd>
-            In Gardner’s joke, a planar snark. The four colour theorem
-            says there are none: a planar cubic bridgeless graph is
-            3-edge-colourable.
+            Gardner’s name for a planar snark. There are none: every
+            bridgeless cubic planar graph is 3-edge-colourable, which
+            is equivalent to the four colour theorem.
         </dd>
         <dt>Unique path</dt>
         <dd>
-            A path that is the only walk of its kind between two vertices,
-            or the only way home in a maze of dots. Uniqueness is the
-            same question, later, as a uniquely Hamiltonian cycle.
+            A graph is a tree if and only if every pair of vertices is
+            joined by a unique path. Uniqueness of a cycle through every
+            vertex is a different question: uniquely Hamiltonian graphs.
         </dd>
         <dt>Infinite tape</dt>
         <dd>
             Three buttons — left, right, rest — on an infinite strip is
-            a machine with a finite set of instructions and an unbounded
-            memory. The writing is unlimited; the alphabet of moves is
-            not.
+            a machine with a finite alphabet of moves and an unbounded
+            tape. The writing is unlimited; the instructions are not.
         </dd>
         <dt>Pigeonhole principle</dt>
         <dd>
-            \( n+1 \) pigeons and \( n \) holes: some hole holds at least
-            two. Existence without a construction. The
+            If \( n \) objects are placed in \( k \) boxes, some box
+            contains at least \( \lceil n/k \rceil \) objects. Existence
+            without a construction. The
             <a href="/combinatorics/">combinatorics</a> notes record the
             usual form.
         </dd>
         <dt>Fibonacci</dt>
         <dd>
-            \( F_n = F_{n-1} + F_{n-2} \), with a start such as
-            \( F_1 = 1 \), \( F_2 = 1 \). Lindon's limerick is that
-            recurrence as weight.
+            \( F_n = F_{n-1} + F_{n-2} \), with \( F_1 = 1 \),
+            \( F_2 = 1 \) (or \( F_0 = 0 \), \( F_1 = 1 \)). Lindon's
+            limerick is that recurrence as weight.
         </dd>
         <dt>Eulerian trail</dt>
         <dd>
-            A trail that uses every edge once. A connected graph has a
-            closed one iff every degree is even, and an open one iff
-            exactly two vertices have odd degree. Drawing a plot without
-            lifting the pencil is the same condition.
+            A trail containing every edge. A connected graph has a
+            closed one if and only if every degree is even, and an open
+            one if and only if exactly two vertices have odd degree.
+            Drawing a plot without lifting the pencil is the same
+            condition.
         </dd>
         <dt>Venn diagram</dt>
         <dd>
@@ -193,22 +194,24 @@
         </dd>
         <dt>Palindrome</dt>
         <dd>
-            A sequence equal to its reverse. Combinatorics on words:
-            how many, and under what symmetries.
+            A finite sequence equal to its reverse. Combinatorics on
+            words: how many of a given length, and under what
+            symmetries.
         </dd>
         <dt>Knight's tour</dt>
         <dd>
-            Visit every square of a board by knight moves. That is a
-            Hamiltonian path in the knight's graph; a closed tour is a
-            Hamiltonian cycle. The
+            A sequence of knight moves visiting every square of a board
+            exactly once. That is a Hamiltonian path in the knight's
+            graph; a closed tour is a Hamiltonian cycle. The
             <a href="/graph-theory/">graph theory</a> notes have the
             cycle vocabulary.
         </dd>
         <dt>Between \(-1\) and \(1\)</dt>
         <dd>
-            The real interval is already infinite. Imaginary numbers
-            adjoin a square root of \(-1\). Conway's surreal numbers
-            include the reals and also infinities and infinitesimals.
+            The real interval \( (-1,1) \) is already infinite.
+            Complex numbers adjoin a square root of \( -1 \). Conway's
+            surreal numbers include the reals and also infinities and
+            infinitesimals.
         </dd>
     </dl>
 

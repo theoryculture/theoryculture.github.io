@@ -46,16 +46,17 @@
 <article>
 <div class="hero">
     <h1>Combinatorics</h1>
-    <p class="tagline">Basic definitions</p>
+    <p class="tagline">Counting · Existence · Structure</p>
 </div>
 
 <div class="content">
 
     <p class="lead">
-        Combinatorics asks how many, whether any, and how they sit together.
-        Counting, existence, and structure. Graph theory is one of its
-        languages; the notes below are the first vocabulary that is not
-        already on the <a href="/graph-theory/">graph theory</a> page.
+        Combinatorics is the mathematics of finite sets: counting them,
+        deciding whether a configuration exists, and describing the structure
+        of those that do. Graph theory is one of its languages. The notes
+        below are the first vocabulary that is not already on the
+        <a href="/graph-theory/">graph theory</a> page.
     </p>
 
     <details open>
@@ -63,21 +64,22 @@
         <dl class="def-list">
             <dt>Combinatorics</dt>
             <dd>
-                The mathematics of finite configurations: selections, arrangements,
-                and designs. Three typical questions: how many objects of a given
-                kind exist; whether at least one exists; what the extremal size is.
+                The mathematics of finite configurations: selections,
+                arrangements, and designs. Three typical questions: how many
+                objects of a given kind exist; whether at least one exists; what
+                the extremal size is.
             </dd>
             <dt>Counting, existence, structure</dt>
             <dd>
-                Counting produces a number. Existence produces a yes or a no, often
-                by construction or by a counting argument that forbids zero.
-                Structure asks what the objects look like: unique, many, or forced
-                into a particular shape.
+                Counting produces a number. Existence produces a yes or a no,
+                often by construction or by a counting argument that forbids
+                zero. Structure asks what the objects look like: unique, many,
+                or forced into a particular shape.
             </dd>
             <dt>Finite set</dt>
             <dd>
-                A set \( X \) with \( |X| = n &lt; \infty \). Most of the formulae
-                below are for finite sets. The empty set has size \( 0 \).
+                A set \( X \) with \( |X| = n &lt; \infty \). The formulae below
+                are for finite sets. The empty set has size \( 0 \).
             </dd>
         </dl>
     </details>
@@ -92,14 +94,14 @@
             </dd>
             <dt>Binomial coefficient</dt>
             <dd>
+                For integers \( n \ge 0 \) and \( 0 \le k \le n \),
                 \( \binom{n}{k} \) is the number of \( k \)-element subsets of an
                 \( n \)-element set.
                 <span class="formula">\[
-                    \binom{n}{k} = \frac{n!}{k!\,(n-k)!}
-                    \qquad (0 \le k \le n).
+                    \binom{n}{k} = \frac{n!}{k!\,(n-k)!}.
                 \]</span>
-                Also \( \binom{n}{k} = 0 \) when \( k &lt; 0 \) or \( k &gt; n \),
-                and \( \binom{n}{0} = \binom{n}{n} = 1 \).
+                By convention \( \binom{n}{k} = 0 \) when \( k &lt; 0 \) or
+                \( k &gt; n \), and \( \binom{n}{0} = \binom{n}{n} = 1 \).
             </dd>
             <dt>Pascal's identity</dt>
             <dd>
@@ -111,11 +113,12 @@
             </dd>
             <dt>Binomial theorem</dt>
             <dd>
+                For a non-negative integer \( n \),
                 <span class="formula">\[
                     (x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^{k}.
                 \]</span>
-                The row sums of Pascal's triangle are the powers of two:
-                \( \sum_k \binom{n}{k} = 2^n \).
+                In particular, the row sums of Pascal's triangle are the powers
+                of two: \( \sum_{k=0}^{n} \binom{n}{k} = 2^n \).
             </dd>
         </dl>
     </details>
@@ -127,7 +130,7 @@
             <dd>
                 An ordered arrangement of \( n \) distinct objects. There are
                 \( n! \) of them. The number of injective maps from a
-                \( k \)-set into an \( n \)-set is
+                \( k \)-set into an \( n \)-set, for \( 0 \le k \le n \), is
                 \( P(n,k) = n(n-1)\cdots(n-k+1) = n!/(n-k)! \).
             </dd>
             <dt>Combination</dt>
@@ -140,8 +143,9 @@
             <dd>
                 The number of ways to choose \( k \) elements from \( n \) types,
                 repetition allowed, order ignored, is
-                \( \binom{n+k-1}{k} \). This is the “stars and bars” count of
-                non-negative integer solutions to \( x_1 + \cdots + x_n = k \).
+                \( \binom{n+k-1}{k} = \binom{n+k-1}{n-1} \). This is the number
+                of non-negative integer solutions of
+                \( x_1 + \cdots + x_n = k \).
             </dd>
             <dt>Multinomial coefficient</dt>
             <dd>
@@ -158,24 +162,17 @@
         <dl class="def-list">
             <dt>Pigeonhole</dt>
             <dd>
-                If \( n+1 \) pigeons occupy \( n \) holes, some hole contains at
-                least two pigeons. More generally: if \( n \) objects are placed
-                in \( k \) boxes, some box contains at least
-                \( \lceil n/k \rceil \) objects.
+                If \( n \) objects are placed in \( k \) boxes, then some box
+                contains at least \( \lceil n/k \rceil \) objects. In particular:
+                \( n+1 \) pigeons in \( n \) holes force two in the same hole.
             </dd>
             <dt>Why it is useful</dt>
             <dd>
                 It proves existence without exhibiting the object. In any simple
-                graph on \( n \ge 2 \) vertices, two vertices have the same degree:
-                the possible degrees are \( 0,1,\ldots,n-1 \), but \( 0 \) and
-                \( n-1 \) cannot occur together, so there are at most \( n-1 \)
-                possible values for \( n \) vertices.
-            </dd>
-            <dt>A court of pigeons</dt>
-            <dd>
-                The same principle is a writing prompt as much as a lemma. The
-                mathematics is the collision; the story is who is forced to share
-                a hole.
+                graph on \( n \ge 2 \) vertices, two vertices have the same
+                degree: the possible degrees are \( 0,1,\ldots,n-1 \), but
+                \( 0 \) and \( n-1 \) cannot occur together, so there are at most
+                \( n-1 \) possible values for \( n \) vertices.
             </dd>
         </dl>
     </details>
@@ -213,20 +210,27 @@
                     |A \cup B| = |A| + |B| - |A \cap B|.
                 \]</span>
             </dd>
-            <dt>Three sets</dt>
+            <dt>Finite families</dt>
             <dd>
-                Add the three sizes, subtract the three double intersections,
-                add back the triple intersection. The pattern continues: add the
-                odd intersections, subtract the even ones.
+                For finite sets \( A_1,\ldots,A_n \),
+                <span class="formula">\[
+                    \Bigl|\bigcup_{i=1}^{n} A_i\Bigr|
+                    = \sum_i |A_i|
+                    - \sum_{i \lt j} |A_i \cap A_j|
+                    + \sum_{i \lt j \lt k} |A_i \cap A_j \cap A_k|
+                    - \cdots
+                    + (-1)^{n+1}\,|A_1 \cap \cdots \cap A_n|.
+                \]</span>
+                Odd intersections are added; even ones are subtracted.
             </dd>
             <dt>Derangements</dt>
             <dd>
-                A derangement is a permutation with no fixed point. Inclusion-exclusion
-                gives the count
+                A derangement is a permutation with no fixed point.
+                Inclusion-exclusion gives the count
                 <span class="formula">\[
-                    n! \sum_{k=0}^{n} \frac{(-1)^k}{k!},
+                    !n = n! \sum_{k=0}^{n} \frac{(-1)^k}{k!},
                 \]</span>
-                which is the nearest integer to \( n!/e \) for \( n \ge 1 \).
+                which is the integer nearest to \( n!/e \) for \( n \ge 1 \).
             </dd>
         </dl>
     </details>
@@ -235,27 +239,31 @@
         <summary>7. Graphs as combinatorics</summary>
         <p>
             A graph is a finite set of vertices together with a set of unordered
-            pairs. Once that is granted, extremal questions appear immediately.
+            pairs. Extremal questions appear at once: how many edges are
+            possible, and what happens if a subgraph is forbidden.
         </p>
         <dl class="def-list">
             <dt>How many edges?</dt>
             <dd>
                 A simple graph on \( n \) vertices has at most \( \binom{n}{2} \)
-                edges, with equality only for \( K_n \).
+                edges, with equality if and only if the graph is \( K_n \).
             </dd>
             <dt>Mantel's theorem</dt>
             <dd>
                 A triangle-free simple graph on \( n \) vertices has at most
-                \( \lfloor n^2/4 \rfloor \) edges. Equality holds for the complete
-                bipartite graph \( K_{\lfloor n/2 \rfloor, \lceil n/2 \rceil} \).
-                This is the first theorem of extremal graph theory; Turán's theorem
-                extends it from triangles to \( K_r \).
+                \( \lfloor n^2/4 \rfloor \) edges, with equality if and only if
+                the graph is the complete bipartite graph
+                \( K_{\lfloor n/2 \rfloor, \lceil n/2 \rceil} \). This is the
+                first theorem of extremal graph theory; Turán's theorem extends
+                it from triangles to \( K_r \).
             </dd>
-            <dt>Ramsey, in one sentence</dt>
+            <dt>Ramsey</dt>
             <dd>
-                Complete disorder is impossible: in any sufficiently large complete
-                graph whose edges are coloured red and blue, a monochromatic
-                triangle (and, later, a monochromatic \( K_r \)) is forced.
+                For every \( r \) there exists \( n \) such that any 2-colouring
+                of the edges of \( K_n \) contains a monochromatic \( K_r \). In
+                particular \( R(3,3) = 6 \): every 2-edge-colouring of \( K_6 \)
+                contains a monochromatic triangle, and \( K_5 \) admits a
+                colouring with none.
             </dd>
         </dl>
     </details>
@@ -279,8 +287,8 @@
             <dd>
                 Sometimes there is exactly one object of a given kind. A uniquely
                 Hamiltonian graph is the graph-theoretic instance: exactly one
-                cycle through every vertex. Existence, construction, and uniqueness
-                are three different kinds of answer.
+                Hamiltonian cycle. Existence, construction, and uniqueness are
+                three different kinds of answer.
             </dd>
         </dl>
     </details>

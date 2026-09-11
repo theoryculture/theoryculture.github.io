@@ -18,6 +18,15 @@
     <meta name="twitter:description" content="Graph theory, combinatorics, and recreational mathematics.">
     <meta name="twitter:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
     <link rel="stylesheet" href="/assets/main.css">
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -61,9 +70,8 @@
 <div class="content">
 
     <p class="lead">
-        Notes in combinatorial graph theory, and recreational
-        mathematics. Each topic has a short form here and a dedicated
-        page.
+        Notes in combinatorial graph theory and recreational mathematics.
+        The short form is here; the full notes are on the dedicated pages.
     </p>
 
     <details>
@@ -71,95 +79,93 @@
 
         <div class="topic-body">
             <p>
-                A graph is a pair \( G = (V, E) \): a set of vertices and a set of
-                edges joining them. Combinatorics asks how many such
-                configurations there are, whether any exist, and how they sit
-                together.
+                A graph is a pair \( G = (V,E) \): a finite vertex set \( V \)
+                together with a set \( E \) of edges joining pairs of vertices.
+                In a simple graph the edges are distinct unordered pairs of
+                distinct vertices. A multigraph may have several edges between
+                the same pair. Loops are not allowed. Combinatorics asks how
+                many finite configurations there are, whether any exist, and
+                what structure they are forced to have; graphs are one of its
+                languages.
             </p>
 
             <dl class="def-list">
-                <dt>Vertex and edge</dt>
+                <dt>Order, size, and degree</dt>
                 <dd>
-                    Vertices are the points. An edge joins two vertices, its ends.
-                    The order is \( |V| \); the size is \( |E| \).
+                    The order is \( |V| \); the size is \( |E| \). Two vertices
+                    are adjacent if an edge joins them. The degree \( d(v) \) is
+                    the number of edges incident with \( v \). Always
+                    \( \sum_v d(v) = 2|E| \). If every degree is \( r \), the
+                    graph is \( r \)-regular; 3-regular graphs are cubic.
                 </dd>
-                <dt>Simple graph and multigraph</dt>
+                <dt>Walk, trail, path, cycle</dt>
                 <dd>
-                    A simple graph has no loops and no multiple edges. A multigraph
-                    may have several edges between the same pair of vertices.
-                </dd>
-                <dt>Adjacent, incident, degree</dt>
-                <dd>
-                    Two vertices are adjacent if an edge joins them. The degree
-                    \( d(v) \) is the number of incident edges (a loop counts twice).
-                    Always \( \sum_v d(v) = 2|E| \). If every degree is \( r \),
-                    the graph is \( r \)-regular; 3-regular graphs are cubic.
-                </dd>
-                <dt>Walk, trail, path, circuit, cycle</dt>
-                <dd>
-                    A walk is a sequence of edges. A trail repeats no edge; a path
-                    repeats no vertex. A circuit is a closed path. A cycle is a
-                    closed trail that enters and leaves a vertex at most once.
-                </dd>
-                <dt>Connected and tree</dt>
-                <dd>
-                    The graph is connected if every pair of vertices is joined by a
-                    path. A tree is a connected graph with no cycle.
-                </dd>
-                <dt>Complete, bipartite, complement</dt>
-                <dd>
-                    \( K_n \) has every possible edge. A bipartite graph splits
-                    \( V \) into two parts with all edges running between the parts.
-                    The complement keeps non-edges of \( G \) as edges.
+                    A walk is a sequence of vertices in which consecutive terms
+                    are adjacent. A trail is a walk with no repeated edge; a
+                    path is a walk with no repeated vertex. A walk is closed if
+                    it starts and ends at the same vertex. A cycle is a closed
+                    path of length at least 3 (in a simple graph);
+                    equivalently, a connected 2-regular subgraph.
                 </dd>
                 <dt>Eulerian and Hamiltonian</dt>
                 <dd>
-                    Eulerian: a closed trail through every edge. A connected graph
-                    has one iff every degree is even. Hamiltonian: a circuit through
-                    every vertex. Uniquely Hamiltonian: exactly one such cycle.
+                    An Eulerian circuit is a closed trail containing every
+                    edge; vertices may repeat. A connected graph has one if and
+                    only if every degree is even. A Hamiltonian cycle is a
+                    cycle containing every vertex. The graph is uniquely
+                    Hamiltonian if it has exactly one such cycle.
+                </dd>
+                <dt>Connected and tree</dt>
+                <dd>
+                    The graph is connected if every pair of vertices is joined
+                    by a path. A tree is a connected graph with no cycle:
+                    equivalently, any two vertices are joined by a unique path.
                 </dd>
                 <dt>Dominating cycle</dt>
                 <dd>
-                    Every vertex is on the cycle or adjacent to it:
-                    \( S \cup N(S) = V \).
+                    A cycle \( C \) is dominating if every vertex not on
+                    \( C \) has a neighbour on \( C \). Writing
+                    \( S = V(C) \), this is \( S \cup N(S) = V \).
                 </dd>
                 <dt>Transition and compatibility</dt>
                 <dd>
-                    At a vertex, a transition pairs the entering and leaving edges
-                    of an Eulerian circuit. A cycle decomposition \( S \) is
-                    compatible with a trail \( T \) when
-                    \( X_T \cap X_S = \emptyset \).
+                    At a vertex of even degree, a transition is a pairing of
+                    two incident edges: the edge used to enter and the edge
+                    used to leave along an Eulerian circuit \( T \). The set of
+                    all such pairings is the transition system \( X_T \). A
+                    cycle decomposition \( S \) — a partition of \( E \) into
+                    cycles — determines its own transition system \( X_S \).
+                    Then \( S \) is compatible with \( T \) when
+                    \( X_T \cap X_S = \emptyset \): the two edges of any
+                    transition of \( T \) lie on different cycles of \( S \).
                 </dd>
                 <dt>Binomial coefficient</dt>
                 <dd>
-                    \( \binom{n}{k} \) counts the \( k \)-subsets of an
-                    \( n \)-set. Pascal: \( \binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1} \).
+                    \( \binom{n}{k} \) is the number of \( k \)-element subsets
+                    of an \( n \)-element set, for integers
+                    \( 0 \le k \le n \). Pascal's identity:
+                    \( \binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1} \).
                 </dd>
-                <dt>Permutation and combination</dt>
+                <dt>Pigeonhole principle</dt>
                 <dd>
-                    Order matters for a permutation (\( n! \) of \( n \) objects).
-                    A combination forgets order: \( P(n,k) = k!\,\binom{n}{k} \).
-                </dd>
-                <dt>Pigeonhole</dt>
-                <dd>
-                    \( n+1 \) pigeons, \( n \) holes: some hole holds at least two.
-                    Existence without a construction.
-                </dd>
-                <dt>Double counting</dt>
-                <dd>
-                    Count one collection two ways. Handshaking is the graph case:
-                    \( \sum_v d(v) = 2|E| \).
+                    If \( n \) objects are placed in \( k \) boxes, then some
+                    box contains at least \( \lceil n/k \rceil \) objects. In
+                    particular, \( n+1 \) pigeons in \( n \) holes force a
+                    collision. The argument gives existence without a
+                    construction.
                 </dd>
                 <dt>Inclusion-exclusion</dt>
                 <dd>
-                    \( |A \cup B| = |A| + |B| - |A \cap B| \). Derangements are
-                    the permutation instance.
+                    \( |A \cup B| = |A| + |B| - |A \cap B| \). The same
+                    alternation of intersections counts the union of any finite
+                    family, and counts the derangements of \( n \) letters.
                 </dd>
                 <dt>Mantel's theorem</dt>
                 <dd>
                     A triangle-free graph on \( n \) vertices has at most
-                    \( \lfloor n^2/4 \rfloor \) edges, with equality for the
-                    balanced complete bipartite graph.
+                    \( \lfloor n^2/4 \rfloor \) edges, with equality if and
+                    only if the graph is the complete bipartite graph
+                    \( K_{\lfloor n/2 \rfloor, \lceil n/2 \rceil} \).
                 </dd>
             </dl>
 
@@ -191,33 +197,34 @@
             <dl class="def-list">
                 <dt>Snark</dt>
                 <dd>
-                    A bridgeless cubic graph that needs four colours on
-                    its edges. Petersen, then the Blanuša snarks.
-                    Gardner’s name, from Carroll.
+                    A connected bridgeless cubic graph of chromatic index 4.
+                    Petersen is the smallest; the Blanuša snarks are the next.
+                    Gardner took the name from Carroll.
                 </dd>
                 <dt>Pigeonhole</dt>
                 <dd>
-                    \( n+1 \) pigeons, \( n \) holes: some hole holds at
-                    least two.
+                    If \( n \) objects are placed in \( k \) boxes, some box
+                    contains at least \( \lceil n/k \rceil \) objects.
                 </dd>
                 <dt>Eulerian trail</dt>
                 <dd>
-                    A trail through every edge. Drawing without lifting
-                    the pencil: closed if every degree is even; open if
-                    exactly two are odd.
+                    A trail containing every edge. A connected graph has a
+                    closed one if and only if every degree is even, and an
+                    open one if and only if exactly two vertices have odd
+                    degree.
                 </dd>
                 <dt>Knight's tour</dt>
                 <dd>
-                    A Hamiltonian path in the knight's graph; a closed
-                    tour is a Hamiltonian cycle.
+                    A Hamiltonian path in the knight's graph of the board; a
+                    closed tour is a Hamiltonian cycle.
                 </dd>
                 <dt>Fibonacci</dt>
                 <dd>
-                    Each term the sum of the two before it.
+                    \( F_n = F_{n-1} + F_{n-2} \), with \( F_1 = F_2 = 1 \).
                 </dd>
                 <dt>Palindrome</dt>
                 <dd>
-                    A word equal to its reverse.
+                    A sequence equal to its reverse.
                 </dd>
             </dl>
             <p>
@@ -227,16 +234,6 @@
     </details>
 
 </div>
-
-<script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [['\\(', '\\)']],
-            displayMath: [['\\[', '\\]']]
-        }
-    };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </body>
 </html>
