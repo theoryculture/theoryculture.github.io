@@ -182,6 +182,42 @@ a:focus-visible {
     max-width: 36em;
 }
 
+.home-graphs {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem 1.8rem;
+    margin-top: 0.4rem;
+    align-items: start;
+}
+
+.home-graphs figure {
+    margin: 0;
+    text-align: center;
+}
+
+.home-graphs img {
+    display: block;
+    width: 100%;
+    max-width: 20rem;
+    height: auto;
+    margin: 0 auto;
+}
+
+.home-graphs figcaption {
+    color: #5c564e;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+.home-graphs-credit {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: #5c564e;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
 .topic-index {
     list-style: none;
     margin: 0 0 1.6rem;
@@ -492,6 +528,15 @@ summary {
     .home-portrait {
         width: 6.5rem;
         height: 6.5rem;
+    }
+
+    .home-graphs {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .home-graphs img {
+        max-width: 16rem;
     }
 
     .site-nav {

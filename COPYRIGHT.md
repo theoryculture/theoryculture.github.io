@@ -13,3 +13,9 @@ training of models, or any other use, commercial or otherwise, requires
 prior written permission.
 
 Contact: sachalabdullah10@gmail.com
+
+The two drawings on the homepage are not part of that assertion.
+`assets/images/petersen-graph-3-coloring.svg` is in the public domain
+(Wikimedia Commons; white background removed for the cream page).
+`assets/images/second-blanusa-snark-3col.svg` is © Koko90, used under
+CC BY-SA 3.0.
