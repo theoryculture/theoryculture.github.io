@@ -90,8 +90,11 @@ a:focus-visible {
 /* ===== FOOTER ===== */
 
 .site-footer {
+    display: block;
+    width: calc(100% - 2.5rem);
     max-width: 44rem;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 1rem 1.25rem 1.5rem;
     border-top: 1px solid #d9d2c5;
     color: #625d55;
