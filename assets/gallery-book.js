@@ -173,10 +173,10 @@
                 '<div class="' + sideCls + 'colophon">' +
                 '<div class="inset-rule"></div>' +
                 "<h2>Colophon</h2>" +
-                "<p>" + page.total + " plates. Drawn in Mathcha and compiled from TikZ. Where a sheet held several diagrams, each diagram is its own plate.</p>" +
-                "<p>No titles on the plates. The vocabulary is on the <a href=\"/graph-theory/\">graph theory notes</a>.</p>" +
+                "<p>685 plates. Drawn in Mathcha.</p>" +
+                "<p>These drawings represent my catalogue my journey in finding uniquely Hamiltonian graphs.</p>" +
                 "<p>© 2026 Sachal Abdullah. All rights reserved. The plates may not be copied, reproduced, or used without permission.</p>" +
-                "<p>Sachal Abdullah · Prague · 2026</p>" +
+                "<p>Sachal Abdullah</p>" +
                 "</div>"
             );
         }

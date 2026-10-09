@@ -32,7 +32,13 @@
     </nav>
 </header>
 
-<main class="book-stage">
+<main>
+    <div class="hero">
+        <h1>Graph Theory Art Gallery</h1>
+        <p class="tagline">A collection of 685 graph drawings</p>
+    </div>
+
+<section class="book-stage" aria-label="Graph drawing collection">
     <div class="stage-meta">
         <span>Graph theory art</span>
         <span>© 2026 Sachal Abdullah</span>
@@ -43,9 +49,9 @@
         <div class="crop-bl" aria-hidden="true"></div>
         <div class="crop-br" aria-hidden="true"></div>
 
-        <nav class="thumbs" id="thumbs" aria-label="Parts"></nav>
+        <nav class="thumbs" id="thumbs" aria-label="Gallery chapters"></nav>
 
-        <div class="book" id="book" role="region" aria-label="Art book">
+        <div class="book" id="book" role="region" aria-label="Graph theory art book">
             <div class="page page-left" id="page-left"></div>
             <div class="spine" aria-hidden="true"></div>
             <div class="page page-right" id="page-right"></div>
@@ -62,7 +68,8 @@
         <button type="button" id="next" aria-label="Next page">→</button>
     </div>
     <input class="scrub" id="scrub" type="range" min="1" max="685" value="1" aria-label="Jump to plate">
-    <p class="hint">Drag a page · arrows turn · click a plate to enlarge</p>
+    <p class="hint">Arrow keys turn pages · drag to turn · slider to jump</p>
+</section>
 </main>
 
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-label="Plate">
@@ -72,7 +79,7 @@
 </div>
 
 <noscript>
-    <p style="padding:2rem;color:#e8e2d6;font-family:monospace;">This gallery is a book. Enable JavaScript to turn the pages.</p>
+    <p class="content">This gallery requires JavaScript to browse the drawings.</p>
 </noscript>
 
 <script src="/assets/gallery-catalog.js"></script>

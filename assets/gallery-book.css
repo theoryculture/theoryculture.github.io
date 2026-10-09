@@ -1,7 +1,5 @@
 /* Graph Theory Art Gallery — printed book, not a grid. */
 
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@700;800&display=swap");
-
 :root {
     --gt-ink: #141210;
     --gt-paper: #f3eee4;
@@ -1156,5 +1154,284 @@ body.gallery-single .reg-mark {
 
     .book {
         box-shadow: 0 8px 0 var(--gt-spot);
+    }
+}
+
+/* ===== SITE-ALIGNED GALLERY ===== */
+
+:root {
+    --gt-ink: #1c1917;
+    --gt-paper: #f7f4ee;
+    --gt-paper-2: #eee9df;
+    --gt-spot: #1d4f7a;
+    --gt-ground: #f7f4ee;
+    --gt-ground-2: #fbfaf7;
+    --gt-hair: #d9d2c5;
+    --gt-mute: #5c564e;
+    --gt-display: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --gt-mono: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --page-h: min(64vh, 620px);
+    --page-w: calc(var(--page-h) * 0.68);
+}
+
+html:has(body.page-gallery) {
+    overflow-x: hidden;
+    background: #f7f4ee;
+}
+
+body.page-gallery {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #f7f4ee;
+    color: #1c1917;
+    font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    line-height: 1.65;
+}
+
+body.page-gallery a {
+    color: #1d4f7a;
+}
+
+body.page-gallery a:hover {
+    color: #0f2f4a;
+}
+
+body.page-gallery a:focus-visible,
+body.page-gallery button:focus-visible,
+body.page-gallery input:focus-visible {
+    outline: 2px solid #1d4f7a;
+    outline-offset: 3px;
+}
+
+body.page-gallery .site-header {
+    width: auto;
+    max-width: 44rem;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 1.4rem 1.25rem 1rem;
+    align-items: baseline;
+    gap: 0.75rem 1.5rem;
+    border-bottom: 1px solid #d9d2c5;
+    background: transparent;
+}
+
+body.page-gallery .site-id {
+    color: #1c1917;
+    font-family: inherit;
+    font-size: 1.12rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    text-transform: none;
+}
+
+body.page-gallery .site-nav {
+    max-width: none;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 0.15rem 1.05rem;
+}
+
+body.page-gallery .site-nav a {
+    color: #5c564e;
+    font-family: inherit;
+    font-size: 0.95rem;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+body.page-gallery .site-nav a:hover,
+body.page-gallery .site-nav a[aria-current="page"] {
+    color: #1c1917;
+}
+
+body.page-gallery .site-nav a[aria-current="page"] {
+    box-shadow: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.book-stage {
+    width: 100%;
+    max-width: 1240px;
+    min-height: 0;
+    margin: 0 auto;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem 2rem 3rem;
+}
+
+.stage-meta {
+    width: calc(var(--page-w) * 2);
+    max-width: 100%;
+    color: #5c564e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: none;
+}
+
+.book {
+    background: var(--gt-paper-2);
+    box-shadow: 0 2px 10px rgba(28, 25, 23, 0.13);
+}
+
+.page,
+.flip-face {
+    background: var(--gt-paper);
+}
+
+.page::after {
+    opacity: 0.025;
+}
+
+.leaf {
+    font-family: var(--gt-mono);
+}
+
+.leaf.endpaper,
+.leaf.cover,
+.leaf.contents-word,
+.leaf.chapter {
+    background: var(--gt-paper-2);
+    color: var(--gt-ink);
+}
+
+.leaf.endpaper .stamp,
+.leaf.endpaper .stamp-n,
+.leaf.endpaper .stamp-place,
+.leaf.cover h1,
+.leaf.cover .cover-author,
+.leaf.cover .cover-foot,
+.leaf.contents-word .giant,
+.leaf.chapter h2 {
+    color: var(--gt-ink);
+}
+
+.leaf.chapter .rom {
+    -webkit-text-stroke-color: rgba(28, 25, 23, 0.22);
+}
+
+.plate-frame img {
+    background: var(--gt-paper);
+}
+
+.thumbs button {
+    background: var(--gt-ground-2);
+    color: var(--gt-ink);
+    border-color: var(--gt-hair);
+}
+
+.thumbs button:hover,
+.thumbs button[aria-current="true"] {
+    color: #fff;
+}
+
+.folio-bar button {
+    color: var(--gt-ink);
+    border-color: var(--gt-hair);
+    background: #fbfaf7;
+    font-family: inherit;
+    font-size: 1.05rem;
+}
+
+.folio-bar button:hover:not(:disabled) {
+    border-color: var(--gt-spot);
+    color: var(--gt-spot);
+}
+
+.folio-readout {
+    color: var(--gt-ink);
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.08em;
+}
+
+.hint {
+    color: #5c564e;
+    font-family: inherit;
+    font-size: 0.9rem;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.lightbox {
+    background: rgba(247, 244, 238, 0.97);
+}
+
+.lightbox .lb-close,
+.lightbox .lb-pdf {
+    color: #1d4f7a;
+    border-color: #d9d2c5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    text-transform: none;
+}
+
+.lightbox .lb-close:hover,
+.lightbox .lb-pdf:hover {
+    color: #0f2f4a;
+    border-color: #1d4f7a;
+}
+
+.lightbox img {
+    background: #fbfaf7;
+    box-shadow: 5px 5px 0 #1d4f7a;
+}
+
+@media (max-width: 760px) {
+    :root {
+        --page-h: min(56vh, 500px);
+        --page-w: min(calc(100vw - 2.5rem), calc(var(--page-h) * 0.72));
+    }
+
+    body.page-gallery .site-header {
+        width: auto;
+        margin: 0 auto;
+        padding: 1rem 1.25rem;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    body.page-gallery .site-nav {
+        width: 100%;
+        gap: 0.3rem 0.75rem;
+    }
+
+    body.page-gallery .site-nav a {
+        font-size: 0.9rem;
+    }
+
+    .book-stage {
+        padding: 0.8rem 1.1rem 2rem;
+    }
+
+    .stage-meta {
+        display: none;
+    }
+
+    .folio-bar button {
+        padding: 0.45rem 0.7rem;
+    }
+
+    .hint {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body.page-gallery .site-header {
+        padding: 0.9rem 1rem;
+    }
+
+    body.page-gallery .site-nav {
+        gap: 0.35rem 0.65rem;
+    }
+
+    body.page-gallery .site-nav a {
+        font-size: 0.85rem;
     }
 }
