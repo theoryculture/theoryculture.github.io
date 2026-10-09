@@ -87,6 +87,18 @@ a:focus-visible {
     text-decoration: none;
 }
 
+/* ===== FOOTER ===== */
+
+.site-footer {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.25rem 1.5rem;
+    border-top: 1px solid #d9d2c5;
+    color: #625d55;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
 /* ===== PAGE TITLE ===== */
 
 .hero {
