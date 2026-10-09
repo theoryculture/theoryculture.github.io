@@ -18,15 +18,6 @@
     <meta name="twitter:description" content="Graph theory, combinatorics, and recreational mathematics.">
     <meta name="twitter:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
     <link rel="stylesheet" href="/assets/main.css">
-    <script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [['\\(', '\\)']],
-            displayMath: [['\\[', '\\]']]
-        }
-    };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -62,178 +53,23 @@
     </nav>
 </header>
 
-<div class="hero">
-    <h1>Mathematics</h1>
-    <p class="tagline">Graph Theory and Combinatorics · Recreational Mathematics</p>
-</div>
-
-<div class="content">
-
-    <p class="lead">
-        Notes in combinatorial graph theory and recreational mathematics.
-        The short form is here; the full notes are on the dedicated pages.
-    </p>
-
-    <details>
-        <summary>Graph Theory and Combinatorics</summary>
-
-        <div class="topic-body">
-            <p>
-                A graph is a pair \( G = (V,E) \): a finite vertex set \( V \)
-                together with a set \( E \) of edges joining pairs of vertices.
-                In a simple graph the edges are distinct unordered pairs of
-                distinct vertices. A multigraph may have several edges between
-                the same pair. Loops are not allowed. Combinatorics asks how
-                many finite configurations there are, whether any exist, and
-                what structure they are forced to have; graphs are one of its
-                languages.
-            </p>
-
-            <dl class="def-list">
-                <dt>Order, size, and degree</dt>
-                <dd>
-                    The order is \( |V| \); the size is \( |E| \). Two vertices
-                    are adjacent if an edge joins them. The degree \( d(v) \) is
-                    the number of edges incident with \( v \). Always
-                    \( \sum_v d(v) = 2|E| \). If every degree is \( r \), the
-                    graph is \( r \)-regular; 3-regular graphs are cubic.
-                </dd>
-                <dt>Walk, trail, path, cycle</dt>
-                <dd>
-                    A walk is a sequence of vertices in which consecutive terms
-                    are adjacent. A trail is a walk with no repeated edge; a
-                    path is a walk with no repeated vertex. A walk is closed if
-                    it starts and ends at the same vertex. A cycle is a closed
-                    path of length at least 3 (in a simple graph);
-                    equivalently, a connected 2-regular subgraph.
-                </dd>
-                <dt>Eulerian and Hamiltonian</dt>
-                <dd>
-                    An Eulerian circuit is a closed trail containing every
-                    edge; vertices may repeat. A connected graph has one if and
-                    only if every degree is even. A Hamiltonian cycle is a
-                    cycle containing every vertex. The graph is uniquely
-                    Hamiltonian if it has exactly one such cycle.
-                </dd>
-                <dt>Connected and tree</dt>
-                <dd>
-                    The graph is connected if every pair of vertices is joined
-                    by a path. A tree is a connected graph with no cycle:
-                    equivalently, any two vertices are joined by a unique path.
-                </dd>
-                <dt>Dominating cycle</dt>
-                <dd>
-                    A cycle \( C \) is dominating if every vertex not on
-                    \( C \) has a neighbour on \( C \). Writing
-                    \( S = V(C) \), this is \( S \cup N(S) = V \).
-                </dd>
-                <dt>Transition and compatibility</dt>
-                <dd>
-                    At a vertex of even degree, a transition is a pairing of
-                    two incident edges: the edge used to enter and the edge
-                    used to leave along an Eulerian circuit \( T \). The set of
-                    all such pairings is the transition system \( X_T \). A
-                    cycle decomposition \( S \) — a partition of \( E \) into
-                    cycles — determines its own transition system \( X_S \).
-                    Then \( S \) is compatible with \( T \) when
-                    \( X_T \cap X_S = \emptyset \): the two edges of any
-                    transition of \( T \) lie on different cycles of \( S \).
-                </dd>
-                <dt>Binomial coefficient</dt>
-                <dd>
-                    \( \binom{n}{k} \) is the number of \( k \)-element subsets
-                    of an \( n \)-element set, for integers
-                    \( 0 \le k \le n \). Pascal's identity:
-                    \( \binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1} \).
-                </dd>
-                <dt>Pigeonhole principle</dt>
-                <dd>
-                    If \( n \) objects are placed in \( k \) boxes, then some
-                    box contains at least \( \lceil n/k \rceil \) objects. In
-                    particular, \( n+1 \) pigeons in \( n \) holes force a
-                    collision. The argument gives existence without a
-                    construction.
-                </dd>
-                <dt>Inclusion-exclusion</dt>
-                <dd>
-                    \( |A \cup B| = |A| + |B| - |A \cap B| \). The same
-                    alternation of intersections counts the union of any finite
-                    family, and counts the derangements of \( n \) letters.
-                </dd>
-                <dt>Mantel's theorem</dt>
-                <dd>
-                    A triangle-free graph on \( n \) vertices has at most
-                    \( \lfloor n^2/4 \rfloor \) edges, with equality if and
-                    only if the graph is the complete bipartite graph
-                    \( K_{\lfloor n/2 \rfloor, \lceil n/2 \rceil} \).
-                </dd>
-            </dl>
-
-            <p>
-                <a class="topic-more" href="/graph-theory/">Full Graph Theory notes →</a>
-                <br>
-                <a class="topic-more" href="/combinatorics/">Full Combinatorics notes →</a>
-                <br>
-                <a class="topic-more" href="/graph-theory-art-gallery/">Graph Theory Art Gallery →</a>
-            </p>
-        </div>
-    </details>
-
-    <details>
-        <summary>Recreational Mathematics</summary>
-
-        <div class="topic-body">
-            <p>
-                Recreational mathematics is often the first language of
-                graph theory and combinatorics. The
-                <a href="/recreational-mathematics/">dedicated page</a>
-                has the essay <i>A Marvellous Nonsense</i> — Snarks,
-                Martin Gardner, and Lewis Carroll — alongside a
-                Poetry Talks Prague reading of
-                <i>The Hunting of the Snark</i> on Štvanice, and
-                eleven prompts from Scribbles and Giggles. The
-                objects underneath are these.
-            </p>
-            <dl class="def-list">
-                <dt>Snark</dt>
-                <dd>
-                    A connected bridgeless cubic graph of chromatic index 4.
-                    Petersen is the smallest; the Blanuša snarks are the next.
-                    Gardner took the name from Carroll.
-                </dd>
-                <dt>Pigeonhole</dt>
-                <dd>
-                    If \( n \) objects are placed in \( k \) boxes, some box
-                    contains at least \( \lceil n/k \rceil \) objects.
-                </dd>
-                <dt>Eulerian trail</dt>
-                <dd>
-                    A trail containing every edge. A connected graph has a
-                    closed one if and only if every degree is even, and an
-                    open one if and only if exactly two vertices have odd
-                    degree.
-                </dd>
-                <dt>Knight's tour</dt>
-                <dd>
-                    A Hamiltonian path in the knight's graph of the board; a
-                    closed tour is a Hamiltonian cycle.
-                </dd>
-                <dt>Fibonacci</dt>
-                <dd>
-                    \( F_n = F_{n-1} + F_{n-2} \), with \( F_1 = F_2 = 1 \).
-                </dd>
-                <dt>Palindrome</dt>
-                <dd>
-                    A sequence equal to its reverse.
-                </dd>
-            </dl>
-            <p>
-                <a class="topic-more" href="/recreational-mathematics/">Full Recreational Mathematics notes →</a>
-            </p>
-        </div>
-    </details>
-
-</div>
+<main class="content notes-directory">
+    <h1 class="visually-hidden">Mathematics Notes</h1>
+    <ul class="topic-index note-topics" aria-label="Mathematics note subjects">
+        <li>
+            <h2>Graph Theory</h2>
+            <a href="/graph-theory/">Browse Graph Theory notes →</a>
+        </li>
+        <li>
+            <h2>Combinatorics</h2>
+            <a href="/combinatorics/">Browse Combinatorics notes →</a>
+        </li>
+        <li>
+            <h2>Recreational Mathematics</h2>
+            <a href="/recreational-mathematics/">Browse Recreational Mathematics →</a>
+        </li>
+    </ul>
+</main>
 
 </body>
 </html>

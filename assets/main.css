@@ -228,6 +228,40 @@ a:focus-visible {
     margin: 0 0 0.4rem;
 }
 
+/* ===== NOTES DIRECTORY ===== */
+
+.notes-directory {
+    padding-top: 2.2rem;
+}
+
+.note-topics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.note-topics li {
+    min-width: 0;
+    margin: 0;
+    padding: 1rem 1.1rem;
+    border: 1px solid #d9d2c5;
+    background: #fbfaf7;
+}
+
+.note-topics h2 {
+    margin: 0 0 0.45rem;
+    padding: 0;
+    border: 0;
+    font-size: 1.2rem;
+    line-height: 1.35;
+}
+
+@media (max-width: 640px) {
+    .note-topics {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ===== PUBLICATIONS ===== */
 
 .pub-list {
