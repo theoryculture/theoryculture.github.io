@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /omer/
 
 Sitemap: https://theoryculture.github.io/sitemap.xml
