@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graph Theory | Uniquely Hamiltonian Graphs | Sachal Abdullah</title>
-    <meta name="description" content="Graph theory notes by Sachal Abdullah: graph and multigraph definitions, paths and cycles, Eulerian and Hamiltonian graphs, connectivity, dominating cycles, automorphisms, isomorphism, and graph types.">
+    <title>Graph Theory and Combinatorics | Sachal Abdullah</title>
+    <meta name="description" content="Graph theory and combinatorics notes by Sachal Abdullah: graphs, paths, cycles, Hamiltonian graphs, counting, binomial coefficients, permutations, the pigeonhole principle, and inclusion-exclusion.">
     <meta name="author" content="Sachal Abdullah">
     <link rel="canonical" href="https://theoryculture.github.io/graph-theory/">
-    <meta property="og:title" content="Graph Theory | Uniquely Hamiltonian Graphs | Sachal Abdullah">
-    <meta property="og:description" content="Definitions and terminology for graph theory, including paths, cycles, Eulerian and Hamiltonian graphs, connectivity, automorphisms, isomorphism, and graph types.">
+    <meta property="og:title" content="Graph Theory and Combinatorics | Sachal Abdullah">
+    <meta property="og:description" content="Definitions and notes on graph theory and combinatorics, including counting, binomial coefficients, permutations, the pigeonhole principle, and inclusion-exclusion.">
     <meta property="og:url" content="https://theoryculture.github.io/graph-theory/">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Sachal Abdullah">
     <meta property="og:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Graph Theory | Uniquely Hamiltonian Graphs | Sachal Abdullah">
-    <meta name="twitter:description" content="Definitions and terminology for graph theory, including paths, cycles, Eulerian and Hamiltonian graphs, connectivity, automorphisms, isomorphism, and graph types.">
+    <meta name="twitter:title" content="Graph Theory and Combinatorics | Sachal Abdullah">
+    <meta name="twitter:description" content="Definitions and notes on graph theory and combinatorics, including counting, binomial coefficients, permutations, the pigeonhole principle, and inclusion-exclusion.">
     <meta name="twitter:image" content="https://theoryculture.github.io/assets/images/profile.jpg">
     <link rel="stylesheet" href="/assets/main.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Graph Theory: Uniquely Hamiltonian Graphs",
-      "description": "Definitions for uniquely Hamiltonian graphs: walks, Eulerian circuits, transitions, cycle decompositions, and dominating cycles.",
+      "headline": "Graph Theory and Combinatorics",
+      "description": "Definitions and notes in graph theory and combinatorics.",
       "author": {
         "@type": "Person",
         "@id": "https://theoryculture.github.io/#person",
@@ -31,7 +31,7 @@
         "url": "https://theoryculture.github.io/"
       },
       "mainEntityOfPage": "https://theoryculture.github.io/graph-theory/",
-      "about": ["Graph theory", "Uniquely Hamiltonian graphs", "Hamiltonian cycles", "Eulerian circuits", "Graph isomorphism", "Graph automorphisms"]
+      "about": ["Graph theory", "Combinatorics", "Hamiltonian cycles", "Graph isomorphism", "Graph automorphisms", "Binomial coefficients", "Inclusion-exclusion"]
     }
     </script>
 
@@ -62,7 +62,7 @@
 
 <article>
 <div class="hero">
-    <h1>Graph Theory</h1>
+    <h1>Graph Theory and Combinatorics</h1>
 </div>
 
 <div class="content">
@@ -322,6 +322,124 @@
                 Same vertex set as \( G \); two distinct vertices are adjacent in
                 \( \overline{G} \) if and only if they are not adjacent in
                 \( G \). (Defined for simple graphs.)
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>10. Sets, subsets, and binomial coefficients</summary>
+        <dl class="def-list">
+            <dt>Power set</dt>
+            <dd>
+                The power set \(\mathcal{P}(X)\) is the set of all subsets of
+                \(X\). If \(|X|=n\), then \(|\mathcal{P}(X)|=2^n\).
+            </dd>
+            <dt>Binomial coefficient</dt>
+            <dd>
+                For integers \(n\ge 0\) and \(0\le k\le n\),
+                \(\binom{n}{k}\) is the number of \(k\)-element subsets of an
+                \(n\)-element set:
+                <span class="formula">\[
+                    \binom{n}{k}=\frac{n!}{k!(n-k)!}.
+                \]</span>
+                By convention, \(\binom{n}{k}=0\) if \(k &lt; 0\) or \(k &gt; n\), and
+                \(\binom{n}{0}=\binom{n}{n}=1\).
+            </dd>
+            <dt>Pascal's identity</dt>
+            <dd>
+                A \(k\)-element subset of \(\{1,\ldots,n\}\) either contains
+                \(n\) or does not:
+                <span class="formula">\[
+                    \binom{n}{k}=\binom{n-1}{k}+\binom{n-1}{k-1}.
+                \]</span>
+            </dd>
+            <dt>Binomial theorem</dt>
+            <dd>
+                For a non-negative integer \(n\),
+                <span class="formula">\[
+                    (x+y)^n=\sum_{k=0}^{n}\binom{n}{k}x^{n-k}y^k.
+                \]</span>
+                In particular, \(\sum_{k=0}^{n}\binom{n}{k}=2^n\).
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>11. Permutations and combinations</summary>
+        <dl class="def-list">
+            <dt>Permutation</dt>
+            <dd>
+                An ordered arrangement of \(n\) distinct objects. There are
+                \(n!\) such arrangements. The number of injective maps from a
+                \(k\)-element set to an \(n\)-element set is
+                \(P(n,k)=n(n-1)\cdots(n-k+1)=n!/(n-k)!\).
+            </dd>
+            <dt>Combination</dt>
+            <dd>
+                An unordered selection. The number of ways to choose \(k\)
+                objects from \(n\) is \(\binom{n}{k}\), and
+                \(P(n,k)=k!\binom{n}{k}\).
+            </dd>
+            <dt>Selections with repetition</dt>
+            <dd>
+                The number of ways to choose \(k\) elements from \(n\) types,
+                with repetition allowed and order ignored, is
+                \(\binom{n+k-1}{k}\). This is also the number of non-negative
+                integer solutions of \(x_1+\cdots+x_n=k\).
+            </dd>
+            <dt>Multinomial coefficient</dt>
+            <dd>
+                The number of ways to partition \(n\) distinct objects into
+                labelled groups of sizes \(n_1,\ldots,n_r\), where
+                \(n_1+\cdots+n_r=n\), is
+                \(\frac{n!}{n_1!\cdots n_r!}\).
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>12. Pigeonhole principle</summary>
+        <dl class="def-list">
+            <dt>Pigeonhole principle</dt>
+            <dd>
+                If \(n\) objects are placed in \(k\) boxes, some box contains
+                at least \(\lceil n/k\rceil\) objects. In particular, placing
+                \(n+1\) objects in \(n\) boxes puts at least two in the same
+                box.
+            </dd>
+        </dl>
+    </details>
+
+    <details>
+        <summary>13. Inclusion-exclusion</summary>
+        <dl class="def-list">
+            <dt>Two sets</dt>
+            <dd>
+                For finite sets \(A\) and \(B\),
+                <span class="formula">\[
+                    |A\cup B|=|A|+|B|-|A\cap B|.
+                \]</span>
+            </dd>
+            <dt>Finite families</dt>
+            <dd>
+                For finite sets \(A_1,\ldots,A_n\),
+                <span class="formula">\[
+                    \left|\bigcup_{i=1}^{n}A_i\right|
+                    =\sum_i|A_i|-\sum_{i\lt j}|A_i\cap A_j|
+                    +\sum_{i\lt j\lt k}|A_i\cap A_j\cap A_k|-\cdots
+                    +(-1)^{n+1}|A_1\cap\cdots\cap A_n|.
+                \]</span>
+                Intersections of an odd number of sets are added and those of
+                an even number are subtracted.
+            </dd>
+            <dt>Derangements</dt>
+            <dd>
+                A <strong>derangement</strong> is a permutation with no fixed
+                point. Inclusion-exclusion gives
+                <span class="formula">\[
+                    !n=n!\sum_{k=0}^{n}\frac{(-1)^k}{k!},
+                \]</span>
+                the integer nearest to \(n!/e\) for \(n\ge 1\).
             </dd>
         </dl>
     </details>
