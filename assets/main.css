@@ -855,7 +855,7 @@ summary {
 /* ===== SIMPLE HOMEPAGE ===== */
 
 .simple-home {
-    max-width: 1000px;
+    max-width: 1360px;
     margin: 0 auto;
     padding: 3.6rem 32px 3rem;
 }
@@ -895,7 +895,7 @@ summary {
 }
 
 .simple-drawings {
-    max-width: 900px;
+    max-width: 1240px;
     margin: 2.8rem auto 0;
 }
 
@@ -915,8 +915,7 @@ summary {
 .drawing-grid img {
     display: block;
     width: 100%;
-    height: auto;
-    max-height: 220px;
+    height: 300px;
     object-fit: contain;
     background: transparent;
 }
@@ -958,6 +957,6 @@ summary {
     .simple-drawings h2 { font-size: 1.3rem; }
     .drawing-grid { grid-template-columns: 1fr; gap: 1.25rem; }
     .drawing-grid img:last-child { grid-column: auto; width: 100%; }
-    .drawing-grid img { max-height: 300px; }
+    .drawing-grid img { height: 250px; }
     .simple-nav { gap: 0.75rem 1.2rem; }
 }
