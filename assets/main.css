@@ -851,3 +851,113 @@ summary {
     .home-actions { gap: 0.5rem; }
     .home-button { padding: 0.55rem 0.7rem; }
 }
+
+/* ===== SIMPLE HOMEPAGE ===== */
+
+.simple-home {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3.6rem 32px 3rem;
+}
+
+.simple-profile {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 34px;
+    border: 1px solid #d9d2c5;
+    background: #fbfaf7;
+}
+
+.simple-profile img {
+    display: block;
+    width: 132px;
+    height: 132px;
+    flex: 0 0 132px;
+    border: 1px solid #d9d2c5;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.simple-profile h1 {
+    margin: 0 0 0.45rem;
+    font-size: clamp(1.9rem, 4vw, 2.45rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.simple-profile p {
+    margin: 0;
+    color: #625d55;
+    font-size: 1.1rem;
+}
+
+.simple-drawings {
+    max-width: 900px;
+    margin: 2.8rem auto 0;
+}
+
+.simple-drawings h2 {
+    margin: 0 0 1rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.drawing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: 1.15rem;
+}
+
+.drawing-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: contain;
+    background: transparent;
+}
+
+.simple-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.7rem;
+    max-width: 900px;
+    margin: 2.2rem auto 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid #d9d2c5;
+    font-size: 0.92rem;
+}
+
+.simple-nav a {
+    text-decoration: none;
+}
+
+.simple-nav a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+    .simple-home { padding: 2.8rem 22px 2.5rem; }
+    .simple-profile { gap: 22px; }
+    .drawing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .drawing-grid img:last-child { grid-column: 1 / -1; width: calc(50% - 0.6rem); justify-self: center; }
+}
+
+@media (max-width: 480px) {
+    .simple-home { padding: 2rem 16px 2rem; }
+    .simple-profile { flex-direction: column; gap: 1rem; padding: 23px 18px; text-align: center; }
+    .simple-profile img { width: 106px; height: 106px; flex-basis: 106px; }
+    .simple-profile p { font-size: 1rem; }
+    .simple-drawings { margin-top: 2.2rem; }
+    .simple-drawings h2 { font-size: 1.3rem; }
+    .drawing-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .drawing-grid img:last-child { grid-column: auto; width: 100%; }
+    .drawing-grid img { max-height: 300px; }
+    .simple-nav { gap: 0.75rem 1.2rem; }
+}
