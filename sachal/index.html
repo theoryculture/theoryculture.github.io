@@ -34,56 +34,61 @@
 </head>
 <body class="page-home">
 
-<header class="site-header">
+<header class="site-header home-header">
     <a class="site-id" href="/">Sachal Abdullah</a>
     <nav class="site-nav" aria-label="Site">
         <a href="/research/">Research</a>
         <a href="/publications/">Publications</a>
-        <a href="/mathematics/">Notes</a>
-        <a href="/graph-theory-art-gallery/">Gallery</a>
         <a href="/tutoring/">Teaching</a>
-        <a href="/portfolio/">Portfolio</a>
+        <a href="/mathematics/">Resources</a>
         <a href="/contact/">Contact</a>
+        <a class="home-cv" href="/assets/cv.pdf">CV ↓</a>
     </nav>
 </header>
 
-<main class="home">
-    <img src="/assets/images/profile.jpg"
-         alt="Portrait of Sachal Abdullah, mathematician working on graph theory"
-         class="home-portrait"
-         width="120"
-         height="120">
-    <h1 class="visually-hidden">Sachal Abdullah, graph theory and combinatorics</h1>
-    <div class="home-copy">
-        <p class="home-affil">Graph Theory · Combinatorics · Computer Science · Prague</p>
-        <p class="home-lede">
-            Researcher in uniquely Hamiltonian graphs.
-        </p>
-    </div>
-    <div class="home-graphs">
-        <figure>
-            <img src="/assets/images/petersen-graph-3-coloring.svg"
-                 alt="Petersen graph with a proper vertex 3-colouring"
-                 width="469"
-                 height="457">
-            <figcaption>Petersen graph</figcaption>
-        </figure>
-        <figure>
-            <img src="/assets/images/second-blanusa-snark-3col.svg"
-                 alt="Second Blanuša snark with a proper vertex 3-colouring"
-                 width="469"
-                 height="482">
-            <figcaption>Second Blanuša snark</figcaption>
-        </figure>
-        <p class="home-graphs-credit">
-            Drawings from Wikimedia Commons:
-            <a href="https://commons.wikimedia.org/wiki/File:Petersen_graph_3-coloring.svg">Petersen graph</a>
-            (public domain);
-            <a href="https://commons.wikimedia.org/wiki/File:Second_Blanusa_snark_3COL.svg">second Blanuša snark</a>
-            by <a href="https://commons.wikimedia.org/wiki/User:Koko90">Koko90</a>
-            (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC&nbsp;BY-SA&nbsp;3.0</a>).
-        </p>
-    </div>
+<main class="home-profile">
+    <section class="home-intro">
+        <div>
+            <h1>Sachal Abdullah</h1>
+            <p class="home-role">Researcher in combinatorial graph theory</p>
+            <p class="home-summary">My research focuses on uniquely Hamiltonian graphs, Sheehan’s conjecture, and constructions related to Hamiltonian cycles. I am continuing this work toward doctoral study and further research.</p>
+            <div class="home-actions">
+                <a class="home-button" href="/research/">Explore my research</a>
+                <a class="home-button home-button-secondary" href="/contact/">Get in touch</a>
+            </div>
+        </div>
+        <img src="/assets/images/profile.jpg" alt="Portrait of Sachal Abdullah" class="home-portrait" width="164" height="164">
+    </section>
+    <section class="home-overview" aria-label="Academic profile">
+        <div class="home-research">
+            <p class="home-section-label">Research profile</p>
+            <h2>Combinatorial graph theory</h2>
+            <p>I study graphs with a unique Hamiltonian cycle, including questions around Sheehan’s conjecture and the limitations of Fleischner’s construction. My work connects structural graph theory with the algorithmic perspective of my computer science background.</p>
+            <a class="home-more" href="/research/">Research overview →</a>
+            <div class="home-quick-links">
+                <a href="/assets/research-statement.pdf">Research statement (PDF) ↓</a>
+                <a href="/mathematics/">Graph theory notes →</a>
+                <a href="/graph-theory-art-gallery/">Graph gallery →</a>
+            </div>
+        </div>
+        <aside class="home-side">
+            <div class="home-item">
+                <p class="home-section-label">Selected work</p>
+                <h3>On the Limitations of Fleischner’s Construction for Uniquely Hamiltonian Graphs</h3>
+                <p class="home-meta">Manuscript in preparation · <a href="/publications/">Publications</a></p>
+            </div>
+            <div class="home-item">
+                <p class="home-section-label">Teaching</p>
+                <h3>Mathematics teaching &amp; outreach</h3>
+                <p class="home-meta">School · university · public engagement · <a href="/tutoring/">Teaching profile</a></p>
+            </div>
+            <div class="home-item" id="contact">
+                <p class="home-section-label">Contact</p>
+                <h3><a href="mailto:sachalabdullah10@gmail.com">Email Sachal Abdullah</a></h3>
+                <p class="home-meta">Prague, Czechia</p>
+            </div>
+        </aside>
+    </section>
 </main>
 
 </body>
